@@ -22,14 +22,14 @@ let arrayCiudades =[
     [
     {nombreCiudad:"Dubai", pais:"United Arab Emirates", imagenCiudad:require("../assets/dubai.jfif").default},
     {nombreCiudad:"Macau", pais:"China", imagenCiudad:require("../assets/macau.jpg").default},
-    {nombreCiudad:"Bangkok", pais:"Thailand", imagenCiudad: require("../assets/bangkok.jpg").default},
-    {nombreCiudad:"Buenos Aires", pais:"Argentina", imagenCiudad: require("../assets/bangkok.jpg").default}],
+    {nombreCiudad:"Bangkok", pais:"Thailand", imagenCiudad: require("../assets/bangkok.jfif").default},
+    {nombreCiudad:"Buenos Aires", pais:"Argentina", imagenCiudad: require("../assets/buenosaires.jpg").default}],
         
     [
-    {nombreCiudad:"Sydney", pais:"Australia", imagenCiudad: require("../assets/kualalumpur.jfif").default},
-    {nombreCiudad:"London", pais:"England", imagenCiudad:require("../assets/paris.jfif").default},
-    {nombreCiudad:"New York", pais:"United States", imagenCiudad:require("../assets/newyork.jfif").default},
-    {nombreCiudad:"Singapore Harbour", pais:"Singapore", imagenCiudad: require("../assets/singapore.jfif").default}]
+    {nombreCiudad:"Sydney", pais:"Australia", imagenCiudad: require("../assets/sydney.jfif").default},
+    {nombreCiudad:"London", pais:"England", imagenCiudad:require("../assets/london.jfif").default},
+    {nombreCiudad:"Berlin", pais:"Germany", imagenCiudad:require("../assets/berlin.jfif").default},
+    {nombreCiudad:"New Delhi", pais:"India", imagenCiudad: require("../assets/newdelhi.jfif").default}]
 
 ]
 
