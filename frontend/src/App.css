@@ -1,0 +1,262 @@
+html * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito Sans', sans-serif;
+  text-align: center;
+}
+
+.bg-myBlue {
+    /* background-color: rgb(10, 9, 90); */
+    background-image: url("./assets/skyline2.png") !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 60%;
+    height: 30vh !important;
+    font-size: x-large !important;   
+     /* filter: opacity(10%); */
+    /* filter: brightness(0%); */
+
+}
+
+.bg-myFooter {
+    background-color: rgba(243, 127, 60, 0.849);
+    background-image: url("./assets/skyline.png") !important;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center 15%;
+     /* filter: opacity(10%); */
+    /* filter: brightness(0%); */
+}
+
+
+
+body {
+  background-color: rgba(18, 87, 131, 0.623);
+}
+
+
+/* .content {
+  padding: 12px;
+  height: 3000px;
+} */
+
+.logoperson {
+  height: 2rem;
+  /* vertical-align: middle; */
+  width: 2.5rem;
+}
+
+.logopersona {
+  display: flex;
+  align-self: flex-end !important;
+}
+
+.herowelcome {
+  background-image: url("./assets/avionnubes.jfif") !important;
+  background-position: center !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel {
+  padding: 1rem;
+  margin: 4rem !important;
+  /* margin-top: 10rem !important; */
+  height: fit-content;
+}
+
+.logofooter {
+  opacity: 45% !important;
+  padding: 0.5rem !important;
+}
+
+.navfooter {
+  display: flex !important;
+  flex-direction: row !important;
+  padding: 0.5rem;
+  margin-left:20rem;
+}
+
+.instagramfooter, .facebookfooter, .youtubefooter, .backto {
+  padding: 3px;
+  width: 2.5rem;
+  height: 2rem;
+}
+
+.divfooter {
+  margin-right: 5rem;
+}
+
+.frasefooter {
+  font-size: small !important;
+  margin-left: -5rem !important;
+  margin-right: 1rem !important;
+}
+.float-end  a {
+  color: black !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.float-end {
+  margin-right: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagenCarusel {
+  /* width: 45vw ; */
+  height: 30vh;
+  /* width: fit-content; */
+  /* padding: 1rem; */
+}
+
+.cardimagen {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(230, 175, 114, 0.466);
+}
+
+.cardimagen:hover {
+  background-color: rgba(230, 161, 84, 0.637);
+}
+
+.carousel a{
+  text-decoration: none !important;
+  font-size: xx-large !important;
+  color: black;
+}
+
+/* .logoWelcome {
+  width: 40vw;
+} */
+
+.logoWelcome {
+  width: 43vw;
+  animation: App-logo-spin infinite 15s linear;
+  padding: -1rem;
+  opacity: 70%;
+}
+
+.logoWelcome:hover {
+  width: 43.5vw;
+  opacity: 100%;
+}
+
+.linkwelcome {
+  font-weight: bold;
+  color:rgb(32, 105, 241) !important ;
+  text-decoration: none;
+}
+
+.logoheader {
+  display: none;
+}
+
+.navbar {
+  height: 15vh;
+  display: flex;
+  flex-direction: row;
+}
+.navbarcollapse {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.navbrand {
+  padding: 2rem;
+  font-size: xx-large !important;
+  text-decoration: underline;
+}
+
+.logindiv {
+  align-self: flex-end;
+}
+
+.calltoaction {
+  /* border-radius: 15px; */
+  display: flex;
+  align-content: flex-end;
+  background-image: url(./assets/avion.jfif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgba(245, 245, 220, 0);
+  /* width: 100vw;
+  height: 50vh; */
+
+}
+
+/* .logocall {
+    width: 15vw !important;
+    align-self: flex-end;
+    position: absolute;
+    right: 100px;
+    top: 1330px;
+    z-index: 2;
+    animation: App-logo-spin infinite 7s linear;
+  } */
+
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }    
+    to {
+      transform: rotate(360deg);
+    }    
+
+  }
+
+
+/* /////////////////////// */
+@media (max-width: 600px) {
+  .bg-myBlue {
+    background-color: rgb(89, 134, 192);
+    background-image: none !important;
+}
+
+.carousel {
+  margin: 4rem !important;
+}
+
+.toggleheader {
+  margin: 1rem;
+}
+
+.logoWelcome {
+  width: 75vw;
+}
+
+.navfooter {
+  display: none !important;
+}
+
+
+
+.bg-myFooter {
+  background-color: rgba(167, 86, 11, 0);
+  background-image: none !important;
+  display: flex;
+  flex-direction: row;
+}
+.divfooter {
+  display: flex;
+  align-self: center;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem;
+  padding-top: 2rem;
+}
+
+.calltoaction {
+  display: none;
+}
+
+}

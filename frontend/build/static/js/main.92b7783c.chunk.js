@@ -1,0 +1,2 @@
+(this["webpackJsonpmytinerary-guemes"]=this["webpackJsonpmytinerary-guemes"]||[]).push([[0],{19:function(e,t,n){},20:function(e,t,n){},25:function(e,t,n){"use strict";n.r(t);var r=n(0),c=n.n(r),s=n(3),i=n.n(s),a=(n(19),n(20),n(21),n(28)),o=n(1);var u=function(){return Object(o.jsx)("div",{className:"App",children:Object(o.jsx)(a.a,{bg:"dark"})})};i.a.render(Object(o.jsx)(c.a.StrictMode,{children:Object(o.jsx)(u,{})}),document.getElementById("root"))}},[[25,1,2]]]);
+//# sourceMappingURL=main.92b7783c.chunk.js.map
