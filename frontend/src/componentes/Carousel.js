@@ -42,8 +42,8 @@ export default function Divcarousel () {
                                 {arrayCiudades[0].map((array, idx) => (
                                   <Col>
                                   <a href="#"> 
-                                       <Card className="cardimagen">
-                                           <Card.Img className="imagenCarusel" variant="top" src={array.imagenCiudad} />
+                                       <Card className="cardcarousel">
+                                           <Card.Img className="imagencard" variant="top" src={array.imagenCiudad} />
                                            <Card.Body>
                                            <Card.Title>{array.nombreCiudad}</Card.Title>
                                            <Card.Title>{array.pais}</Card.Title>
@@ -62,8 +62,8 @@ export default function Divcarousel () {
                                 {arrayCiudades[1].map((array, idx) => (
                                     <Col>
                                         <a href="#">
-                                            <Card className="cardimagen">
-                                                <Card.Img className="imagenCarusel" variant="top" src={array.imagenCiudad} />
+                                            <Card className="cardcarousel">
+                                                <Card.Img className="imagencard" variant="top" src={array.imagenCiudad} />
                                                 <Card.Body>
                                                 <Card.Title>{array.nombreCiudad}</Card.Title>
                                                 <Card.Title>{array.pais}</Card.Title>
@@ -82,8 +82,8 @@ export default function Divcarousel () {
                                 {arrayCiudades[2].map((array, idx) => (
                                     <Col>
                                        <a href="#"> 
-                                            <Card className="cardimagen">
-                                                <Card.Img className="imagenCarusel" variant="top" src={array.imagenCiudad} />
+                                            <Card className="cardcarousel">
+                                                <Card.Img className="imagencard" variant="top" src={array.imagenCiudad} />
                                                 <Card.Body>
                                                 <Card.Title>{array.nombreCiudad}</Card.Title>
                                                 <Card.Title>{array.pais}</Card.Title>

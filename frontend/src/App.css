@@ -7,22 +7,26 @@ html * {
 }
 
 .bg-myBlue {
-    /* background-color: rgb(10, 9, 90); */
-    background-image: url("./assets/skyline2.png") !important;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center 60%;
-    height: 30vh !important;
-    font-size: x-large !important;   
-     /* filter: opacity(10%); */
-    /* filter: brightness(0%); */
+  /* background-color: rgb(10, 9, 90); */
+  background-image: url("./assets/skyline2.png") !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 60%;
+  height: 30vh !important;
+  font-size: x-large !important;   
+  /* filter: opacity(10%); */
+  /* filter: brightness(0%); */
+  
+}
 
+.sign {
+  background-color: rgba(255, 166, 0, 0.363);
 }
 
 .bg-myFooter {
-    background-color: rgba(243, 127, 60, 0.849);
-    background-image: url("./assets/skyline.png") !important;
-    background-size: contain;
+  background-color: rgba(243, 127, 60, 0.849);
+  background-image: url("./assets/skyline.png") !important;
+  background-size: contain;
     background-repeat: no-repeat;
     background-position: center 15%;
      /* filter: opacity(10%); */
@@ -109,23 +113,28 @@ body {
   justify-content: center;
 }
 
-.imagenCarusel {
+
+   .imagencard{
   /* width: 45vw ; */
+  border-radius: 15px;
   height: 30vh;
   /* width: fit-content; */
   /* padding: 1rem; */
 }
 
-.cardimagen {
+.cardcarousel{
   padding: 0.5rem;
   display: flex;
+  border-radius: 15px;
   align-items: center;
   justify-content: center;
   background-color: rgba(230, 175, 114, 0.466);
 }
 
-.cardimagen:hover {
-  background-color: rgba(230, 161, 84, 0.637);
+
+
+.cardcarousel:hover {
+  background-color: rgba(230, 162, 84, 0.76);
 }
 
 .carousel a{
@@ -232,6 +241,12 @@ body {
 
 .logoWelcome {
   width: 75vw;
+}
+
+
+.logoWelcome:hover {
+  width: 75.5vw;
+  opacity: 100%;
 }
 
 .navfooter {

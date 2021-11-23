@@ -57,8 +57,8 @@ export default function Navheader(){
                   {/* <BsPersonCircle className="logoperson"/> */}
                   <div className="logindiv">
                     <NavDropdown className="logopersona" title={logopersona}>
-                      <NavDropdown.Item href="#products/login">Log-In</NavDropdown.Item>
-                      <NavDropdown.Item href="#products/signup">Sign-up</NavDropdown.Item>
+                      <NavDropdown.Item className="sign" href="#products/login">Log-In</NavDropdown.Item>
+                      <NavDropdown.Item className="sign" href="#products/signup">Sign-up</NavDropdown.Item>
                     </NavDropdown>
                   </div>
               </Nav>
