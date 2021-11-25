@@ -34,16 +34,16 @@ const logopersona =<BsPersonCircle className="logoperson"/>;
 export default function Navheader(){
     return (
         <div>
-        <Navbar className="navbar" bg="myBlue" variant="light" sticky="top" expand="sm" collapseOnSelect>
+        <Navbar className="navbar" bg="myBlue" variant="dark" sticky="top" expand="sm" collapseOnSelect>
               <Navbar.Brand className="navbrand">
                   <img height="180" width="210" className="logoheader" src={logosecundario}/>{' '}
                   Mytinerary
               </Navbar.Brand>
               <Navbar.Toggle className="toggleheader"/>
               <Navbar.Collapse className="navbarcollapse">
-              <Nav>
+              <Nav className="navheader">
                   <Nav.Link href="#home">Home</Nav.Link>
-                  <Nav.Link href="#cities">Cities</Nav.Link>
+                  <Nav.Link to="#cities">Cities</Nav.Link>
                   {/* <NavDropdown title="Cities">
                     <NavDropdown.Item href="#products/buenosaires">All Cities</NavDropdown.Item>
                     <NavDropdown.Divider/>
@@ -55,12 +55,12 @@ export default function Navheader(){
                   </NavDropdown> */}
                   {/* <Nav.Link href="#contact">Contact</Nav.Link> */}
                   {/* <BsPersonCircle className="logoperson"/> */}
-                  <div className="logindiv">
-                    <NavDropdown className="logopersona" title={logopersona}>
+                  {/* <div className="logindiv"> */}
+                    <NavDropdown className="logopersona logindiv" title={logopersona}>
                       <NavDropdown.Item className="sign" href="#products/login">Log-In</NavDropdown.Item>
                       <NavDropdown.Item className="sign" href="#products/signup">Sign-up</NavDropdown.Item>
                     </NavDropdown>
-                  </div>
+                  {/* </div> */}
               </Nav>
               </Navbar.Collapse>
           </Navbar>

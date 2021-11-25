@@ -6,9 +6,13 @@ html * {
   text-align: center;
 }
 
+scroll {
+  display: none;
+}
+
 .bg-myBlue {
   /* background-color: rgb(10, 9, 90); */
-  background-image: url("./assets/skyline2.png") !important;
+  background-image: none!important;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center 60%;
@@ -25,15 +29,38 @@ html * {
 
 .bg-myFooter {
   background-color: rgba(243, 127, 60, 0.849);
-  background-image: url("./assets/skyline.png") !important;
-  background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center 15%;
-     /* filter: opacity(10%); */
-    /* filter: brightness(0%); */
+  background-image: none!important;
+  /* background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center 15%; */
 }
 
+@media (min-width: 1558px) {
+  .bg-myFooter {
+    background-image: url("./assets/skyline.png") !important;
+    background-color: rgba(243, 127, 60, 0.849);
+    background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center 15%;
+  }
+  
+  .bg-myBlue {
+    /* background-color: rgb(10, 9, 90); */
+    background-image: url("./assets/skyline2.png") !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 60%;
+    height: 30vh !important;
+    font-size: x-large !important;   
+    /* filter: opacity(10%); */
+    /* filter: brightness(0%); */
+    
+  }
+}
 
+.footer {
+  width: 100vw !important;
+}
 
 body {
   background-color: rgba(18, 87, 131, 0.623);
@@ -57,6 +84,7 @@ body {
 }
 
 .herowelcome {
+  width: 100%;
   background-image: url("./assets/avionnubes.jfif") !important;
   background-position: center !important;
   background-size: cover;
@@ -82,16 +110,20 @@ body {
   flex-direction: row !important;
   padding: 0.5rem;
   margin-left:20rem;
+  font-size: large;
 }
 
 .instagramfooter, .facebookfooter, .youtubefooter, .backto {
   padding: 3px;
   width: 2.5rem;
   height: 2rem;
+  align-self: center !important;
 }
 
 .divfooter {
   margin-right: 5rem;
+  display: flex;
+  flex-direction: row;
 }
 
 .frasefooter {
@@ -143,20 +175,9 @@ body {
   color: black;
 }
 
-/* .logoWelcome {
-  width: 40vw;
-} */
 
 .logoWelcome {
   width: 43vw;
-  animation: App-logo-spin infinite 15s linear;
-  padding: -1rem;
-  opacity: 70%;
-}
-
-.logoWelcome:hover {
-  width: 43.5vw;
-  opacity: 100%;
 }
 
 .linkwelcome {
@@ -174,6 +195,7 @@ body {
   display: flex;
   flex-direction: row;
 }
+
 .navbarcollapse {
   display: flex;
   flex-direction: row;
@@ -187,45 +209,87 @@ body {
 }
 
 .logindiv {
-  align-self: flex-end;
+  justify-self: flex-end !important;
+}
+
+.navheader {
+  display: flex !important;
+  /* flex-direction: row !important; */
+}
+
+.contenedorcallto {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center;
+  width: 100vw;
 }
 
 .calltoaction {
-  /* border-radius: 15px; */
-  display: flex;
-  align-content: flex-end;
+  margin-top: 3rem;
+  justify-self: center !important;
+  border-radius: 12px;
+  display: flex !important;
+  justify-content: center !important;
   background-image: url(./assets/avion.jfif);
   background-repeat: no-repeat;
+  background-position: 0;
   background-size: cover;
-  background-color: rgba(245, 245, 220, 0);
-  /* width: 100vw;
-  height: 50vh; */
-
+  background-color: rgb(245, 245, 220);
+  height: 50vh; 
+  width: 90vw !important;
 }
 
-/* .logocall {
-    width: 15vw !important;
-    align-self: flex-end;
-    position: absolute;
-    right: 100px;
-    top: 1330px;
-    z-index: 2;
-    animation: App-logo-spin infinite 7s linear;
-  } */
 
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }    
-    to {
-      transform: rotate(360deg);
-    }    
+.buttoncallto {
+          font-weight: bold;
+          font-size: x-large;
+          color:rgb(90, 62, 11);
+          background-color: rgba(240, 248, 255, 0);
+          align-self: center;
+          border: solid 0.5px rgb(138, 94, 14);
+          padding: 2rem;
+          box-shadow: 10px 10px 5px rgb(99, 45, 25);
+          border-radius: 15px;
+          animation: pulse 5s infinite;
+        }
+
+@keyframes pulse {
+  0% {
+    background-color: rgba(124, 56, 29, 0.473);
+  }
+  25% {
+    background-color: rgba(121, 36, 14, 0.445);
+  }
+  50% {
+    background-color: #a152088f;
 
   }
+  75% {
+    background-color: rgba(156, 42, 13, 0.486);
+  }
+  100% {
+    background-color: rgba(124, 56, 29, 0.473);
+  }
+}
+        
+.buttoncallto:hover {
+          font-weight: bold;
+          color:rgb(95, 68, 16);
+          background-color: rgba(128, 36, 29, 0.568);
+          align-self: center;
+          border: solid 0.5px rgb(235, 116, 4);
+          padding: 2rem;
+          box-shadow: 8px 4px 3px rgb(105, 40, 17);
+          animation: none;
+
+        }
+
 
 
 /* /////////////////////// */
-@media (max-width: 600px) {
+
+
+@media (max-width: 1000px) {
   .bg-myBlue {
     background-color: rgb(89, 134, 192);
     background-image: none !important;
@@ -250,21 +314,35 @@ body {
 }
 
 .navfooter {
-  display: none !important;
+  /* display: none !important; */
+  display: flex;
+  flex-direction: row !important;
+  margin: 0!important;
 }
 
 
+.instagramfooter, .facebookfooter, .youtubefooter, .backto {
+  padding: 2.5px;
+  width: 2rem;
+  height: 1.5rem;
+}
+
+.footer {
+  width: 100%;
+}
 
 .bg-myFooter {
   background-color: rgba(167, 86, 11, 0);
   background-image: none !important;
   display: flex;
   flex-direction: row;
+  width: 100%;
 }
+
 .divfooter {
   display: flex;
   align-self: center;
-  flex-direction: row;
+  flex-direction: row !important;
   align-items: center;
   padding: 1rem;
   padding-top: 2rem;
@@ -273,5 +351,99 @@ body {
 .calltoaction {
   display: none;
 }
+
+}
+
+
+/* ///////////////////////// */
+/* ///////////////////////// */
+/* ///////////////////////// */
+
+@media (max-width: 400px) {
+  
+
+  
+.bg-myBlue {
+    background-color: rgb(48, 159, 211);
+    background-image: none !important;
+}
+
+body {
+  display: flex;
+  flex-direction: column !important;
+  justify-content: center !important;
+
+}
+
+ footer {
+   width: 50vw !important;
+   display: flex;
+   flex-direction: column !important;
+   align-self: center;
+   justify-content: center !important;
+ }
+
+.carousel {
+  margin: 1.7rem !important;
+}
+
+.logoWelcome {
+  width: 75vw;
+}
+
+
+.logoWelcome:hover {
+  width: 75.5vw;
+  opacity: 100%;
+}
+
+.navfooter {
+  /* display: none !important; */
+  display: none !important;
+  flex-direction: row-reverse !important;
+  justify-self: left !important;
+}
+
+
+.instagramfooter, .facebookfooter, .youtubefooter, .backto {
+  padding: 2.5px;
+  width: 2.5rem;
+  height: 2rem;
+}
+
+.bg-myFooter {
+  background-color: rgba(167, 86, 11, 0);
+  background-image: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+
+
+.divfooter {
+  display: flex;
+  align-self: center;
+  flex-direction: row !important;
+  align-items: center;
+  padding: 1rem;
+  padding-top: 2rem;
+}
+
+/* .calltoaction {
+  border-radius: 50%;
+} */
+
+.buttoncallto {
+  font-weight: bold;
+  font-size: x-large;
+  color:rgb(90, 62, 11);
+  background-color: rgba(240, 248, 255, 0);
+  align-self: center;
+  border: solid 0.5px rgba(138, 95, 14, 0);
+  box-shadow: 10px 10px 5px rgba(99, 45, 25, 0);
+}
+
+
+
 
 }

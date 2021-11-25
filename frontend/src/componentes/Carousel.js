@@ -36,68 +36,98 @@ let arrayCiudades =[
 
 export default function Divcarousel () {
     return (
-            <Carousel className="carousel">
-                    <Carousel.Item>
-                          <Row xs={1} md={2} className="g-4">
-                                {arrayCiudades[0].map((array, idx) => (
-                                  <Col>
-                                  <a href="#"> 
-                                       <Card className="cardcarousel">
-                                           <Card.Img className="imagencard" variant="top" src={array.imagenCiudad} />
-                                           <Card.Body>
-                                           <Card.Title>{array.nombreCiudad}</Card.Title>
-                                           <Card.Title>{array.pais}</Card.Title>
-                                           <Card.Text>
-                                           
-                                           </Card.Text>
-                                           </Card.Body>
-                                       </Card>
-                                  </a>
-                               </Col>
-                                ))}
-                         </Row>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                          <Row xs={1} md={2} className="g-4">
-                                {arrayCiudades[1].map((array, idx) => (
-                                    <Col>
-                                        <a href="#">
-                                            <Card className="cardcarousel">
-                                                <Card.Img className="imagencard" variant="top" src={array.imagenCiudad} />
-                                                <Card.Body>
-                                                <Card.Title>{array.nombreCiudad}</Card.Title>
-                                                <Card.Title>{array.pais}</Card.Title>
-                                                <Card.Text>
-                                                
-                                                </Card.Text>
-                                                </Card.Body>
-                                            </Card>
-                                        </a>
-                                    </Col>
-                                ))}
-                         </Row>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                          <Row xs={1} md={2} className="g-4">
-                                {arrayCiudades[2].map((array, idx) => (
-                                    <Col>
-                                       <a href="#"> 
-                                            <Card className="cardcarousel">
-                                                <Card.Img className="imagencard" variant="top" src={array.imagenCiudad} />
-                                                <Card.Body>
-                                                <Card.Title>{array.nombreCiudad}</Card.Title>
-                                                <Card.Title>{array.pais}</Card.Title>
-                                                <Card.Text>
-                                                
-                                                </Card.Text>
-                                                </Card.Body>
-                                            </Card>
-                                       </a>
-                                    </Col>
-                                ))}
-                         </Row>
-                    </Carousel.Item>
-            </Carousel>
-       
+        <Carousel className="carousel" fade>
+      {arrayCiudades.map((ciudad) => {
+        return (
+            <Carousel.Item>
+            <Row xs={1} md={2} className="g-4">
+              {ciudad.map((array) => {
+                return (
+                  <Col>
+                    <Card className="cardcarousel">
+                      <Card.Img
+                        variant="top"
+                        className="imagencard" variant="top"
+                        src={array.imagenCiudad}
+                      />
+                      <Card.Body>
+                        <Card.Title>{array.nombreCiudad}</Card.Title>
+                        <Card.Title>{array.pais}</Card.Title>
+                      </Card.Body>
+                    </Card>
+                  </Col>
+                );
+              })}
+              ;
+            </Row>
+          </Carousel.Item>
+        );
+    })}
+
+    </Carousel>
+
+
     )
 }
+// <Carousel className="carousel">
+//         <Carousel.Item>
+//               <Row xs={1} md={2} className="g-4">
+//                     {arrayCiudades[0].map((array, idx) => (
+//                       <Col>
+//                       <a href="#"> 
+//                            <Card className="cardcarousel">
+//                                <Card.Img className="imagencard" variant="top" src={array.imagenCiudad} />
+//                                <Card.Body>
+//                                <Card.Title>{array.nombreCiudad}</Card.Title>
+//                                <Card.Title>{array.pais}</Card.Title>
+//                                <Card.Text>
+                               
+//                                </Card.Text>
+//                                </Card.Body>
+//                            </Card>
+//                       </a>
+//                    </Col>
+//                     ))}
+//              </Row>
+//         </Carousel.Item>
+//         <Carousel.Item>
+//               <Row xs={1} md={2} className="g-4">
+//                     {arrayCiudades[1].map((array, idx) => (
+//                         <Col>
+//                             <a href="#">
+//                                 <Card className="cardcarousel">
+//                                     <Card.Img className="imagencard" variant="top" src={array.imagenCiudad} />
+//                                     <Card.Body>
+//                                     <Card.Title>{array.nombreCiudad}</Card.Title>
+//                                     <Card.Title>{array.pais}</Card.Title>
+//                                     <Card.Text>
+                                    
+//                                     </Card.Text>
+//                                     </Card.Body>
+//                                 </Card>
+//                             </a>
+//                         </Col>
+//                     ))}
+//              </Row>
+//         </Carousel.Item>
+//         <Carousel.Item>
+//               <Row xs={1} md={2} className="g-4">
+//                     {arrayCiudades[2].map((array, idx) => (
+//                         <Col>
+//                            <a href="#"> 
+//                                 <Card className="cardcarousel">
+//                                     <Card.Img className="imagencard" variant="top" src={array.imagenCiudad} />
+//                                     <Card.Body>
+//                                     <Card.Title>{array.nombreCiudad}</Card.Title>
+//                                     <Card.Title>{array.pais}</Card.Title>
+//                                     <Card.Text>
+                                    
+//                                     </Card.Text>
+//                                     </Card.Body>
+//                                 </Card>
+//                            </a>
+//                         </Col>
+//                     ))}
+//              </Row>
+//         </Carousel.Item>
+// </Carousel>

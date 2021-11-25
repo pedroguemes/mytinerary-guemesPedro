@@ -5,8 +5,12 @@ import logocallto from '../assets/logocallto.png';
 
 export default function Calltoaction(){
     return (
-        <div className="calltoaction">
-             <img className="logocall" src={logocallto} alt="logocall"/>
-        </div>
+        <div className="contenedorcallto">
+                <div className="calltoaction ">
+                       {/* <img className="logocall" src={logocallto} alt="logocall"/> */}
+                        <button className="buttoncallto">Click and explore! :)</button>
+                </div>
+
+         </div>
     )
 }

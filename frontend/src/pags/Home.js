@@ -14,7 +14,7 @@ export default class Home extends React.Component {
         <>
         <Navheader/>
         <Herowelcome/>
-        {/* <Calltoaction/> */}
+        <Calltoaction/>
         <Divcarousel/>
         <Footer/>
         </>

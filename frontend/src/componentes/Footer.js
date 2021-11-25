@@ -13,12 +13,13 @@ const logopersona =<BsPersonCircle className="logoperson"/>;
 
 export default function Footer(){
     return (
-        <Navbar bg="myFooter" variant="light" sticky="bottom">
+        <div className="footer">
+        <Navbar bg="myFooter" variant="light" sticky="bottom" >
               <Navbar.Toggle />
               <Navbar.Collapse>
               <Nav className="navfooter">
-                  <Nav.Link href="#home">Home |</Nav.Link>
-                  <Nav.Link href="#cities">Cities |</Nav.Link>
+                  <Nav.Link href="#home">Home</Nav.Link>
+                  <Nav.Link href="#cities">Cities</Nav.Link>
                   <Nav.Link href="#contact">Contact</Nav.Link>
               </Nav>
               </Navbar.Collapse>
@@ -31,5 +32,6 @@ export default function Footer(){
                 <p className="frasefooter"> All rights reserved Mytinerary Ⓒ</p>
                 <p className="float-end"><a href="#"><BsFillArrowUpSquareFill className="backto"></BsFillArrowUpSquareFill></a></p>
           </Navbar>
+          </div>
     )
 }
