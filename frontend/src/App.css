@@ -59,7 +59,7 @@ scroll {
 }
 
 .footer {
-  width: 100vw !important;
+  width: 100% !important;
 }
 
 body {
@@ -221,7 +221,7 @@ body {
   display: flex !important;
   align-items: center !important;
   justify-content: center;
-  width: 100vw;
+  width: 100%;
 }
 
 .calltoaction {
@@ -359,7 +359,7 @@ body {
 /* ///////////////////////// */
 /* ///////////////////////// */
 
-@media (max-width: 400px) {
+@media (max-width: 425px) {
   
 
   
@@ -443,7 +443,35 @@ body {
   box-shadow: 10px 10px 5px rgba(99, 45, 25, 0);
 }
 
+}
 
 
+/* //////////CITIES */
 
+.cardcities {
+  justify-self: center !important;
+  width: 80%;
+}
+
+.citiesbody {
+  background-color: rgb(150, 105, 22);
+  display: flex !important;
+  justify-content: center !important;
+  flex-direction: column;
+  align-items: center !important;
+
+}
+
+.portadacities {
+  width: 80%;
+  height: 20%;
+  background-color: rgb(4, 105, 105);
+  align-self: center !important;
+}
+
+.portadacities img {
+  width: 20%;
+  width: 20%;
+  background-color: rgb(4, 105, 105);
+  align-self: center !important;
 }
