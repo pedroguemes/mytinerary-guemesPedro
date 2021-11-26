@@ -15,6 +15,7 @@ export default class Home extends React.Component {
         <Navheader/>
         <Herowelcome/>
         <Calltoaction/>
+        <h1 className="mostpop">Most popular Mytineraries</h1>
         <Divcarousel/>
         <Footer/>
         </>

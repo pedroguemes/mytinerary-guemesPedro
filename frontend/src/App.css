@@ -93,6 +93,12 @@ body {
   flex-direction: column;
 }
 
+.mostpop {
+  font-weight: bold !important;  
+  padding-top: 3rem;
+  text-decoration: underline;
+}
+
 .carousel {
   padding: 1rem;
   margin: 4rem !important;
@@ -352,6 +358,52 @@ body {
   display: none;
 }
 
+.cardcities {
+  justify-self: center !important;
+  width: 80% !important;
+  margin: 1rem;
+  justify-self: center !important;
+  background-color: orange;
+  filter: grayscale(40%);
+}
+
+.cardcities:hover {
+  filter: grayscale(0%);
+  font-size: large;
+  color: rgb(231, 166, 44);
+  width: 80%;
+  font-weight: bold !important;
+  justify-self: center !important;
+  background-color: rgb(194, 92, 55);
+  margin: 1rem;
+  border-radius: 15px;
+}
+
+.citiesbody {
+  background-color: rgb(204, 141, 24);
+  display: flex !important;
+  justify-content: center !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+.portadacities {
+  border-radius: 15px;
+  width: 80%;
+  height: 20%;
+  background-color: rgb(221, 166, 48);
+  align-self: center !important;
+}
+
+.portadacities img {
+  padding: 2rem;
+  margin: 2rem;
+  border-radius: 50%;
+  width: 20%;
+  background-color: rgb(224, 148, 6);
+  align-self: center !important;
+}
+
 }
 
 
@@ -443,6 +495,52 @@ body {
   box-shadow: 10px 10px 5px rgba(99, 45, 25, 0);
 }
 
+.cardcities {
+  justify-self: center !important;
+  width: 80% !important;
+  margin: 1rem;
+  justify-self: center !important;
+  background-color: orange;
+  filter: grayscale(40%);
+}
+
+.cardcities:hover {
+  filter: grayscale(0%);
+  font-size: large;
+  color: rgb(231, 166, 44);
+  width: 80%;
+  font-weight: bold !important;
+  justify-self: center !important;
+  background-color: rgb(194, 92, 55);
+  margin: 1rem;
+  border-radius: 15px;
+}
+
+.citiesbody {
+  background-color: rgb(204, 141, 24);
+  display: flex !important;
+  justify-content: center !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+.portadacities {
+  border-radius: 15px;
+  width: 80%;
+  height: 20%;
+  background-color: rgb(221, 166, 48);
+  align-self: center !important;
+}
+
+.portadacities img {
+  padding: 2rem;
+  margin: 2rem;
+  border-radius: 50%;
+  width: 20%;
+  background-color: rgb(224, 148, 6);
+  align-self: center !important;
+}
+
 }
 
 
@@ -450,28 +548,48 @@ body {
 
 .cardcities {
   justify-self: center !important;
-  width: 80%;
+  width: 25%;
+  margin: 1rem;
+  border-radius: 15px;
+  background-color: orange;
+  filter: grayscale(40%);
+}
+
+.cardcities:hover {
+  filter: grayscale(0%);
+  font-size: large;
+  color: rgb(231, 166, 44);
+  font-weight: bold !important;
+  justify-self: center !important;
+  width: 25%;
+  background-color: rgb(194, 92, 55);
+  margin: 1rem;
+  border-radius: 15px;
 }
 
 .citiesbody {
-  background-color: rgb(150, 105, 22);
+  background-color: rgb(204, 141, 24);
   display: flex !important;
   justify-content: center !important;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center !important;
-
+  flex-wrap: wrap !important;
+  wrap:2;
 }
 
 .portadacities {
+  border-radius: 15px;
   width: 80%;
   height: 20%;
-  background-color: rgb(4, 105, 105);
+  background-color: rgb(221, 166, 48);
   align-self: center !important;
 }
 
 .portadacities img {
+  padding: 2rem;
+  margin: 2rem;
+  border-radius: 50%;
   width: 20%;
-  width: 20%;
-  background-color: rgb(4, 105, 105);
+  background-color: rgb(224, 148, 6);
   align-self: center !important;
 }
