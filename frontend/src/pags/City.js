@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import Navheader from '../componentes/Navheader';
 import Cardcities from '../componentes/Cardcities';
 import Footer from '../componentes/Footer';
-import imagen from '../assets/logocallto.png'
+import imagen from '../assets/logocallto.png';
 
-export default class Cities extends React.Component {
+
+export default class City extends React.Component {
 
     constructor (props){
         super (props);
@@ -28,15 +29,7 @@ export default class Cities extends React.Component {
             <>
                 <Navheader/>
                 <div className="citiesbody">
-                    <div className="portadacities"> 
-                    <img  src={imagen}/>
-                    <form>
-                        <label>
-                            Search:
-                            <input type={Text}/>
-                         </label>
-                    </form>
-                    </div>
+                    <div className="portadacities"> <img  src={imagen}/></div>
                     <Cardcities arraycities={this.state.arraycities}/>
                 </div>
                 <Footer/>

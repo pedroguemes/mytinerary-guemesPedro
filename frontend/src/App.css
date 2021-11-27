@@ -293,12 +293,23 @@ body {
 
 
 /* /////////////////////// */
+/* /////////////////////// */
+/* /////////////////////// */
+/* /////////////////////// */
+/* /////////////////////// */
+/* /////////////////////// */
+/* /////////////////////// */
+/* /////////////////////// */
+/* /////////////////////// */
+/* /////////////////////// */
 
 
 @media (max-width: 1000px) {
   .bg-myBlue {
     background-color: rgb(89, 134, 192);
     background-image: none !important;
+    height: 15vh !important;
+
 }
 
 .carousel {
@@ -313,11 +324,6 @@ body {
   width: 75vw;
 }
 
-
-.logoWelcome:hover {
-  width: 75.5vw;
-  opacity: 100%;
-}
 
 .navfooter {
   /* display: none !important; */
@@ -418,6 +424,8 @@ body {
 .bg-myBlue {
     background-color: rgb(48, 159, 211);
     background-image: none !important;
+    height: 20vh !important;
+
 }
 
 body {
@@ -444,10 +452,6 @@ body {
 }
 
 
-.logoWelcome:hover {
-  width: 75.5vw;
-  opacity: 100%;
-}
 
 .navfooter {
   /* display: none !important; */
@@ -592,4 +596,14 @@ body {
   width: 20%;
   background-color: rgb(224, 148, 6);
   align-self: center !important;
+  animation: rotation 4s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
