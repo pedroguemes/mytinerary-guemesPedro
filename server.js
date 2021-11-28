@@ -1,5 +1,6 @@
 // require('.dotenv').config()
 // require('./config/database')
+const Router = require('./routes/routes')
 
 // cities va a subir a la base de datos:
 let cities = [
@@ -96,29 +97,15 @@ let cities = [
     imagenCiudad: ("./assets/rome.jpg")
   }
 ];
-
-
-// const amigos = ["satan", "lucifer", "Putin", "Trump"];
 const express = require("express");
-
 const cors = require("cors");
-
 const app = express();
 
 app.use(cors());
+app.use(express.json());
 
-// app.get("/pruebas/datos", (req, res) => {
-//   console.log("me llego un pedido GET");
-//   res.json({ respuesta: "ola k ase" });
-// });
+app.use('/api', Router)
 
-// app.get("/api/amigos", (req, res) => {
-//   res.json({ Response: { amigos: amigos } });
-// });
-
-app.get("/api/mytinerary/cities", (req, res) => {
-  res.json({ Response: { cities: cities } });
-});
 
 app.listen(4000, () => {
   console.log("server is listening on port 4000");

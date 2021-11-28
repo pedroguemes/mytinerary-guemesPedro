@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Navheader from '../componentes/Navheader';
 import Cardcities from '../componentes/Cardcities';
 import Footer from '../componentes/Footer';
-import imagen from '../assets/logocallto.png';
+import imagen from '../assets/logocall.png';
+import {Link} from 'react-router-dom'
 
 
 export default class City extends React.Component {
@@ -22,15 +23,15 @@ export default class City extends React.Component {
     }
 
     render(){
-    
-        // this.state=[];
-        
+            
         return (
             <>
                 <Navheader/>
-                <div className="citiesbody">
-                    <div className="portadacities"> <img  src={imagen}/></div>
-                    <Cardcities arraycities={this.state.arraycities}/>
+                <div className="citybody">
+                    <div className="portadacity"> <img  src={imagen}/></div>
+                    {/* <Cardcities arraycities={this.state.arraycities}/> */}
+                    <h1>Sorry, site under mantaineance</h1>
+                    <Link to={'/Cities'}>Back to Cities</Link>
                 </div>
                 <Footer/>
             </>

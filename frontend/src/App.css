@@ -371,6 +371,8 @@ body {
   justify-self: center !important;
   background-color: orange;
   filter: grayscale(40%);
+  text-decoration: none !important;
+
 }
 
 .cardcities:hover {
@@ -416,6 +418,9 @@ body {
 /* ///////////////////////// */
 /* ///////////////////////// */
 /* ///////////////////////// */
+/* ///////////////////////// */
+/* ///////////////////////// */
+/* ///////////////////////// */
 
 @media (max-width: 425px) {
   
@@ -426,6 +431,15 @@ body {
     background-image: none !important;
     height: 20vh !important;
 
+}
+
+.bg-myFooter {
+  padding-left: 3rem !important;
+  background-color: rgba(167, 86, 11, 0);
+  background-image: none !important;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 
 body {
@@ -506,6 +520,7 @@ body {
   justify-self: center !important;
   background-color: orange;
   filter: grayscale(40%);
+  text-decoration: none !important;
 }
 
 .cardcities:hover {
@@ -557,6 +572,7 @@ body {
   border-radius: 15px;
   background-color: orange;
   filter: grayscale(40%);
+  text-decoration: none !important;
 }
 
 .cardcities:hover {
@@ -587,6 +603,10 @@ body {
   height: 20%;
   background-color: rgb(221, 166, 48);
   align-self: center !important;
+  background-image: url(./assets/valijaciudad.jpg);
+  background-size: cover;
+  background-position: right 80%;
+  background-repeat: no-repeat;
 }
 
 .portadacities img {
@@ -594,9 +614,35 @@ body {
   margin: 2rem;
   border-radius: 50%;
   width: 20%;
-  background-color: rgb(224, 148, 6);
+  background-color: rgba(224, 148, 6, 0);
   align-self: center !important;
-  animation: rotation 4s infinite linear;
+  animation: rotation 6s infinite linear;
+}
+
+.citiesSearch {
+  align-self: flex-start !important;
+  color: antiquewhite;
+  margin:1rem;
+  background-color: rgba(212, 195, 99, 0.637);;
+  text-align: left;
+  padding: 0.4rem;
+  border-radius: 10px;
+
+}
+
+.citiesSearch:focus {
+  margin:1rem;
+  background-color: rgba(94, 89, 65, 0.637);
+  text-align: left;
+  padding: 0.5rem;
+}
+
+.citiesSearch::placeholder {
+  color: antiquewhite;
+}
+
+.citiesSearch:focus::placeholder {
+  color: rgba(240, 248, 255, 0.02);
 }
 
 @keyframes rotation {
