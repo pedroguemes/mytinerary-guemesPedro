@@ -1,4 +1,5 @@
 const Router = require('express').Router();
+const citiesControllers = require('../controllers/citiesControllers')
 
 const cities = [
   
@@ -96,8 +97,7 @@ const cities = [
 ];
 
 Router.route('/cities')
-.get((req,res) => {
-    res.json({ Response: arrayCities});
+.get(citiesControllers.obtenerCities)
 
 // Router.route('/api/itineraries')
 // .get((req, res)=>{

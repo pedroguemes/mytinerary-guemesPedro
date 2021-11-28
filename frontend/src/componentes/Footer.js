@@ -1,11 +1,10 @@
 import React from "react";
 import logofooter from '../assets/logofooter.png';
-import {BsPersonCircle} from 'react-icons/bs';
 import {BsInstagram, BsFacebook, BsYoutube} from 'react-icons/bs';
 import {Link} from 'react-router-dom';
 import {BsFillArrowUpSquareFill} from 'react-icons/bs';
 // import {Nav, Navbar, NavDropdown, Container} from 'react-bootstrap'
-import {Nav, Navbar, NavDropdown} from 'react-bootstrap';
+import {Nav, Navbar} from 'react-bootstrap';
 
 
 export default function Footer(){

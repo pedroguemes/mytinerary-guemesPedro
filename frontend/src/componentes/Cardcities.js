@@ -1,12 +1,12 @@
 import React, {useState} from "react";
 import {Card} from 'react-bootstrap';
-import { useNavigate } from "react-router";
+// import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 
 
 export default function Cardcities (props) {
 
-
+        
     // console.log(props.arraycities[0])
     // console.log(props.arraycities.imagenCiudad)
     // const navegar = useNavigate('/Cities')
@@ -18,11 +18,11 @@ export default function Cardcities (props) {
     //     navegar('/City')
     // }
     return (
-        <>
-            <label>
+        <>      
+                <div className="divCitiesSearch">
                 <input className="citiesSearch" placeholder="Search Cities :)" type={Text} onChange={(evento)=>setFiltrado(evento.target.value)}/>
-            </label>
-                {props.arraycities.filter(   
+                </div>
+                {props.arrayCities.filter(   
                     (city) =>{    
                         if(filtrado === ''){
                             return city

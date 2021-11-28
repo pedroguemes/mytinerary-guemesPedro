@@ -11,14 +11,14 @@ export default class City extends React.Component {
     constructor (props){
         super (props);
         this.state = {
-            arraycities:[]
+            arrayCities:[]
         };
     }
     
     componentDidMount() {
-        fetch('http://localhost:4000/api/mytinerary/cities')
+        fetch('http://localhost:4000/api/cities')
         .then(res=>res.json())
-        .then(cities=>this.setState({arraycities:cities.Response.cities}))
+        .then(cities=>this.setState({arrayCities:cities.Response.cities}))
         .catch(err => console.error(err.message))
     }
 
