@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Navheader from '../componentes/Navheader';
-import Cardcities from '../componentes/Cardcities';
 import Footer from '../componentes/Footer';
 import imagen from '../assets/logocall.png';
 import {Link} from 'react-router-dom'
@@ -13,13 +12,17 @@ class City extends React.Component {
     constructor (props){
         super (props);
         this.state = {
-           city:{}
+           city:{id:0}
            }
     };
     
+    // endpoint = this.props.params.endpoint
+    // id = this.props.params.id
+
     componentDidMount() {
 
         const id = window.location.href.split("/").pop()
+        // const id = req.params.id
         // console.log(props.match.params.id);
         // console.log(window.location.href);
         // console.log(id);
