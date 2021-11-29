@@ -1,15 +1,18 @@
 const Router = require('express').Router();
 
-const { cargarCity } = require('../controllers/citiesControllers');
+// const { cargarCity, modificarCity } = require('../controllers/citiesControllers');
 const citiesControllers = require('../controllers/citiesControllers')
 
-const{obtenerCities, obtenerCity} = citiesControllers
+const{obtenerCities, obtenerCity, modificarCity, cargarCity} = citiesControllers
 
 Router.route('/cities')
 .get(obtenerCities)
 .post(cargarCity)
 
-Router.route('/cities/:id').get(obtenerCity)
+
+Router.route('/cities/:id')
+.get(obtenerCity)
+.put(modificarCity)
 
 // Router.route('/api/itineraries')
 // .get((req, res)=>{

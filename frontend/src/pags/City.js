@@ -21,9 +21,9 @@ class City extends React.Component {
 
     componentDidMount() {
 
-        const id = window.location.href.split("/").pop()
-        // const id = req.params.id
-        // console.log(props.match.params.id);
+        // const id = window.location.href.split("/").pop()
+         const id = this.props.params.id
+        // console.log(this.props.params);
         // console.log(window.location.href);
         // console.log(id);
 
