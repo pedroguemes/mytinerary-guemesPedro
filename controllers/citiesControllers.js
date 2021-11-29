@@ -107,9 +107,8 @@ const citiesControllers = {
       },
       cargarCity: (req,res)=>{
         const {nombreCiudad, pais, imagenCiudad} = req.body
-          const city = new City({nombreCiudad, pais, imagenCiudad}).save()
-          .then((resp) => res.json({resp}))
-          
+         new City({nombreCiudad, pais, imagenCiudad}).save()
+          .then((resp) => res.json({resp}))         
           // cities.push(city)
           // res.json({cities});
         },
@@ -119,11 +118,20 @@ const citiesControllers = {
           try {
             modifyCity = await City.findOneAndUpdate({_id : req.params.id},bodyCity,{ new: true})
           } catch (error) {
-            
           }
           res.json({success: modifyCity ? true : false });
+        },
+        borrarCity: async (req,res)=>{
+          let city
+          const id = req.params.id
+          try{
+            city = await City.findOneAndDelete({
+              _id:id})}catch(error) {
+              console.log(error)
+            }
+            res.json({response:city,success:true})
+          }
         }
 
-    }
 
 module.exports = citiesControllers

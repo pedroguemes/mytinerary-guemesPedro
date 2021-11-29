@@ -28,6 +28,8 @@ export default function Cardcities (props) {
                             return city
                         } else if (city.nombreCiudad.toLowerCase().startsWith(filtrado) || city.pais.toLowerCase().startsWith(filtrado)){
                             return city
+                        } else {
+                            <h1>busquedos sin resulteda</h1>
                         }
                         
                      }).map((city)=>(

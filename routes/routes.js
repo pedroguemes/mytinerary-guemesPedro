@@ -3,7 +3,7 @@ const Router = require('express').Router();
 // const { cargarCity, modificarCity } = require('../controllers/citiesControllers');
 const citiesControllers = require('../controllers/citiesControllers')
 
-const{obtenerCities, obtenerCity, modificarCity, cargarCity} = citiesControllers
+const{obtenerCities, obtenerCity, modificarCity, cargarCity, borrarCity} = citiesControllers
 
 Router.route('/cities')
 .get(obtenerCities)
@@ -13,6 +13,7 @@ Router.route('/cities')
 Router.route('/cities/:id')
 .get(obtenerCity)
 .put(modificarCity)
+.delete(borrarCity)
 
 // Router.route('/api/itineraries')
 // .get((req, res)=>{
