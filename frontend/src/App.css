@@ -570,7 +570,7 @@ body {
   width: 25vw;
   margin: 1rem;
   border-radius: 15px;
-  background-color: orange;
+  background-color: rgba(255, 166, 0, 0.746);
   filter: grayscale(40%);
   text-decoration: none !important;
 }
@@ -582,13 +582,13 @@ body {
   font-weight: bold !important;
   justify-self: center !important;
   width: 25vw;
-  background-color: rgb(194, 92, 55);
+  background-color: rgba(194, 92, 55, 0.863);
   margin: 1rem;
   border-radius: 15px;
 }
 
 .citiesbody {
-  background-color: rgb(204, 141, 24);
+  background-color: rgba(45, 133, 149, 0.596);
   display: flex !important;
   justify-content: center !important;
   flex-direction: row;
@@ -598,6 +598,7 @@ body {
 }
 
 .portadacities {
+  margin-top: 1rem;
   border-radius: 15px;
   width: 80vw;
   height: 20%;
@@ -616,7 +617,7 @@ body {
   width: 20vw;
   background-color: rgba(224, 148, 6, 0);
   align-self: center !important;
-  animation: rotation 6s infinite linear;
+  animation: rotation 10s infinite linear;
 }
 
 .citiesSearch {
@@ -624,7 +625,7 @@ body {
   align-self: flex-start !important;
   color: antiquewhite;
   margin:1rem;
-  background-color: rgba(212, 195, 99, 0.637);;
+  background-color: rgba(212, 195, 99, 0.52);;
   text-align: left;
   padding: 0.4rem;
   border-radius: 10px;

@@ -29,73 +29,79 @@ const cities = [
     id:5,
     nombreCiudad: "Dubai",
     pais: "United Arab Emirates",
-    imagenCiudad: ("./assets/dubai.jfif")
+    imagenCiudad: ("../assets/dubai.jfif")
   },
   {
     id:6,
     nombreCiudad: "Macau",
     pais: "China",
-    imagenCiudad: ("./assets/macau.jpg")
+    imagenCiudad: ("../assets/macau.jpg")
   },
   {
     id:7,
     nombreCiudad: "Bangkok",
     pais: "Thailand",
-    imagenCiudad: ("./assets/bangkok.jfif")
+    imagenCiudad: ("../assets/bangkok.jfif")
   },
   {
     id:8,
     nombreCiudad: "Buenos Aires",
     pais: "Argentina",
-    imagenCiudad: ("./assets/buenosaires.jpg")
+    imagenCiudad: ("../assets/buenosaires.jpg")
   },
   {
     id:9,
     nombreCiudad: "Sydney",
     pais: "Australia",
-    imagenCiudad: ("./assets/sydney.jfif")
+    imagenCiudad: ("../assets/sydney.jfif")
   },
   {
     id:10,
     nombreCiudad: "London",
     pais: "England",
-    imagenCiudad: ("./assets/london.jfif")
+    imagenCiudad: ("../assets/london.jfif")
   },
   {
     id:11,
     nombreCiudad: "Berlin",
     pais: "Germany",
-    imagenCiudad: ("./assets/berlin.jfif")
+    imagenCiudad: ("../assets/berlin.jfif")
   },
   {
     id:12,
     nombreCiudad: "New Delhi",
     pais: "India",
-    imagenCiudad: ("./assets/newdelhi.jfif")
+    imagenCiudad: ("../assets/newdelhi.jfif")
   },
   {
     id:13,
     nombreCiudad: "Edinburgh",
     pais: "Scotland",
-    imagenCiudad: ("./assets/edinburgh.jfif")
+    imagenCiudad: ("../assets/edinburgh.jfif")
   },
   {
     id:14,
     nombreCiudad: "Istanbul",
     pais: "Turquia",
-    imagenCiudad: ("./assets/istanbul.jfif")
+    imagenCiudad: ("../assets/istanbul.jfif")
   },
   {
     id:15,
     nombreCiudad: "Rome",
     pais: "Italy",
-    imagenCiudad: ("./assets/rome.jpg")
+    imagenCiudad: ("../assets/rome.jpg")
   }
 ];
+
+//convencion no es "obtener..", sino el array mismo (cities no obtenerCities)
 
 const citiesControllers = {
     obtenerCities:(req,res) => {
         res.json({Response:cities});
+      },
+      obtenerCity:(req,res) => {
+        const city = cities.find((cit)=> cit.id === parseInt(req.params.id))
+        res.json({city})
       }
 } 
 

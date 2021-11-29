@@ -26,13 +26,13 @@ export default function Cardcities (props) {
                     (city) =>{    
                         if(filtrado === ''){
                             return city
-                        } else if (city.nombreCiudad.toLowerCase().startsWith(filtrado) || city.pais.toLowerCase().startsWith(filtrado)  ){
+                        } else if (city.nombreCiudad.toLowerCase().startsWith(filtrado) || city.pais.toLowerCase().startsWith(filtrado)){
                             return city
                         }
                         
                      }).map((city)=>(
                         
-                        <Card as={Link} to='/City' className="cardcities">
+                        <Card as={Link} to={`/cities/${city.id}`} id={city.id} className="cardcities">
                                 <Card.Img
                                      variant="top"
                                      className="imagencard" variant="top"

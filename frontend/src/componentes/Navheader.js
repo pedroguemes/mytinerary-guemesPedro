@@ -21,7 +21,7 @@ export default function Navheader(){
               <Navbar.Collapse className="navbarcollapse">
               <Nav className="navheader">
                   <Nav.Link as={Link} to='/'>Home</Nav.Link>
-                  <Nav.Link as={Link} to='/Cities'>Cities</Nav.Link >
+                  <Nav.Link as={Link} to='/cities'>Cities</Nav.Link >
                   <NavDropdown className="logopersona logindiv" title={logopersona}>
                   <NavDropdown.Item className="sign" href="#products/login">Log-In</NavDropdown.Item>
                   <NavDropdown.Item className="sign" href="#products/signup">Sign-up</NavDropdown.Item>

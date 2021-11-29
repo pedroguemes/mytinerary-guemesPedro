@@ -11,17 +11,11 @@ function App() {
 
   return (
     <Router>
-        {/* 
-          <Route path='/' element={<Home/>}/>
-          <Route path='/Cities' element={<Cities/>}/>
-          <Route path='*' element={<Error404/>}/>
-              {/* <div className="App">
-              </div> 
-       */}
+
            <Routes>
                   <Route path="/" element={<Home/>}/>
-                 <Route path="/Cities" element={<Cities/>}/> 
-                 <Route path="/City" element={<City/>}/> 
+                 <Route path="/cities" element={<Cities/>}/> 
+                 <Route path="/cities/:id" element={<City/>}/> 
                  <Route path="*" element={<Error404/>}/> 
                  {/* ya se. ya se. ya entendi. ya no hago.  */}
           </Routes> 
