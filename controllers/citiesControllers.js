@@ -4,25 +4,25 @@ const cities = [
       id:1,
       nombreCiudad: "Kuala Lumpur",
       pais: "Malaysia",
-      imagenCiudad: ("./assets/kualalumpur.jfif")
+      imagenCiudad: ("../assets/kualalumpur.jfif")
     },
     {
       id:2,
       nombreCiudad: "Paris",
       pais: "France",
-      imagenCiudad: ("./assets/paris.jfif")
+      imagenCiudad: ("../assets/paris.jfif")
     },
     {
       id:3,
       nombreCiudad: "New York",
       pais: "United States",
-      imagenCiudad: ("./assets/newyork.jfif")
+      imagenCiudad: ("../assets/newyork.jfif")
     },
     {
       id:4,
       nombreCiudad: "Singapore Harbour",
       pais: "Singapore",
-      imagenCiudad: ("./assets/singapore.jfif")
+      imagenCiudad: ("../assets/singapore.jfif")
     },
   
   {
@@ -97,7 +97,7 @@ const cities = [
 
 const citiesControllers = {
     obtenerCities:(req,res) => {
-        res.json({Response:cities});
+        res.json({cities});
       },
       obtenerCity:(req,res) => {
         const city = cities.find((cit)=> cit.id === parseInt(req.params.id))

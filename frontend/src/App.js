@@ -5,6 +5,7 @@ import Cities from './pags/Cities.js'
 import Error404 from './pags/Error404.js'
 import City from './pags/City'
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import {withRouter} from './utils/routes/withRouter'
 
 
 function App() {

@@ -17,7 +17,7 @@ import imagen from '../assets/logosecundario.png'
     
     componentDidMount() {
         axios.get('http://localhost:4000/api/cities')
-        .then(res => this.setState({arrayCities:res.data.Response}))
+        .then(res => this.setState({arrayCities:res.data.cities}))
         // .then(res => console.log(res.data))
     }
         // fetch('http://localhost:4000/api/mytinerary/cities')
@@ -29,7 +29,7 @@ import imagen from '../assets/logosecundario.png'
 
     render(){
         
-        console.log(this.state)
+        // console.log(this.state)
         return (
             <>
                 <Navheader/>
