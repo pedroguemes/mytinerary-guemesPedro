@@ -96,13 +96,19 @@ const cities = [
 //convencion no es "obtener..", sino el array mismo (cities no obtenerCities)
 
 const citiesControllers = {
-    obtenerCities:(req,res) => {
-        res.json({cities});
+  obtenerCities:(req,res) => {
+    res.json({cities});
       },
       obtenerCity:(req,res) => {
         const city = cities.find((cit)=> cit.id === parseInt(req.params.id))
         res.json({city})
-      }
-} 
+      },
+      cargarCity: (req,res)=>{
+        // const {nombreCiudad, pais, imagenCiudad} = req.body
+          const city = req.body
+          console.log(city)
+        }
+
+    } 
 
 module.exports = citiesControllers

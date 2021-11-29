@@ -2,10 +2,12 @@ const mongoose = require('mongoose');
 
 // const productoSchema = new mongoose.Schema({
 const CitySchema = new mongoose.Schema({
-    name:{string},
-    pais:{type:string},
-    descripcion:{types:string}
+    nombreCiudad:{type: String, required: true},
+    pais:{type: String, required: true},
+    imagenCiudad:{type: String},
 })
 
 // const Producto = mongoose.model('NombreModelo', Schema)
 const City = mongoose.model('City', CitySchema)
+
+module.exports = City;

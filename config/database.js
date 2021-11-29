@@ -1,10 +1,10 @@
-// const mongoose = require('mongoose')
+const mongoose = require('mongoose')
 
-// mongoose.conncect(adonde(el linkdenotasconmipass), opciones)
+// mongoose.conncect(adonde(el linkdenotasconmipass), {opciones})
 
-// mongoose.conncect(  process.env.MONGO_URI, {
-//     useUnifiedTopology: true,
-//     useFindAndModify: false
-// })
-// .then(()=> console.log('databaseconnected'))
-// .catch(err=> console.err(err))
+mongoose.connect(process.env.MONGO_URI, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+})
+.then(()=> console.log('databaseconnected!:)'))
+.catch(err=> console.err(err))

@@ -16,6 +16,7 @@ function App() {
            <Routes>
                   <Route path="/" element={<Home/>}/>
                  <Route path="/cities" element={<Cities/>}/> 
+                 {/* <Route path="/cities/:id" element={<City/>}/>  */}
                  <Route path="/cities/:id" element={<City/>}/> 
                  <Route path="*" element={<Error404/>}/> 
                  {/* ya se. ya se. ya entendi. ya no hago.  */}
