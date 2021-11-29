@@ -12,7 +12,7 @@ class City extends React.Component {
     constructor (props){
         super (props);
         this.state = {
-           city:{id:0}
+           city:{_id:0}
            }
     };
     
@@ -29,6 +29,7 @@ class City extends React.Component {
 
         axios.get(`http://localhost:4000/api/cities/${id}`)
         .then(res =>this.setState({city:res.data.city}))
+        // .then(res =>console.log({city:res.data.city}))
     }
     
     render(){

@@ -32,7 +32,7 @@ export default function Cardcities (props) {
                         
                      }).map((city)=>(
                         
-                        <Card as={Link} to={`/cities/${city.id}`} className="cardcities">
+                        <Card as={Link} to={`/cities/${city._id}`} className="cardcities">
                                 <Card.Img
                                      variant="top"
                                      className="imagencard" variant="top"

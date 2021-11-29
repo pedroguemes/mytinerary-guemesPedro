@@ -98,12 +98,12 @@ const City = require('../models/Ciudad')
 
 const citiesControllers = {
   obtenerCities:(req,res) => {
-    const cities = City.find()
-    .then((resp)=> res.json({cities}))
+    City.find()
+    .then((cities)=> res.json({cities}))
   },
       obtenerCity:(req,res) => {
-        const city = cities.find((cit)=> cit.id === parseInt(req.params.id))
-        res.json({city})
+       City.findOne({_id : (req.params.id)})
+        .then((city)=> res.json({city}))
       },
       cargarCity: (req,res)=>{
         const {nombreCiudad, pais, imagenCiudad} = req.body
@@ -114,6 +114,6 @@ const citiesControllers = {
           // res.json({cities});
         },
 
-    } 
+    }
 
 module.exports = citiesControllers

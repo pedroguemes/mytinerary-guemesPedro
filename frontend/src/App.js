@@ -3,10 +3,11 @@ import 'bootstrap/dist/css/bootstrap.css'
 import Home from './pags/Home.js'
 import Cities from './pags/Cities.js'
 import Error404 from './pags/Error404.js'
-import City from './pags/City'
+import Citysinprops from './pags/City'
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import {withRouter} from './utils/routes/withRouter'
 
+const City = withRouter(Citysinprops)
 
 function App() {
 
