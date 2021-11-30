@@ -14,9 +14,7 @@ export default function Cardcities (props) {
     // const [state, setState] = useState(false)
     const [filtrado, setFiltrado] = useState('')
         
-    // if(state){
-    //     navegar('/City')
-    // }
+   
     return (
         <>      
                 <div className="divCitiesSearch">
@@ -26,7 +24,7 @@ export default function Cardcities (props) {
                     (city) =>{    
                         if(filtrado === ''){
                             return city
-                        } else if (city.nombreCiudad.toLowerCase().startsWith(filtrado) || city.pais.toLowerCase().startsWith(filtrado)){
+                        } else if (city.nombreCiudad.toLowerCase().trim().startsWith(filtrado.toLowerCase().trim()) || city.pais.toLowerCase().trim().startsWith(filtrado.toLowerCase().trim())){
                             return city
                         } else {
                             <h1>busquedos sin resulteda</h1>

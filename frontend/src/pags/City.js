@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Navheader from '../componentes/Navheader';
-import Footer from '../componentes/Footer';
-import imagen from '../assets/logocall.png';
+// import Footer from '../componentes/Footer';
+// import imagen from '../assets/logocall.png';
 import {Link} from 'react-router-dom'
 // import { withRouter } from '../utils/routes/withRouter';
 
