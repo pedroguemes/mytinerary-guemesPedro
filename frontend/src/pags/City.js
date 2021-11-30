@@ -43,11 +43,13 @@ class City extends React.Component {
                      <img  src={this.state.city.imagenCiudad} alt={'imagen city'}/>
                         <h2>{this.state.city.nombreCiudad}</h2>
                         <h2>{this.state.city.pais}</h2>
-                    <h3>Sorry, site under mantaineance</h3>
                      </div>
-                     <div>
+                        <div>
+                          <h4>Sorry, site under mantaineance</h4>
+                        </div>
+                     <div className="backtocitiesdiv">
                         <Link className='backtocities' to={'/cities'}>Back to Cities</Link>
-                    </div>
+                     </div>
                 </div>
                 {/* <Footer/> */}
             </>

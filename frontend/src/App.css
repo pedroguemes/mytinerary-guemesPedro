@@ -683,13 +683,21 @@ div.navbarcollapse {
 /* ////////////////////////////////////////// */
 /* /////////////////////CITY/////////////////// */
 
+.citybody {
+  height: fit-content !important;
+  display: flex;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  height: 65vh !important;
+}
+
 .portadacities {
   display: flex !important;
   flex-direction: column !important;
-
 }
 
 .portadacity img {
+  margin: 2rem !important;
   width: 50% !important;
   height: 40vh !important;
   border-radius: 15px;
@@ -702,7 +710,10 @@ div.navbarcollapse {
   border-radius: 10px;
   padding: 0.5rem;
   color: antiquewhite;
-  background-color: blue;
-  border: solid 1px red;
+  background-color: rgba(255, 136, 0, 0.486);
+  border: solid 1px rgba(255, 0, 0, 0.205);
+}
+.backtocitiesdic {
+  margin: 1rem !important;
 }
 
