@@ -72,15 +72,27 @@ body {
   height: 3000px;
 } */
 
-.logoperson {
-  height: 2rem;
-  /* vertical-align: middle; */
-  width: 2.5rem;
-}
-
 .logopersona {
   display: flex;
   align-self: flex-end !important;
+  /* margin: 1rem; */
+}
+svg.logoperson {
+  height: 2.7rem !important;
+  width: 2.7rem !important;
+
+}
+
+a.dropdown-toggle.nav-link {
+    margin-right: 2rem !important;
+}
+
+a.dropdown-toggle.nav-link::after {
+display: none !important ;}
+
+div.dropdown-menu.show {
+  background-color:rgba(0, 0, 0, 0);
+  margin-right: 2rem !important ;
 }
 
 .herowelcome {
@@ -216,12 +228,16 @@ body {
 
 .logindiv {
   justify-self: flex-end !important;
+  margin: 1rem;
 }
 
 .navheader {
   display: flex !important;
+  margin:2rem;
+  font-size: x-large !important;
   /* flex-direction: row !important; */
 }
+
 
 .contenedorcallto {
   display: flex !important;
@@ -465,7 +481,9 @@ body {
   width: 75vw;
 }
 
-
+div.navbarcollapse {
+  background-color: rgba(95, 158, 160, 0.842) !important;
+}
 
 .navfooter {
   /* display: none !important; */

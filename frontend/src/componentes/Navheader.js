@@ -22,11 +22,13 @@ export default function Navheader(){
               <Nav className="navheader">
                   <Nav.Link as={Link} to='/'>Home</Nav.Link>
                   <Nav.Link as={Link} to='/cities'>Cities</Nav.Link >
-                  <NavDropdown className="logopersona logindiv" title={logopersona}>
+              </Nav>
+                  <div>
+                  <NavDropdown className="logopersona" title={logopersona}>
                   <NavDropdown.Item className="sign" href="#products/login">Log-In</NavDropdown.Item>
                   <NavDropdown.Item className="sign" href="#products/signup">Sign-up</NavDropdown.Item>
                   </NavDropdown>
-              </Nav>
+                  </div>
               </Navbar.Collapse>
           </Navbar>
         </div>
