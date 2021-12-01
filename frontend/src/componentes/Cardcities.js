@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {Card} from 'react-bootstrap';
+import ErrorSearch from './ErrorSearch'
 // import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 
@@ -12,17 +13,15 @@ export default function Cardcities (props) {
     // const navegar = useNavigate('/Cities')
     const filtrar = () => {
         
-        const jsx = <h2>busqueda sin resultados</h2>
-        let renderizar = jsx
+        const sinResultados = <ErrorSearch/>
+        let renderizar = sinResultados
        const filt =  props.arrayCities.filter(   
             (city) =>{    
                 if(filtrado === ''){
                     return city
                 } else if (city.nombreCiudad.toLowerCase().trim().startsWith(filtrado.toLowerCase().trim()) || city.pais.toLowerCase().trim().startsWith(filtrado.toLowerCase().trim())){
                     return city
-                } else {
-                    <h1>busquedos sin resulteda</h1>
-                }
+                } 
                 
              })
              if (filt.length > 0 ){
@@ -50,8 +49,7 @@ export default function Cardcities (props) {
                 <div className="divCitiesSearch">
                 <input className="citiesSearch" placeholder="Search Cities :)" type={Text} onChange={(evento)=>setFiltrado(evento.target.value)}/>
                 </div>
-              
-                {filtrar()}
+                {filtrar()}           
               
        </>
        )
