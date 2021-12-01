@@ -4,11 +4,10 @@ const mongoose = require('mongoose');
 const CitySchema = new mongoose.Schema({
     nombreCiudad:{type: String, required: true},
     pais:{type: String, required: true},
-    imagenCiudad:{type: String},
-    itineraries:{type:[{type: mongoose.Types.ObjectId, ref:'itinerary'}]}
+    imagenCiudad:{type: String}
 })
 
 // const Producto = mongoose.model('NombreModelo', Schema)
-const City = mongoose.model('City', CitySchema)
+const City = mongoose.model('city', CitySchema)
 
 module.exports = City;

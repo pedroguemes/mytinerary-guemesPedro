@@ -2,16 +2,16 @@ const Itinerary = require('../models/itinerario')
 
 const itinerariesControllers = {
   obtenerItineraries:(req,res) => {
-    Itinerary.find()
+    Itinerary.find().populate('cities')
     .then((itineraries)=> res.json({itineraries}))
   },  
   cargarItinerary: (req,res)=>{
-        const {nombreItinerary, imagenItinerary} = req.body
-         new City({nombreItinerary, imagenItinerary}).save()
+        const {nombreItinerary, imagenItinerary, publisher, price, duration, likes, comments, cities} = req.body
+         new Itinerary({nombreItinerary, imagenItinerary, publisher, price, duration, likes, comments, cities}).save()
           .then((resp) => res.json({resp}))         
         },
    obtenerItinerary:(req,res) => {
-       Itinerary.findOne({_id : (req.params.id)})
+       Itinerary.findOne({_id : (req.params.id)}).populate('cities')
         .then((itinerary)=> res.json({itinerary}))
       },
     
