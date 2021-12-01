@@ -21,8 +21,9 @@ Router.route('/cities/:id')
 .put(modificarCity)
 .delete(borrarCity)
 
-Router.route('/itineraries')
+Router.route('/cities/:id/itineraries')
 .get(obtenerItineraries)
 .post(cargarItinerary)
+.delete(borrarItinerary)
 
 module.exports = Router

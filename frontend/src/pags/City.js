@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Navheader from '../componentes/Navheader';
-// import Footer from '../componentes/Footer';
+import Footer from '../componentes/Footer';
 // import imagen from '../assets/logocall.png';
 import {Link} from 'react-router-dom'
+import Itinerario from '../componentes/Itinerario';
 // import { withRouter } from '../utils/routes/withRouter';
 
 
@@ -45,7 +46,8 @@ class City extends React.Component {
                         <h2>{this.state.city.pais}</h2>
                      </div>
                         <div>
-                          <h4>Sorry, site under mantaineance</h4>
+                          <Itinerario/>
+                          <Itinerario/>
                         </div>
                      <div className="backtocitiesdiv">
                         <Link className='backtocities' to={'/cities'}>Back to Cities</Link>

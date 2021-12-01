@@ -49,8 +49,7 @@ export default function Cardcities (props) {
                 <div className="divCitiesSearch">
                 <input className="citiesSearch" placeholder="Search Cities :)" type={Text} onChange={(evento)=>setFiltrado(evento.target.value)}/>
                 </div>
-                {filtrar()}           
-              
+                {filtrar()}                  
        </>
        )
     }

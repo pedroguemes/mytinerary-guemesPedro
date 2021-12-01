@@ -8,7 +8,7 @@ function ErrorSearch (){
         return (      
             
                     <Alert className='alertaSearch text-light' variant="secondary">
-                    <Alert.Heading>Sorry, no results found.</Alert.Heading>
+                    <Alert.Heading>No results found.</Alert.Heading>
                     <p>
                        try something else.
                     </p>
