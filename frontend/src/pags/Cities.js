@@ -3,7 +3,7 @@ import axios from 'axios';
 import Navheader from '../componentes/Navheader';
 import Cardcities from '../componentes/Cardcities';
 import Footer from '../componentes/Footer';
-import imagen from '../assets/logosecundario.png'
+import imagen from '../assets/logosecundario.png';
 
  class Cities extends Component {
 

@@ -4,9 +4,10 @@ const mongoose = require('mongoose');
 const ItinerarySchema = new mongoose.Schema({
     nombreItinerary:{type: String, required: true},
     imagenItinerario:{type: String},
+
 })
 
 // const Producto = mongoose.model('NombreModelo', Schema)
-const Itinerary = mongoose.model('Itinerary', ItineraryySchema)
+const Itinerary = mongoose.model('Itinerary', ItinerarySchema)
 
-module.exports = City;
+module.exports = Itinerary;
