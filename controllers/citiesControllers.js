@@ -2,7 +2,7 @@ const City = require('../models/Ciudad')
 
 const citiesControllers = {
   obtenerCities:(req,res) => {
-    City.find().populate('itineraries')
+    City.find()
     .then((cities)=> res.json({cities}))
   },
       obtenerCity:(req,res) => {

@@ -2,14 +2,15 @@ const mongoose = require('mongoose');
 
 // const productoSchema = new mongoose.Schema({
 const ItinerarySchema = new mongoose.Schema({
+    cities:[{type:mongoose.Types.ObjectId, ref: "city", required: true}],
     nombreItinerary:{type: String, required: true},
     imagenItinerario:{type: String},
-    publisher:{type: string, required: true},
-    price:{type: number, required: true, min:1, max: 5 },
-    duration:{type: number, required: true},
-    likes:{type:number, default: 0},
-    comments:{type:string},
-    cities:[{type:mongoose.Types.ObjectId, ref: "city", required: true}]
+    user:{type: String, required: true},
+    price:{type: Number, required: true, min:1, max: 5 },
+    duration:{type: Number, required: true},
+    likes:{type:Number, default: 0},
+    hashtags:{type:String, required:true},
+    comments:{type:String},
 })
 
 // const Producto = mongoose.model('NombreModelo', Schema)

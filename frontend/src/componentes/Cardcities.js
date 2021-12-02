@@ -1,72 +1,68 @@
-import React, {useState} from "react";
-import {Card} from 'react-bootstrap';
-import ErrorSearch from './ErrorSearch'
+import React, { useState, useEffect } from "react";
+import { Card } from "react-bootstrap";
+import ErrorSearch from "./ErrorSearch";
 // import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 
+export default function Cardcities(props) {
+    const [cities, setCities] = useState([]);
 
-export default function Cardcities (props) {
+    useEffect(() => {
+        setCities(props.arrayCities);
+    }, []);
 
-        
-    // console.log(props.arraycities[0])
-    // console.log(props.arraycities.imagenCiudad)
-    // const navegar = useNavigate('/Cities')
-    const filtrar = () => {
-        
-        const sinResultados = <ErrorSearch/>
-        let renderizar = sinResultados
-       const filt =  props.arrayCities.filter(   
-            (city) =>{    
-                if(filtrado === ''){
-                    return city
-                } else if (city.nombreCiudad.toLowerCase().trim().startsWith(filtrado.toLowerCase().trim()) || city.pais.toLowerCase().trim().startsWith(filtrado.toLowerCase().trim())){
-                    return city
-                } 
-                
-             })
-             if (filt.length > 0 ){
-             renderizar =  filt.map((city)=>(
-                        
-                    <Card as={Link} to={`/cities/${city._id}`} className="cardcities">
-                            <Card.Img
-                                 variant="top"
-                                 className="imagencard" variant="top"
-                                 src={city.imagenCiudad}/>
-                         <Card.Body>
-                         <Card.Title>{city.nombreCiudad}</Card.Title>
-                         <Card.Title>{city.pais}</Card.Title>
-                         </Card.Body>
-                     </Card>))
-             }
-             return renderizar
-    }
+    const filterCities = (filterBy) => {
+        if (filterBy === '') {
+            setCities(props.arrayCities);
+        } else {
+            const filteredCities = props.arrayCities.filter(
+                (city) =>
+                    city.nombreCiudad
+                        .toLowerCase()
+                        .trim()
+                        .startsWith(filterBy.toLowerCase().trim()) ||
+                    city.pais
+                        .toLowerCase()
+                        .trim()
+                        .startsWith(filterBy.toLowerCase().trim())
+            );
 
-    // const [state, setState] = useState(false)
-    const [filtrado, setFiltrado] = useState('')
+            setCities(filteredCities);
+        }
+    };
 
     return (
-        <>      
-                <div className="divCitiesSearch">
-                <input className="citiesSearch" placeholder="Search Cities :)" type={Text} onChange={(evento)=>setFiltrado(evento.target.value)}/>
-                </div>
-                {filtrar()}                  
-       </>
-       )
-    }
-    
-
-    
-{/* //     {props.arraycities.map(   
-//         (city) => (    
-// <Card onClick={()=>setState(!state)} className="cardcities">
-//         <Card.Img
-//             variant="top"
-//             className="imagencard" variant="top"
-//             src={city.imagenCiudad}/>
-//     <Card.Body>
-//     <Card.Title>{city.nombreCiudad}</Card.Title>
-//     <Card.Title>{city.pais}</Card.Title>
-//     </Card.Body>
-// </Card>
-
-//      ) )}  */}
+        <>
+            <div className="divCitiesSearch">
+                <input
+                    className="citiesSearch"
+                    placeholder="Search Cities :)"
+                    // type={Text}
+                    onChange={(evento) => filterCities(evento.target.value)}
+                />
+            </div>
+            {cities.length === 0 ? (
+                <ErrorSearch />
+            ) : (
+                cities.map((city) => (
+                    <Card
+                        as={Link}
+                        to={`/cities/${city._id}`}
+                        className="cardcities"
+                    >
+                        <Card.Img
+                            variant="top"
+                            className="imagencard"
+                            variant="top"
+                            src={city.imagenCiudad}
+                        />
+                        <Card.Body>
+                            <Card.Title>{city.nombreCiudad}</Card.Title>
+                            <Card.Title>{city.pais}</Card.Title>
+                        </Card.Body>
+                    </Card>
+                ))
+            )}
+        </>
+    );
+}

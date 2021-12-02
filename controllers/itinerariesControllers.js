@@ -6,8 +6,8 @@ const itinerariesControllers = {
     .then((itineraries)=> res.json({itineraries}))
   },  
   cargarItinerary: (req,res)=>{
-        const {nombreItinerary, imagenItinerary, publisher, price, duration, likes, comments, cities} = req.body
-         new Itinerary({nombreItinerary, imagenItinerary, publisher, price, duration, likes, comments, cities}).save()
+        const {nombreItinerary, imagenItinerary, user, price, duration, likes, hashtags, comments, cities} = req.body
+         new Itinerary({nombreItinerary, imagenItinerary, user, price, duration, likes, hashtags, comments, cities}).save()
           .then((resp) => res.json({resp}))         
         },
    obtenerItinerary:(req,res) => {
