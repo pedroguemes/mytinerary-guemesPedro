@@ -6,7 +6,7 @@ const citiesControllers = require('../controllers/citiesControllers');
 const{obtenerCities, obtenerCity, modificarCity, cargarCity, borrarCity} = citiesControllers
 
 const itinerariesControllers = require('../controllers/itinerariesControllers')
-const { obtenerItineraries, modificarItinerary, cargarItinerary, borrarItinerary } = itinerariesControllers
+const { obtenerItineraries, modificarItinerary, cargarItinerary, borrarItinerary, obtenerItinerary } = itinerariesControllers
 
 
 
@@ -21,9 +21,13 @@ Router.route('/cities/:id')
 .put(modificarCity)
 .delete(borrarCity)
 
-Router.route('/cities/:id/itineraries')
-.get(obtenerItineraries)
+Router.route('/itineraries')
 .post(cargarItinerary)
+.get(obtenerItineraries)
+
+Router.route('/itineraries/:id')
+.put(modificarItinerary)
 .delete(borrarItinerary)
+.get(obtenerItinerary)
 
 module.exports = Router

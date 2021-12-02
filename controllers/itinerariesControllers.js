@@ -2,33 +2,33 @@ const Itinerary = require('../models/itinerario')
 
 const itinerariesControllers = {
   obtenerItineraries:(req,res) => {
-    Itinerary.find().populate('cities')
+    Itinerary.find().populate('city')
     .then((itineraries)=> res.json({itineraries}))
   },  
   cargarItinerary: (req,res)=>{
-        const {nombreItinerary, imagenItinerary, user, price, duration, likes, hashtags, comments, cities} = req.body
-         new Itinerary({nombreItinerary, imagenItinerary, user, price, duration, likes, hashtags, comments, cities}).save()
+        const bodyItinerary= req.body
+         new Itinerary(bodyItinerary).save().populate('city')
           .then((resp) => res.json({resp}))         
         },
    obtenerItinerary:(req,res) => {
-       Itinerary.findOne({_id : (req.params.id)}).populate('cities')
+       Itinerary.findOne({_id : (req.params.id)}).populate('city')
         .then((itinerary)=> res.json({itinerary}))
       },
     
-        modificarItineraryy: async (req,res)=>{
+        modificarItinerary: async (req,res)=>{
           const bodyItinerary = req.body
           let modifyItinerary 
           try {
-            modifyItinerary = await City.findOneAndUpdate({_id : req.params.id},bodyItinerary,{ new: true})
+            modifyItinerary = await Itinerary.findOneAndUpdate({_id : req.params.id},bodyItinerary,{ new: true})
           } catch (error) {
           }
           res.json({success: modifyItinerary ? true : false });
         },
         borrarItinerary: async (req,res)=>{
-          let Itinerary
+          let itinerary
           const id = req.params.id
           try{
-            city = await Itinerary.findOneAndDelete({
+            itinerary = await Itinerary.findOneAndDelete({
               _id:id})}catch(error) {
               console.log(error)
             }
