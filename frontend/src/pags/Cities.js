@@ -1,26 +1,27 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, { Component, useEffect } from 'react';
+// import axios from 'axios';
 import Navheader from '../componentes/Navheader';
 import Cardcities from '../componentes/Cardcities';
 import Footer from '../componentes/Footer';
 import Loader from '../componentes/Loader'
 import imagen from '../assets/logosecundario.png';
 import ErrorSearch from '../componentes/ErrorSearch';
+import { connect } from 'react-redux';
+import citiesActions from '../redux/actions/citiesActions';
+
 
  class Cities extends Component {
 
      constructor (props){
          super (props);
-         this.state = {
-            }
     };
-    
-    
-    componentDidMount() {
-        axios.get('http://localhost:4000/api/cities')
-        .then(res => this.setState({arrayCities:res.data.cities}))
+  
+
+     // componentDidMount() {
+    //     axios.get('http://localhost:4000/api/cities')
+    //     .then(res => this.setState({arrayCities:res.data.cities}))
         // .then(res => console.log(res.data))
-    }
+    // }
         // fetch('http://localhost:4000/api/mytinerary/cities')
         // .then(res=>res.json())
         // .then(cities=>this.setState({arraycities:cities.Response.cities}))
@@ -28,9 +29,8 @@ import ErrorSearch from '../componentes/ErrorSearch';
         
 
 
-    render(){
+    render() {
         
-        // console.log(this.state)
         return (
             <>
                 <Navheader/>
@@ -41,11 +41,22 @@ import ErrorSearch from '../componentes/ErrorSearch';
                             <input className="citiesSearch" placeholder="Search Cities :)" type={Text}/>
                          </label> */}
                     </div>
-                    {this.state.arrayCities ? <Cardcities arrayCities={this.state.arrayCities}/> : <Loader/> }
+                    {this.state.arrayCities ? <Cardcities arrayCities={this.props.cities}/> : <Loader/> }
                 </div>
                 <Footer/>
             </>
     )
  }
 }
-export default Cities
+
+const mapStateToProps = state => {
+    return {
+        cities: state.initialState.cities
+    }
+}
+
+const mapDispatchToProps = {
+    getCities: citiesActions.getCities
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cities)

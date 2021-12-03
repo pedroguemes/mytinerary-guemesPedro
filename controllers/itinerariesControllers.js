@@ -7,7 +7,7 @@ const itinerariesControllers = {
   },  
   cargarItinerary: (req,res)=>{
         const bodyItinerary= req.body
-         new Itinerary(bodyItinerary).save().populate('city')
+         new Itinerary(bodyItinerary).save()
           .then((resp) => res.json({resp}))         
         },
    obtenerItinerary:(req,res) => {
@@ -33,7 +33,12 @@ const itinerariesControllers = {
               console.log(error)
             }
             res.json({response:itinerary,success:true})
-          }
+          },
+
+          obtenerItineraryPorCity:(req,res) => {
+            Itinerary.find({city : (req.params.id)}).populate('city')
+             .then((itinerary)=> res.json({itinerary}))
+           }
         }
 
 
