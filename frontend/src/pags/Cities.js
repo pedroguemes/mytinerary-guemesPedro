@@ -44,7 +44,7 @@ import citiesActions from '../redux/actions/citiesActions';
                     <Cardcities/>
                 </div>
                 <Footer/>
-            </>
+            </>                         
     )
  }
 }
