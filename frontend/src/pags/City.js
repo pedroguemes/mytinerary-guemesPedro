@@ -5,47 +5,54 @@ import Footer from "../componentes/Footer";
 // import imagen from '../assets/logocall.png';
 import { Link } from "react-router-dom";
 import Itinerario from "../componentes/Itinerario";
+import { connect } from 'react-redux';
+import citiesActions from '../redux/actions/citiesActions';
 // import { withRouter } from '../utils/routes/withRouter';
 
 class City extends React.Component {
+  
   constructor(props) {
+    
     super(props);
-    this.state = {
-      city: { _id: 0 },
-    };
+    
+    // const {itineraries, getItineraries} = this.props
   }
-
+  
   // endpoint = this.props.params.endpoint
   // id = this.props.params.id
-
+  
+  id = this.props.params.id;
+  
   componentDidMount() {
-    // const id = window.location.href.split("/").pop()
-    const id = this.props.params.id;
+    
+    const  {getCity} = this.props
+    getCity(this.id)
     // console.log(this.props.params);
     // console.log(window.location.href);
     // console.log(id);
+    
+    // this.props.getItineraries()
+    // console.log(this.props.itineraries)
 
-    axios
-      .get(`http://localhost:4000/api/cities/${id}`)
-      .then((res) => this.setState({ city: res.data.city }));
+    // axios
+    //   .get(`http://localhost:4000/api/cities/${id}`)
+    //   .then((res) => this.setState({ city: res.data.city }));
     // .then(res =>console.log({city:res.data.city}))
   }
-
+  
   render() {
-    // console.log(this.state);
+    console.log(this.props);
     return (
       <>
         <Navheader />
         <div className="citybody">
           <div className="portadacity">
-            <img src={this.state.city.imagenCiudad} alt={"imagen city"} />
-            <h2>{this.state.city.nombreCiudad}</h2>
-            <h2>{this.state.city.pais}</h2>
+            <img src={this.props.city.imagenCiudad} alt={"imagen city"} />
+            <h2>{this.props.city.nombreCiudad}</h2>
+            <h2>{this.props.city.pais}</h2>
           </div>
           <div>
-            <Itinerario />
-            <Itinerario />
-            <Itinerario />
+            <Itinerario idCity={this.id}/>
           </div>
           <div className="backtocitiesdiv">
             <Link className="backtocities" to={"/cities"}>
@@ -59,4 +66,14 @@ class City extends React.Component {
   }
 }
 
-export default City;
+const mapStateToProps = state => {
+    return {
+        city: state.citiesReducer.city
+    }
+}
+
+const mapDispatchToProps = {
+    getCity: citiesActions.getCity
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(City)

@@ -3,52 +3,58 @@ import { Card } from "react-bootstrap";
 import ErrorSearch from "./ErrorSearch";
 // import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
+import { connect } from 'react-redux';
+import citiesActions from '../redux/actions/citiesActions';
+import FilterCities from './FilterCities'
 
-export default function Cardcities(props) {
-    const [cities, setCities] = useState([]);
+ function Cardcities(props) {
+     
+    const [isLoad, setLoad] = useState(true);
+    
+    const {cities, getCities, citiesAuxiliar} = props
 
-    useEffect(() => {
-        setCities(props.arrayCities);
-    }, []);
+    console.log(cities)
 
-    const filterCities = (filterBy) => {
-        if (filterBy === '') {
-            setCities(props.arrayCities);
-        } else {
-            const filteredCities = props.arrayCities.filter(
-                (city) =>
-                    city.nombreCiudad
-                        .toLowerCase()
-                        .trim()
-                        .startsWith(filterBy.toLowerCase().trim()) ||
-                    city.pais
-                        .toLowerCase()
-                        .trim()
-                        .startsWith(filterBy.toLowerCase().trim())
-            );
+    useEffect(()=>getCities(),[]);
 
-            setCities(filteredCities);
-        }
-    };
+    // const filterCities = (filterBy) => {
+    //     if (filterBy === '') {
+    //        cities = cities;
+    //     } else {
+    //         const filteredCities = cities.filter(
+    //             (city) =>
+    //                 city.nombreCiudad
+    //                     .toLowerCase()
+    //                     .trim()
+    //                     .startsWith(filterBy.toLowerCase().trim()) ||
+    //                 city.pais
+    //                     .toLowerCase()
+    //                     .trim()
+    //                     .startsWith(filterBy.toLowerCase().trim())
+    //         );
+    //             cities = filteredCities
+    //     }
+    // };
 
     return (
         <>
-            <div className="divCitiesSearch">
+            {/* <div className="divCitiesSearch">
                 <input
                     className="citiesSearch"
                     placeholder="Search Cities :)"
                     // type={Text}
                     onChange={(evento) => filterCities(evento.target.value)}
                 />
-            </div>
-            {cities.length === 0 ? (
-                <ErrorSearch />
-            ) : (
-                cities.map((city) => (
+            </div> */}
+            <FilterCities cities={citiesAuxiliar} filtro={props.filterCities}/>
+
+            {  cities.length === 0 ? (
+                    <ErrorSearch />
+                ) : (cities.map((city) => (
                     <Card
-                        as={Link}
-                        to={`/cities/${city._id}`}
-                        className="cardcities"
+                    as={Link}
+                    to={`/cities/${city._id}`}
+                    className="cardcities"
                     >
                         <Card.Img
                             variant="top"
@@ -61,8 +67,21 @@ export default function Cardcities(props) {
                             <Card.Title>{city.pais}</Card.Title>
                         </Card.Body>
                     </Card>
-                ))
-            )}
+                )))}
         </>
     );
 }
+
+const mapStateToProps = state => {
+    return {
+        cities: state.citiesReducer.cities,
+        citiesAuxiliar: state.citiesReducer.auxiliar
+    }
+}
+
+const mapDispatchToProps = {
+    getCities: citiesActions.getCities,
+   filterCities: citiesActions.filterCities
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cardcities);

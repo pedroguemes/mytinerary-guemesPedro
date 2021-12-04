@@ -9,14 +9,14 @@ import thunk from 'redux-thunk';
 import mainReducer from './redux/reducers/mainReducer'
 
 
-const store = createStore(mainReducer, applyMiddleware(thunk)) 
+const globalStore = createStore(mainReducer, applyMiddleware(thunk)) 
 
 
 
 ReactDOM.render(
 
   <React.StrictMode>
-      <Provider store={store}>
+      <Provider store={globalStore}>
         <App />
       </Provider>
   </React.StrictMode>,

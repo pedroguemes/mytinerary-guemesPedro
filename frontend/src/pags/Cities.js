@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import citiesActions from '../redux/actions/citiesActions';
 
 
- class Cities extends Component {
+ export default class Cities extends Component {
 
      constructor (props){
          super (props);
@@ -41,7 +41,7 @@ import citiesActions from '../redux/actions/citiesActions';
                             <input className="citiesSearch" placeholder="Search Cities :)" type={Text}/>
                          </label> */}
                     </div>
-                    {this.state.arrayCities ? <Cardcities arrayCities={this.props.cities}/> : <Loader/> }
+                    <Cardcities/>
                 </div>
                 <Footer/>
             </>
@@ -49,14 +49,3 @@ import citiesActions from '../redux/actions/citiesActions';
  }
 }
 
-const mapStateToProps = state => {
-    return {
-        cities: state.initialState.cities
-    }
-}
-
-const mapDispatchToProps = {
-    getCities: citiesActions.getCities
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Cities)

@@ -1,34 +1,61 @@
-import React from "react";
+import React, { useEffect } from "react";
 // import {Card, Button} from 'react-bootstrap'
 import imagen from "../assets/dubai2.jfif";
+import { connect } from 'react-redux';
+import itinerariesActions from '../redux/actions/itinerariesActions';
 
-function Itinerario() {
+function Itinerario(props) {
+  
+  // const id = window.location.href.split("/").pop()
+  const  {getItineraries, idCity,  itineraries} = props
+  
+  console.log(props)
+
+  useEffect(()=>{
+    getItineraries(idCity)
+  },[])
+
   return (
-    
-      <div className="itinerarioContainer">
-        <img src={imagen} className="imagenItinerario" alt="imagenItinerario" />
+        // <h2>itineraries</h2>
+    itineraries.map((itinerary) =>(
+    <div className="itinerarioContainer">
+        <img src={itinerary.imagenItinerario} className="imagenItinerario" alt="imagenItinerario" />
         <div className='infoItinerario'>
           <div className="tituloItinerario">
-            <h1>Titulo</h1>
+            <h1>{itinerary.nombreItinerary}</h1>
           </div>
           <div className="infoUser">
             <img className="imagenRedondaUser" src={imagen} alt="imagenUser" />
-            <h2> author : nombre iuser</h2>
+            <h2> author : {itinerary.user}</h2>
           </div>
           <div className="descripcion">
             <p>Descripcion</p>
           </div>
           <div className='infoinfo'>
-            <p>Duracion</p>
-            <p>precio</p>
-            <p>likes</p>
+            <p>{itinerary.duration}</p>
+            <p>{itinerary.price}</p>
+            <p>{itinerary.likes}</p>
           </div>
         </div>
-      </div>
+      </div>))
     
   );
+
 }
-export default Itinerario;
+
+
+
+const mapStateToProps = state => {
+  return {
+      itineraries: state.itinerariesReducer.itineraries
+  }
+}
+
+const mapDispatchToProps = {
+  getItineraries: itinerariesActions.getItineraries
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Itinerario)
 
 //  <div className="itinerarioContainer">
 //     <Card>
