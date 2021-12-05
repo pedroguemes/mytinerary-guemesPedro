@@ -25,7 +25,7 @@ function Itinerario(props) {
                             <img alt="imagenItinerary" className="imagenItinerary" src={itinerary.imagenItinerario}/>
                             <div className="infoDerecha">
                                   <div className="imagenYnombre">
-                                          <h2>Author: {itinerary.userName}</h2>                
+                                          <h2>{itinerary.userName}</h2>                
                                         <img  className="imagenUser" alt="imagenUser" src={itinerary.imagenUser}/>
                                   </div>
                                   <div className="itineraryDescription">
