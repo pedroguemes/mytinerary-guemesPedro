@@ -13,7 +13,7 @@ const citiesActions = {
          let response =  await  axios.get(`http://localhost:4000/api/cities/${id}`)
          
          dispatch({type:"Get_city", payload:response.data.city})
-        }
+        }  
       },
       filterCities: (cities, inputValue) => {       
         return (dispatch, getState) => {        

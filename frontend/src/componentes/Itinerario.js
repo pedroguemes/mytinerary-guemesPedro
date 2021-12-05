@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-// import {Card, Button} from 'react-bootstrap'
-import imagen from "../assets/dubai2.jfif";
+import {Card, Accordion} from 'react-bootstrap'
+import {AiTwotoneLike} from 'react-icons/ai'
 import { connect } from 'react-redux';
 import itinerariesActions from '../redux/actions/itinerariesActions';
 
@@ -14,36 +14,54 @@ function Itinerario(props) {
   useEffect(()=>{
     getItineraries(idCity)
   },[])
-
   return (
-        // <h2>itineraries</h2>
-    itineraries.map((itinerary) =>(
-    <div className="itinerarioContainer">
-        <img src={itinerary.imagenItinerario} className="imagenItinerario" alt="imagenItinerario" />
-        <div className='infoItinerario'>
-          <div className="tituloItinerario">
-            <h1>{itinerary.nombreItinerary}</h1>
-          </div>
-          <div className="infoUser">
-            <img className="imagenRedondaUser" src={imagen} alt="imagenUser" />
-            <h2> author : {itinerary.user}</h2>
-          </div>
-          <div className="descripcion">
-            <p>Descripcion</p>
-          </div>
-          <div className='infoinfo'>
-            <p>{itinerary.duration}</p>
-            <p>{itinerary.price}</p>
-            <p>{itinerary.likes}</p>
-          </div>
-        </div>
-      </div>))
-    
-  );
-
+        itineraries.map((itinerary) =>(
+          <>
+            <div className="containerItinerary">
+                    <div className="tituloItinerary">
+                         <h1>{itinerary.nombreItinerary}</h1>
+                    </div>
+                    <div className="contenedorimageninfo">
+                            <img alt="imagenItinerary" className="imagenItinerary" src={itinerary.imagenItinerario}/>
+                            <div className="infoDerecha">
+                                  <div className="imagenYnombre">
+                                          <h2>Author: {itinerary.userName}</h2>                
+                                        <img  className="imagenUser" alt="imagenUser" src={itinerary.imagenUser}/>
+                                  </div>
+                                  <div className="itineraryDescription">
+                                    <p>{itinerary.description}</p>
+                                  </div>
+                                    <div className="aboutItinerary">
+                                          <p>Duration: {itinerary.duration}</p>
+                                          <p>Price: {itinerary.price}</p>
+                                          <p><img src={AiTwotoneLike}/>
+                                          {itinerary.likes}</p>
+                                    </div>
+                            </div>
+                    </div>
+                    <div  >
+                    <Accordion className="viewMore" defaultActiveKey="0">
+                        <Accordion.Item bg="myviewMore" eventKey="1">
+                          <Accordion.Header >View more</Accordion.Header>
+                          <Accordion.Body>
+                         <div className="viewMoreContenido">
+                              <div className="actividadesItinerary">
+                                <h1> ( activitiesUnder construction)</h1>
+                              </div>
+                              <div className="comentariosItinerary">
+                                <h1>(Comments under construction)</h1>
+                              </div>
+                         </div>
+                          </Accordion.Body>
+                        </Accordion.Item>
+                      </Accordion>
+                    </div>
+            </div>
+          </>
+        )
+      )
+  )
 }
-
-
 
 const mapStateToProps = state => {
   return {
@@ -57,15 +75,4 @@ const mapDispatchToProps = {
 
 export default connect(mapStateToProps, mapDispatchToProps)(Itinerario)
 
-//  <div className="itinerarioContainer">
-//     <Card>
-//         <Card.Header>Walking Buenos Aires</Card.Header>
-//         <Card.Body>
-//             <Card.Title>Special title treatment</Card.Title>
-//             <Card.Text>
-//             With supporting text below as a natural lead-in to additional content.
-//             </Card.Text>
-//             <Button variant="primary"></Button>
-//         </Card.Body>
-//     </Card>
-//  </div>
+

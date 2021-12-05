@@ -8,8 +8,6 @@ import citiesActions from '../redux/actions/citiesActions';
 import FilterCities from './FilterCities'
 
  function Cardcities(props) {
-     
-    const [isLoad, setLoad] = useState(true);
     
     const {cities, getCities, citiesAuxiliar} = props
 
@@ -38,14 +36,6 @@ import FilterCities from './FilterCities'
 
     return (
         <>
-            {/* <div className="divCitiesSearch">
-                <input
-                    className="citiesSearch"
-                    placeholder="Search Cities :)"
-                    // type={Text}
-                    onChange={(evento) => filterCities(evento.target.value)}
-                />
-            </div> */}
             <FilterCities cities={citiesAuxiliar} filtro={props.filterCities}/>
 
             {  cities.length === 0 ? (

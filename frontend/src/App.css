@@ -747,6 +747,10 @@ div.navbarcollapse {
   background-repeat: no-repeat;
 }
 
+.portadacities {
+  display: flex !important;
+  flex-direction: column !important;
+}
 .portadacities img {
   padding: 2rem;
   margin: 2rem;
@@ -811,31 +815,7 @@ div.navbarcollapse {
   width: 100%;
 } */
 
-.portadacities {
-  display: flex !important;
-  flex-direction: column !important;
-}
 
-.portadacity img {
-  margin: 2rem !important;
-  width: 50% !important;
-  height: 40vh !important;
-  border-radius: 15px;
-}
-
-.backtocities {
-  margin-top: 1rem !important;
-  z-index: 1 !important;
-  text-decoration: none !important;
-  border-radius: 10px;
-  padding: 0.5rem;
-  color: antiquewhite;
-  background-color: rgba(255, 136, 0, 0.486);
-  border: solid 1px rgba(255, 0, 0, 0.205);
-}
-.backtocitiesdic {
-  margin: 1rem !important;
-}
 
 .alertaSearch {
   border-radius: 12px !important;
@@ -853,79 +833,182 @@ div.navbarcollapse {
 //////////////////          /////////////////////////////// 
 /////////////////////////////////////////////////// */
 
-.itinerarioContainer {
+
+
+
+.backtocities {
+  margin-top: 1rem !important;
+  z-index: 1 !important;
+  text-decoration: none !important;
+  border-radius: 10px;
+  padding: 0.5rem;
+  color: antiquewhite;
+  background-color: rgba(255, 136, 0, 0.486);
+  border: solid 1px rgba(255, 0, 0, 0.205);
+}
+.backtocitiesdic {
+  margin: 1rem !important;
+}
+
+.citybody {
+  border-top: solid 0.5px rgba(0, 0, 0, 0.418);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  width: 100% !important;
+}
+
+.portadacity{
+  background-color: rgba(100, 148, 237, 0.267);
   border-radius: 15px;
   margin: 3rem;
-  width: 90%; 
-  align-self: center;
-  background-color: rgb(129, 31, 31);
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 70%;
 }
 
-.tituloItinerario {
-  background-color: red;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.5rem;
-  height: 25%;
-  margin: 2rem;
+.portadacity img {
+  /* margin: 2rem !important; */
+  width: 50% !important;
+  border-radius: 15px;
+}
+
+.containerTituloPortada {
+  width: 50%;
+}
+
+.portadacity h2 {
+  font-size: xx-large;
+  background-color: rgba(255, 0, 0, 0);
+  /* padding: 1rem;
+  padding-left: 5rem; */
+  /* width: 50%; */
   font-weight: bold;
-  border-radius: 15px;
+  letter-spacing: 0.6rem;
 }
 
-.imagenItinerario {
-  align-self: center;
-  border-radius: 15px;
-  /* padding: 1rem; */
-  /* margin: 1rem; */
-  height: 100%;
-  background-color: rgb(200, 25, 157);
-}
 
-.infoUser {
-  background-color: rgba(58, 58, 165, 0.534);
-  height: 20%;
+.containerItinerary{
+  justify-self: center !important;
+  width: 70%;
+  margin: 1rem;
+  background-color: rgba(189, 111, 66, 0.473);
   display: flex;
-  justify-content: right;
+  flex-direction: column;
+  border-radius: 15px;
+  border: solid 0.5px lightblue !important;
+}
+
+.tituloItinerary {
+  border-radius: 15px 15px 0 0;
+  background-color: rgba(231, 173, 48, 0.301);
+}
+
+.tituloItinerary h1 {
+  text-shadow: -1px 0 rgba(0, 0, 0,rgba(0, 0, 0, 0.993)1), 0 1px rgba(0, 0, 0, 0.781), 1px 0 rgba(0, 0, 0, 0.801), 0 -1px rgba(0, 0, 0, 0.781);
+  color: rgba(245, 245, 245, 0.753);
+  letter-spacing: 2px;
+  padding: 1rem;
+  font-weight: bold;
+}
+
+.contenedorimageninfo {
+  /* justify-content: space-evenly; */
+  display: flex !important;
+  flex-direction: row !important;
+  height: 100%;
+  justify-content: space-around;
+}
+
+.imagenYnombre {
+  display: flex;
+  flex-direction: row;
   align-items: center;
 }
 
-.infoUser h2 {
-  background-color: beige;
+.imagenItinerary {
+  width: 50%;
   padding: 1rem;
+  border-radius: 20px;
+}
+
+.infoDerecha {
+  width: 50%;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center;
+  background-color: rgba(177, 107, 15, 0);
+  justify-content: center;
+}
+
+.imagenYnombre h2 {
+  margin:0.5rem;
+  padding: 1rem;
+}
+
+.imagenUser {
+  width : 6rem;
+  height : 6rem;
+  border-radius: 50%;
   margin: 1rem;
 }
 
-.imagenRedondaUser {
-  margin: 2rem;
-  height:60%;
-  border-radius: 50%;
-  background-color: green;
+.itineraryDescription {
+  padding: 1rem
 }
 
-.descripcion {
-  color: aliceblue;
-  background-color: rgb(92, 17, 17);
-  height: 50%;
+.aboutItinerary {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
+  /* margin: 2rem; */
+  justify-content: space-between;
+  width: 100%;
+}
+.aboutItinerary p {
+  margin:1rem;
+  pad: 0.5 rem;
 }
 
-.infoItinerario {
-  display: flex;
-  flex-direction: column;
-  background-color: rgb(57, 235, 21);
-  padding: 1rem;
-  width: 80%;
-  border-radius: 15px;
+.accordion-button.collapsed {
+  border: solid 0.1px rgba(173, 216, 230, 0.658) !important;
+  background-color: rgba(31, 114, 153, 0.521) !important;
 }
 
-.infoinfo {
+button.accordion-button.collapsed {
+  border: solid 0.1px rgba(173, 216, 230, 0.623) !important;
+  background-color: rgba(31, 114, 153, 0.521) !important;
+}
+
+button.accordion-button {
+  background-color: rgba(100, 148, 237, 0.322) !important;
+  border: solid 0.1px rgba(173, 216, 230, 0.623) !important;
+}
+
+
+.viewMore {
+  background-color: rgba(252, 0, 0, 0);
+}
+
+
+.accordion-body {
+  background-color: rgba(59, 104, 143, 0.527) !important;
+}
+.viewMoreContenido {
   display: flex;
   justify-content: space-around;
-  background-color: aqua;
+  background-color: rgba(0, 128, 0, 0) !important;
 }
 
+.actividadesItinerary {
+  background-color: rgba(255, 0, 0, 0)!important;
+  padding: 1rem;
+}
+.comentariosItinerary {
+  background-color: rgba(255, 0, 0, 0.048)!important;
+  padding: 1rem;
+}

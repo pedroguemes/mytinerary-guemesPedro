@@ -3,8 +3,9 @@ const FilterCities = (props) => {
     const { cities, filtro} = props;
 
     return (
-        <div className="contenedor-botones">
-            <input type="text" className="input" autoComplete="off" name="filtro" onChange={(e) => filtro(cities, e.target.value)} placeholder="Search" />
+        <div className="divCitiesSearch">
+            <input type="text" className="citiesSearch"
+                    placeholder="Search Cities :)" autoComplete="off" name="filtro" onChange={(e) => filtro(cities, e.target.value)}/>
         </div>
     )
 }

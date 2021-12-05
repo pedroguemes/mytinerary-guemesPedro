@@ -47,13 +47,15 @@ class City extends React.Component {
         <Navheader />
         <div className="citybody">
           <div className="portadacity">
-            <img src={this.props.city.imagenCiudad} alt={"imagen city"} />
-            <h2>{this.props.city.nombreCiudad}</h2>
-            <h2>{this.props.city.pais}</h2>
+            <div className="containerTituloPortada">
+                <h2>{this.props.city.nombreCiudad}</h2>
+                <h2>{this.props.city.pais}</h2>
+            </div>
+            <img src={this.props.city.imagenCiudad} alt="imagen city" />
           </div>
-          <div>
+          
             <Itinerario idCity={this.id}/>
-          </div>
+          
           <div className="backtocitiesdiv">
             <Link className="backtocities" to={"/cities"}>
               Back to Cities
