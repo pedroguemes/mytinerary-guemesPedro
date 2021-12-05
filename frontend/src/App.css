@@ -852,6 +852,7 @@ div.navbarcollapse {
 
 .citybody {
   border-top: solid 0.5px rgba(0, 0, 0, 0.418);
+  background-color: rgba(245, 150, 8, 0);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -862,7 +863,7 @@ div.navbarcollapse {
 }
 
 .portadacity{
-  background-color: rgba(100, 148, 237, 0.267);
+  background-color: rgba(100, 148, 237, 0.137);
   border-radius: 15px;
   margin: 3rem;
   display: flex;
@@ -894,10 +895,11 @@ div.navbarcollapse {
 
 
 .containerItinerary{
+  box-shadow: 15px 12px 12px 11px rgba(0, 0, 0, 0.253);
   justify-self: center !important;
   width: 70%;
   margin: 1rem;
-  background-color: rgba(189, 111, 66, 0.473);
+  background-color: rgba(255, 94, 0, 0.479);
   display: flex;
   flex-direction: column;
   border-radius: 15px;
@@ -906,7 +908,7 @@ div.navbarcollapse {
 
 .tituloItinerary {
   border-radius: 15px 15px 0 0;
-  background-color: rgba(231, 173, 48, 0.301);
+  background-color: rgb(40, 78, 150);
 }
 
 .tituloItinerary h1 {
