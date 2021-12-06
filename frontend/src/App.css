@@ -1236,6 +1236,7 @@ button.accordion-button {
 .formcontainer {
    display: flex;
    /* margin: 5rem; */
+   padding: 2rem;
    flex-direction: row;
    background-color:rgba(119, 208, 238, 0) ;
    align-items: center;
@@ -1275,6 +1276,12 @@ button.accordion-button {
   border-radius: 6px;
   background-color: rgba(0, 255, 255, 0);
 }
+
+.formsignup div input:focus{
+  padding: 0.5rem;
+  border-radius: 6px;
+  background-color: rgba(20, 117, 161, 0.418);
+}
 .formsignup div select{
   background-color: rgba(0, 255, 255, 0);
   padding: 0.5rem;
@@ -1284,15 +1291,98 @@ button.accordion-button {
 .formsignup div button{
   padding: 0.5rem;
   border-radius: 6px;
-  background-color: rgba(0, 195, 255, 0.335) ;
+  background-color: rgba(0, 195, 255, 0.26) ;
 }
 
-.cartelsignin {
+.formsignup div button:hover{
+  padding: 0.5rem;
+  border-radius: 6px;
+  background-color: rgba(46, 142, 172, 0.733) ;
+}
+
+.cartelsignup {
   backdrop-filter: blur(10px);
   font-weight: bold;
   padding: 1.5rem;
   background-color: rgba(0, 195, 255, 0.123) !important;
-  font-size: xx-large;
+  font-size: x-large;
   width: 25%;
   border-radius: 12px;
+}
+
+.signupcarteltitle {
+  text-decoration: underline;
+}
+
+.cartelsignupPchico {
+  font-size: smaller !important;
+  text-decoration: none !important;
+}
+
+
+.formcontainerIn {
+  display: flex;
+  margin: 3rem;
+  border-radius: 12px;
+  padding: 3rem;
+  flex-direction: column;
+  background-color:rgba(119, 208, 238, 0) ;
+  align-items: center;
+  justify-content: center;
+  background-image: url('./assets/newyorknight.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+ }
+ 
+ .formsignin {
+   width: 40%;
+  background-color: rgba(0, 195, 255, 0.075) !important;
+  backdrop-filter: blur(5px);
+  border: solid rgba(0, 0, 255, 0.212) 0.5px;
+  display: flex;
+  flex-direction: column !important;
+  margin:4rem;
+  align-self: center;
+  justify-self: center;
+  border-radius: 12px;
+}
+
+.containerinternoIn {
+  /* backdrop-filter: blur(5px); */
+  background-color: rgba(0, 195, 255, 0.075) !important;
+  display: flex;
+  flex-direction: column !important;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+  color: white;
+}
+.containerinternoIn p{
+  background-color:rgba(0, 0, 0, 0.424);
+  padding: 0.4rem;
+  margin: 5px;
+  border-radius: 8px;
+}
+
+.containerinternoIn div {
+  margin: 1rem;
+}
+.containerinternoIn input {
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.507);
+  color: white;
+  border-radius: 10px;
+}
+
+.containerinternoIn button {
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.335);
+  color: rgba(255, 255, 255, 0.466);
+  border-radius: 10px;
+}
+
+.containerinternoIn button:hover {
+  color: rgba(255, 255, 255, 0.644);
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.479);
 }
