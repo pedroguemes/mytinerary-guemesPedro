@@ -1097,16 +1097,16 @@ button.accordion-button {
   justify-self: center !important;
   width: 70%;
   margin: 1rem;
-  background-color: rgba(255, 94, 0, 0.479);
+  background-color: rgba(35, 152, 199, 0.26);
   display: flex;
   flex-direction: column;
   border-radius: 15px;
-  border: solid 0.5px lightblue !important;
+  border: solid 0.5px rgb(204, 129, 30) !important;
 }
 
 .tituloItinerary {
   border-radius: 15px 15px 0 0;
-  background-color: rgb(40, 78, 150);
+  background-color: rgba(57, 123, 167, 0.829);
 }
 
 .tituloItinerary h1 {
