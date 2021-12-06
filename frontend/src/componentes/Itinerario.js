@@ -37,6 +37,9 @@ function Itinerario(props) {
                                           <p>♥
                                           {itinerary.likes}</p>
                                     </div>
+                                    <div>
+                                          <p>{itinerary.hashtags}.</p>
+                                    </div>
                             </div>
                     </div>
                     <div  >
