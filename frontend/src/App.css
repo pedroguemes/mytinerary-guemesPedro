@@ -898,7 +898,7 @@ button.accordion-button {
 .cardcities {
   justify-self: center !important;
   width: 25vw;
-  margin: 1rem;
+  margin: 1.5rem;
   border-radius: 15px;
   background-color: rgba(255, 166, 0, 0.746);
   filter: grayscale(40%);
@@ -914,7 +914,6 @@ button.accordion-button {
   justify-self: center !important;
   width: 25vw;
   background-color: rgba(194, 92, 55, 0.863);
-  margin: 1rem;
   border-radius: 15px;
   box-shadow: 15px 12px 12px 11px rgba(0, 0, 0, 0.192);
 
@@ -1212,4 +1211,9 @@ button.accordion-button {
 .comentariosItinerary {
   background-color: rgba(255, 0, 0, 0.048)!important;
   padding: 1rem;
+}
+
+.error {
+  margin: 5rem;
+  font-weight: bold;
 }

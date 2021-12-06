@@ -1,16 +1,13 @@
-import React, { Component } from 'react';
-import Navheader from '../componentes/Navheader';
-// import logocall from '../assets/logocall'
+import React, { Component } from "react";
+import Navheader from "../componentes/Navheader";
 
 export default class Error404 extends React.Component {
-
-    render(){
+  render() {
     return (
-        <>
-        <Navheader/>
-        {/* <img src={logocall}/> */}
-        <h1>Sorry, "..Error404, not found."</h1>
-        </>
-    )
- }
+      <>
+        <Navheader />
+        <h1 className="error">Sorry, .. - Error404 - , not found :/</h1>
+      </>
+    );
+  }
 }

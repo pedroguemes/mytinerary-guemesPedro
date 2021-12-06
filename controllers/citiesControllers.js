@@ -9,23 +9,21 @@ const citiesControllers = {
   },
   cargarCity: (req, res) => {
     const { nombreCiudad, pais, imagenCiudad } = req.body;
-    new City({ nombreCiudad, pais, imagenCiudad })
+    new City({nombreCiudad,pais,imagenCiudad})
       .save()
       .then((resp) => res.json({ resp }));
-    // cities.push(city)
-    // res.json({cities});
   },
   modificarCity: async (req, res) => {
     const bodyCity = req.body;
     let modifyCity;
     try {
       modifyCity = await City.findOneAndUpdate(
-        { _id: req.params.id },
+        {_id:req.params.id},
         bodyCity,
-        { new: true }
+        {new:true}
       );
-    } catch (error) {}
-    res.json({ success: modifyCity ? true : false });
+    }catch(error){}
+    res.json({success:modifyCity?true:false});
   },
   borrarCity: async (req, res) => {
     let city;
@@ -37,8 +35,7 @@ const citiesControllers = {
     } catch (error) {
       console.log(error);
     }
-    res.json({ response: city, success: true });
+    res.json({response:city,success:true});
   },
 };
-
 module.exports = citiesControllers;
