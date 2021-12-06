@@ -1225,3 +1225,74 @@ button.accordion-button {
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.157);
 }
+
+/* ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff */
+/* ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff */
+/* ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff */
+/* ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff */
+/* ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff */
+
+
+.formcontainer {
+   display: flex;
+   /* margin: 5rem; */
+   flex-direction: row;
+   background-color:rgba(119, 208, 238, 0) ;
+   align-items: center;
+  justify-content: center;
+  background-image: url('./assets/signbackground.jfif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  }
+  
+  .formsignup {
+  background-color: rgba(0, 195, 255, 0.075) !important;
+  backdrop-filter: blur(5px);
+  border: solid rgba(0, 0, 255, 0.212) 0.5px;
+  display: flex;
+  flex-direction: column;
+  margin:3rem;
+  width: 35%;
+  align-self: center;
+  justify-self: center;
+  border-radius: 12px;
+}
+
+.containerinterno {
+  /* backdrop-filter: blur(5px); */
+  background-color: rgba(0, 195, 255, 0.075) !important;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.formsignup div {
+  margin: 1.5rem;
+}
+
+.formsignup div input{
+  padding: 0.5rem;
+  border-radius: 6px;
+  background-color: rgba(0, 255, 255, 0);
+}
+.formsignup div select{
+  background-color: rgba(0, 255, 255, 0);
+  padding: 0.5rem;
+  border-radius: 6px;
+}
+
+.formsignup div button{
+  padding: 0.5rem;
+  border-radius: 6px;
+  background-color: rgba(0, 195, 255, 0.335) ;
+}
+
+.cartelsignin {
+  backdrop-filter: blur(10px);
+  font-weight: bold;
+  padding: 1.5rem;
+  background-color: rgba(0, 195, 255, 0.123) !important;
+  font-size: xx-large;
+  width: 25%;
+  border-radius: 12px;
+}

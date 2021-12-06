@@ -3,9 +3,7 @@ import logosecundario from "../assets/logosecundario.png";
 import { BsPersonCircle } from "react-icons/bs";
 // import {Nav, Navbar, NavDropdown, Container} from 'react-bootstrap'
 import { Nav, Navbar, NavDropdown } from "react-bootstrap";
-import {
-  Link
-} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const logopersona = <BsPersonCircle className="logoperson" />;
 
@@ -41,11 +39,11 @@ export default function Navheader() {
           </Nav>
           <div>
             <NavDropdown className="logopersona" title={logopersona}>
-              <NavDropdown.Item className="sign" href="#products/login">
-                Log-In
+              <NavDropdown.Item className="sign">
+               <Link to="/signin"> Sign In </Link>
               </NavDropdown.Item>
-              <NavDropdown.Item className="sign" href="#products/signup">
-                Sign-up
+              <NavDropdown.Item className="sign">
+               <Link to="/signup"> Sign Up </Link>
               </NavDropdown.Item>
             </NavDropdown>
           </div>
