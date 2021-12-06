@@ -33,8 +33,8 @@ function Itinerario(props) {
                                   </div>
                                     <div className="aboutItinerary">
                                           <p>Duration: {itinerary.duration}</p>
-                                          <p>Price: {itinerary.price}</p>
-                                          <p><img src={AiTwotoneLike}/>
+                                          <p>Price:<span>{("💵").repeat(itinerary.price)}</span></p>
+                                          <p>♥
                                           {itinerary.likes}</p>
                                     </div>
                             </div>

@@ -903,6 +903,7 @@ button.accordion-button {
   background-color: rgba(255, 166, 0, 0.746);
   filter: grayscale(40%);
   text-decoration: none !important;
+  box-shadow: 15px 12px 12px 11px rgba(0, 0, 0, 0.096);
 }
 
 .cardcities:hover {
@@ -915,6 +916,8 @@ button.accordion-button {
   background-color: rgba(194, 92, 55, 0.863);
   margin: 1rem;
   border-radius: 15px;
+  box-shadow: 15px 12px 12px 11px rgba(0, 0, 0, 0.192);
+
 }
 
 .citiesbody {
@@ -1084,6 +1087,8 @@ button.accordion-button {
   /* width: 50%; */
   font-weight: bold;
   letter-spacing: 0.6rem;
+  text-shadow: 14px 10px 5px rgba(0, 0, 0, 0.164);
+
 }
 
 
@@ -1144,6 +1149,7 @@ button.accordion-button {
 .imagenYnombre h2 {
   margin:0.5rem;
   padding: 1rem;
+
 }
 
 .imagenUser {
@@ -1174,7 +1180,7 @@ button.accordion-button {
   background-color: rgba(31, 114, 153, 0.521) !important;
 }
 
-button.accordion-button.collapsed {
+button.accordion-button {
   border: solid 0.1px rgba(173, 216, 230, 0.623) !important;
   background-color: rgba(31, 114, 153, 0.521) !important;
 }
