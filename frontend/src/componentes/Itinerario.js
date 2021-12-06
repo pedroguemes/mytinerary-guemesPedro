@@ -2,18 +2,19 @@ import React, { useEffect } from "react";
 import { Card, Accordion } from "react-bootstrap";
 import { AiTwotoneLike } from "react-icons/ai";
 import { connect } from "react-redux";
+import City from "../pags/City";
 import itinerariesActions from "../redux/actions/itinerariesActions";
 
 function Itinerario(props) {
   // const id = window.location.href.split("/").pop()
-  const { getItineraries, idCity, itineraries } = props;
+  const { getItineraries, idCity, itineraries, nombreCity } = props;
 
   console.log(props);
 
   useEffect(() => {
     getItineraries(idCity);
   }, []);
-  return itineraries.map((itinerary) => (
+  return itineraries.length > 0 ? itineraries.map((itinerary) => (
     <>
       <div className="containerItinerary">
         <div className="tituloItinerary">
@@ -68,7 +69,9 @@ function Itinerario(props) {
         </div>
       </div>
     </>
-  ));
+  )) : 
+  <h1 className="emptyItineraries">..There are no itineraries for {nombreCity} yet..</h1>
+   
 }
 
 const mapStateToProps = (state) => {

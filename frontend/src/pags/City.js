@@ -34,7 +34,7 @@ class City extends React.Component {
             </div>
             <img src={this.props.city.imagenCiudad} alt="imagen city" />
           </div>
-          <Itinerario idCity={this.id} />
+          <Itinerario idCity={this.id} nombreCity={this.props.city.nombreCiudad}/>          
           <div className="backtocitiesdiv">
             <Link className="backtocities" to={"/cities"}>
               Back to Cities ⬅

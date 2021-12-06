@@ -16,7 +16,7 @@ function Cardcities(props) {
   return (
     <>
       <FilterCities cities={citiesAuxiliar} filtro={props.filterCities} />
-
+       
       {cities.length === 0 ? (
         <ErrorSearch />
       ) : (

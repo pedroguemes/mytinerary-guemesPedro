@@ -705,8 +705,8 @@ div.navbarcollapse {
   background-color: rgba(255, 136, 0, 0.911) !important;
   border: solid 1px rgba(255, 0, 0, 0.205);
 }
-.backtocitiesdic {
-  margin: 1rem !important;
+.backtocitiesdiv {
+  margin: 3rem !important;
 }
 
 .citybody {
@@ -1041,8 +1041,8 @@ button.accordion-button {
   background-color: rgba(255, 136, 0, 0.486);
   border: solid 1px rgba(255, 0, 0, 0.205);
 }
-.backtocitiesdic {
-  margin: 1rem !important;
+.backtocitiesdiv {
+  margin: 3rem !important;
 }
 
 .citybody {
@@ -1216,4 +1216,12 @@ button.accordion-button {
 .error {
   margin: 5rem;
   font-weight: bold;
+}
+
+.emptyItineraries {
+  margin : 2rem;
+  border: solid 1px rgba(0, 0, 0, 0.479);
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.157);
 }
