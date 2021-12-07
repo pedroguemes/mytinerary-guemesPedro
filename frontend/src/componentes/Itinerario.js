@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Card, Accordion } from "react-bootstrap";
+import { Accordion } from "react-bootstrap";
 import { AiTwotoneLike } from "react-icons/ai";
 import { connect } from "react-redux";
 import City from "../pags/City";

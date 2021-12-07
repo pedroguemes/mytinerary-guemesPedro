@@ -329,6 +329,24 @@ div.dropdown-menu.show {
 
 }
 
+.formcontainer {
+  display: flex;
+  flex-direction: column !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+.containerinterno {
+  width: 100% !important;
+}
+.formsignup {
+  width: 100% !important;
+}
+
+.cartelsignup {
+  width: 100% !important;
+}
+
 .carousel {
   margin: 4rem !important;
 }
@@ -880,7 +898,51 @@ button.accordion-button {
 }
 
 
+.formcontainer {
+  display: flex;
+  /* margin: 5rem; */
+  padding: 2rem;
+  flex-direction: column !important;
+  background-color:rgba(119, 208, 238, 0.137) ;
+  align-items: center;
+ justify-content: center;
+ background-image: none !important;
+ background-size: cover;
+ background-repeat: no-repeat;
+ }
 
+.containerinterno {
+  width: 100% !important;
+}
+.formsignup {
+  width: 100% !important;
+}
+ .cartelsignup {
+  backdrop-filter: blur(10px);
+  font-weight: bold;
+  padding: 1.5rem;
+  background-color: rgba(0, 195, 255, 0.123) !important;
+  font-size: x-large;
+  width: 85% !important;
+  border-radius: 12px;
+}
+
+.formcontainerIn {
+  width:100%;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+
+
+.containerinternoIn {
+  width: 100% !important;
+  backdrop-filter: none !important;
+}
+
+.formsignin{
+  width: 100% !important;
+}
 
 }
 
@@ -1253,7 +1315,7 @@ button.accordion-button {
   display: flex;
   flex-direction: column;
   margin:3rem;
-  width: 35%;
+  width: 33.5%;
   align-self: center;
   justify-self: center;
   border-radius: 12px;
@@ -1277,6 +1339,7 @@ button.accordion-button {
   background-color: rgba(0, 255, 255, 0);
 }
 
+
 .formsignup div input:focus{
   padding: 0.5rem;
   border-radius: 6px;
@@ -1286,6 +1349,7 @@ button.accordion-button {
   background-color: rgba(0, 255, 255, 0);
   padding: 0.5rem;
   border-radius: 6px;
+  width: 50%;
 }
 
 .formsignup div button{

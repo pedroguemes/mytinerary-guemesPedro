@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Card } from "react-bootstrap";
 import ErrorSearch from "./ErrorSearch";
 import { Link } from "react-router-dom";
@@ -7,16 +7,15 @@ import citiesActions from "../redux/actions/citiesActions";
 import FilterCities from "./FilterCities";
 
 function Cardcities(props) {
-  const { cities, getCities, citiesAuxiliar } = props;
+  const { cities, getCities, citiesAuxiliar, filterCities } = props;
 
-  console.log(cities);
+  // console.log(cities);
 
   useEffect(() => getCities(), []);
 
   return (
     <>
-      <FilterCities cities={citiesAuxiliar} filtro={props.filterCities} />
-       
+      <FilterCities cities={citiesAuxiliar} filtro={filterCities}/>       
       {cities.length === 0 ? (
         <ErrorSearch />
       ) : (

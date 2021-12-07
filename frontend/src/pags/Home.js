@@ -9,7 +9,7 @@ export default class Home extends React.Component {
   render() {
     return (
       <>
-        <Navheader />
+        <Navheader/>
         <Herowelcome />
         <Calltoaction />
         <Divcarousel />
