@@ -1,5 +1,6 @@
 const initialState = {
     countryNames: [],
+    user:{}
   };
   
   const authReducer = (state = initialState, action) => {
@@ -10,9 +11,14 @@ const initialState = {
         return {
           ...state,
           countryNames: action.payload,
-        };
-      default:
-        return state;
+        }
+        case "cargar_User":
+          return {
+            ...state,
+            user: action.payload,
+          };
+        default:
+          return state;
     }
   };
   

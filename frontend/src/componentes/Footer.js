@@ -21,9 +21,9 @@ export default function Footer() {
           </Nav>
         </Navbar.Collapse>
         <div className="divfooter">
-          <BsInstagram className="instagramfooter" />
-          <BsFacebook className="facebookfooter" />
-          <BsYoutube className="youtubefooter" />
+          <a target="_blank" href={'https://www.instagram.com'}><BsInstagram  className="instagramfooter" /></a>
+          <a target="_blank" href={'https://www.facebook.com'}> <BsFacebook as={Link} className="facebookfooter" /></a>
+          <a target="_blank" href={'https://www.youtube.com'}><BsYoutube as={Link} className="youtubefooter"/></a>
           <img
             height="110"
             width="140"

@@ -70,6 +70,7 @@ return (
       
       const mapDispatchToProps = {
         getCountryNames: authActions.getCountryNames,
+        cargarUser: authActions.cargarUsuario
       };
       
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm);

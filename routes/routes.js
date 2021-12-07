@@ -2,6 +2,10 @@ const Router = require("express").Router();
 
 const citiesControllers = require("../controllers/citiesControllers");
 
+const usersControllers = require("../controller/userController")
+
+const {obtenerUsers, obtenerUser, cargarUser } = usersControllers
+
 const { obtenerCities, obtenerCity, modificarCity, cargarCity, borrarCity } =
   citiesControllers;
 
@@ -30,5 +34,10 @@ Router.route("/itineraries/:id")
   .get(obtenerItinerary);
 
 Router.route("/itineraries/city/:id").get(obtenerItineraryPorCity);
+
+Router.route("/users/:id").post(cargarUser).get(obtenerUser)
+
+Router.route("/users").get(obtenerUsers);
+
 
 module.exports = Router;

@@ -57,7 +57,23 @@ scroll {
     /* filter: brightness(0%); */
     
   }
+
+  
 }
+
+a {
+  display: flex;
+  color: rgb(8, 44, 109);
+}
+
+.formsignup div select option{
+  background-color: rgba(21, 46, 46, 0.815);
+  color:rgb(114, 161, 161);
+  padding: 0.5rem;
+  border-radius: 6px;
+  width: 50%;
+}
+
 
 .footer {
   width: 100% !important;
@@ -1351,6 +1367,13 @@ button.accordion-button {
   border-radius: 6px;
   width: 50%;
 }
+
+/* .formsignup div select option{
+  background-color: rgba(0, 255, 255, 0);
+  padding: 0.5rem;
+  border-radius: 6px;
+  width: 50%;
+} */
 
 .formsignup div button{
   padding: 0.5rem;
