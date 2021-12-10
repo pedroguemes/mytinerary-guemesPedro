@@ -219,6 +219,9 @@ div.dropdown-menu.show {
   font-weight: bold;
   color:rgb(32, 105, 241) !important ;
   text-decoration: none;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: inline !important;
 }
 
 .logoheader {
@@ -1024,6 +1027,7 @@ button.accordion-button {
   display: flex !important;
   flex-direction: column !important;
 }
+
 .portadacities img {
   padding: 2rem;
   margin: 2rem;
@@ -1056,6 +1060,7 @@ button.accordion-button {
   background-color: rgba(94, 89, 65, 0.637);
   text-align: left;
   padding: 0.5rem;
+  scroll-behavior: smooth;
 }
 
 .citiesSearch::placeholder {
@@ -1399,6 +1404,16 @@ button.accordion-button {
 
 .signupcarteltitle {
   text-decoration: underline;
+}
+
+.signinhere {
+  justify-content: center !important;
+  color: rgb(145, 156, 223);
+}
+
+.tosignup {
+  justify-content: center !important;
+  color: rgb(112, 128, 201);
 }
 
 .cartelsignupPchico {

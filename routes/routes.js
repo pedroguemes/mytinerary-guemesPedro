@@ -1,10 +1,13 @@
 const Router = require("express").Router();
 
+const validator = require('../config/validator')
+
 const citiesControllers = require("../controllers/citiesControllers");
 
-const usersControllers = require("../controller/userController")
+const usersControllers = require("../controllers/usersControllers")
 
-const {obtenerUsers, obtenerUser, cargarUser } = usersControllers
+// const { obtenerUser, cargarUser } = usersControllers
+const {cargarUser, obtenerUsers, cargarSignIn} = usersControllers
 
 const { obtenerCities, obtenerCity, modificarCity, cargarCity, borrarCity } =
   citiesControllers;
@@ -26,7 +29,7 @@ Router.route("/cities/:id")
   .put(modificarCity)
   .delete(borrarCity);
 
-Router.route("/itineraries").post(cargarItinerary).get(obtenerItineraries);
+Router.route("/itineraries/signup").post(cargarItinerary).get(obtenerItineraries);
 
 Router.route("/itineraries/:id")
   .put(modificarItinerary)
@@ -35,9 +38,12 @@ Router.route("/itineraries/:id")
 
 Router.route("/itineraries/city/:id").get(obtenerItineraryPorCity);
 
-Router.route("/users/:id").post(cargarUser).get(obtenerUser)
+// Router.route("/auth/:id").get(obtenerUser)
 
-Router.route("/users").get(obtenerUsers);
+// Router.route("/auth/signUp").post(cargarUser)
+Router.route("/auth/signUp").post(validator, cargarUser).get(obtenerUsers);
+
+Router.route("/auth/signIn").post(cargarSignIn);
 
 
 module.exports = Router;

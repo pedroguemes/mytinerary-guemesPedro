@@ -11,7 +11,7 @@ function Cardcities(props) {
 
   // console.log(cities);
 
-  useEffect(() => getCities(), []);
+  useEffect(() => getCities(), [],  window.scroll({ left: 0, top: 450, behavior: "smooth" }) );
 
   return (
     <>

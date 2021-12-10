@@ -1,5 +1,10 @@
+import { useEffect } from "react";
+
+
 const FilterCities = (props) => {
   const { cities, filtro } = props;
+  
+  useEffect(()=> window.scroll({ left: 0, top: 450, behavior: "smooth" }) )
 
   return (
     <div className="divCitiesSearch">

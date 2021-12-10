@@ -77,7 +77,7 @@ export default function Divcarousel() {
     <>
       <h1 className="mostpop">Most popular Mytineraries</h1>
 
-      <Carousel className="carousel" fade>
+      <Carousel className="carousel">
         {arrayCiudades.map((ciudad) => {
           return (
             <Carousel.Item>

@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import {connect} from 'react-redux'
 import Navheader from "../componentes/Navheader";
 import Footer from "../componentes/Footer";
+import SignInForm from "../componentes/SignInForm";
 import CalltoSign from "../componentes/CalltoSign";
 import {Link} from 'react-router-dom'
 
-export default class SignIn extends React.Component {
+ class SignIn extends React.Component {
   render() {
     return (
       <>
@@ -16,22 +18,21 @@ export default class SignIn extends React.Component {
              <div className="formsignin">
              <div className="containerinternoIn">
              <div>
-                        <p>Welcome back! :)</p>
+                <p>Welcome back! :)</p>
              </div>
              <div>
-                <form>
+                    {/* <form>
                         <div>
                             <input type="text" name="userName" placeholder="Username" />
                         </div>
                         <div>
                             <input type="password" name="password" placeholder="Password"/>
                         </div>
-                    </form>
-                    <div className="formButtons">
-                        <button >Sign in</button>
-                    </div>
+                    </form> */}
+                    <SignInForm />
+                    
                     <div>
-                        <p>Not a member?, <Link to="/signup">Sign Up !</Link></p>
+                        <p>Not a member?, <Link className="tosignup" to="/signup">Sign Up !</Link></p>
                     </div>
              </div>
              </div>
@@ -42,3 +43,16 @@ export default class SignIn extends React.Component {
     );
   }
 }
+
+
+
+const mapStateToProps = (state) => {
+  return {
+    newUser: state.authReducer.user,
+  };
+};
+
+
+
+
+export default connect(mapStateToProps, null)(SignIn);
