@@ -11,10 +11,9 @@ import mainReducer from "./redux/reducers/mainReducer";
 const globalStore = createStore(mainReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
-  <React.StrictMode>
     <Provider store={globalStore}>
       <App />
-    </Provider>
-  </React.StrictMode>,
+    </Provider>,
+  
   document.getElementById("root")
 );

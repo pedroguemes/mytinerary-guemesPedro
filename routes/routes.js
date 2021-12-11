@@ -29,7 +29,7 @@ Router.route("/cities/:id")
   .put(modificarCity)
   .delete(borrarCity);
 
-Router.route("/itineraries/signup").post(cargarItinerary).get(obtenerItineraries);
+Router.route("/itineraries").post(cargarItinerary).get(obtenerItineraries);
 
 Router.route("/itineraries/:id")
   .put(modificarItinerary)

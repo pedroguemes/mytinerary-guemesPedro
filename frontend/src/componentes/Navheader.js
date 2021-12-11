@@ -45,7 +45,7 @@ const {loggedUser} = props;
             </Nav.Link>
           </Nav>
           <div>
-            {/* <NavDropdown className="logopersona" title={loggedUser ? loggedUser. logopersona}> */}
+            {/* <NavDropdown className="logopersona" title={loggedUser.imagenUser ? loggedUser.imagenUser : logopersona}> */}
             <NavDropdown className="logopersona" title={logopersona}>
               <NavDropdown.Item className="sign">
                <Link to="/signin"> Sign In </Link>

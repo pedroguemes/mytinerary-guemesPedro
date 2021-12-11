@@ -45,6 +45,7 @@ const usersControllers = {
       cargarSignIn: async (req, res) => {
         const { userMail, password } = req.body;
         try {
+          console.log(req.body)
           const userExiste = await User.findOne({ userMail });
           if (!userExiste) {
             res.json({
@@ -64,6 +65,7 @@ const usersControllers = {
             }
           }
         } catch (error) {
+          console.log(error)
           res.json({ success: false, response: null, error: error });
         }
   },

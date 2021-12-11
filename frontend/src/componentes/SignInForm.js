@@ -13,14 +13,14 @@ function SignInForm (props) {
     const inputPassword = useRef()
 
     
-    const handleSubmit = async (userMail, password) => {
-        const errores = await signIn(userMail, password);
+    const handleSubmit = (userMail, password) => {
+        const errores =  signIn(userMail, password);
         console.log(errores)
     }
     
     const handleInputsSubmit  = (e)=> {        
         e.preventDefault()
-        handleSubmit(inputUserMail,inputPassword)
+        handleSubmit(inputUserMail.current.value,inputPassword.current.value)
         
         inputUserMail.current.value ="";
         inputPassword.current.value ="";
@@ -37,10 +37,10 @@ function SignInForm (props) {
                 <div>
                     <input type="password" ref={inputPassword} name="password" placeholder="Password"/>
                 </div>
-                </form>
                 <div className="formButtons">
                         <button type="submit">Sign in</button>
                 </div>
+                </form>
             </>
 )
 }

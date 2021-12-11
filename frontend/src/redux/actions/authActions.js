@@ -8,6 +8,7 @@ const authActions = {
             dispatch({ type: "Get_countryNames", payload: response.data});
         };
   },
+  
     cargarUsuario: (firstName, lastName, userMail, password, imagenUser,userCountry) => {
       return async (dispatch, getState) => {
         try {   
@@ -24,16 +25,26 @@ const authActions = {
 
      cargarSignIn: (userMail,password) => {
       return async(dispatch, getState)=>{
+        console.log(userMail, password)
           try {
               const user = await axios.post('http://localhost:4000/api/auth/signIn',{userMail, password})
+              console.log(user)
               if(user.data.success && !user.data.error){
-                  dispatch({type:'cargar_User', payload:{userName:user.data.response.userName}})
+                const loggedUser = {
+                
+                    firstName:user.data.response.userExiste.firstName,
+                    lastName:user.data.response.userExiste.lastName,
+                    imagenUser:user.data.response.userExiste.imagenUser,
+                    userCountry:user.data.response.userExiste.userCountry                          
+                  
+                }
+                  dispatch({type:'cargar_User', payload:loggedUser})
                   // return {user}
                 }else{
                   console.log(user.data)
               }
           }catch(error){
-              console.error(error)
+              console.log(error)
           }
       }
   }

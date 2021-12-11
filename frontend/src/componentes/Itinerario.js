@@ -9,7 +9,7 @@ function Itinerario(props) {
   // const id = window.location.href.split("/").pop()
   const { getItineraries, idCity, itineraries, nombreCity } = props;
 
-  console.log(props);
+  // console.log(props);
 
   useEffect(() => {
     getItineraries(idCity);
