@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Navheader from "../componentes/Navheader";
 import Herowelcome from "../componentes/Herowelcome";
 import Calltoaction from "../componentes/Calltoaction";

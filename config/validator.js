@@ -40,16 +40,17 @@ const validator = (req, res, next) => {
             'string.max': 'The name must have less than twenty letters'
         }),
        lastName: joi.string().max(20).min(3).trim().pattern(new RegExp('[a-zA-Z]')).required().messages({
-            'string.min': 'The last name must have more than three letters',
-            'string.max': 'The last name must have less than twenty letters'
+            'string.min': 'Last name must be longer',
+            'string.max': 'Last name must have less letters (20 max)'
         }),
-        password: joi.string().max(16).min(8).trim().required().messages({
+        password: !req.body.google ? joi.string().max(16).min(8).trim().required().messages({
             'string.min': 'The password must have more than three letters',
             'string.max': 'The password must have less than twenty letters'
-        }),
-        userMail: joi.required(),
-        imagenUser: joi.required(),
-       userCountry: joi.required()
+        }) :joi.string().required() ,
+        userMail: joi.required().mail(),
+        imagenUser: joi.string().required(),
+       userCountry: joi.required(),
+       google: joi.boolean().required()
     })
 
     const validate = schema.validate(req.body, { abortEarly: false })

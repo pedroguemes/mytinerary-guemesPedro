@@ -22,6 +22,8 @@ const {
   obtenerItinerary,
 } = itinerariesControllers;
 
+const passport = require('../config/passport')
+
 Router.route("/cities").get(obtenerCities).post(cargarCity);
 
 Router.route("/cities/:id")

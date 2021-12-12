@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import {connect} from 'react-redux'
 import Navheader from "../componentes/Navheader";
 import Footer from "../componentes/Footer";
 import SignInForm from "../componentes/SignInForm";
-import CalltoSign from "../componentes/CalltoSign";
+// import CalltoSign from "../componentes/CalltoSign";
 import {Link} from 'react-router-dom'
 
  class SignIn extends React.Component {

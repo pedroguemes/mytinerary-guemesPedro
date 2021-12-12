@@ -12,8 +12,14 @@ const authActions = {
     cargarUsuario: (firstName, lastName, userMail, password, imagenUser,userCountry) => {
       return async (dispatch, getState) => {
         try {   
-        const user = await axios.post('http://localhost:4000/api/auth/signUp',{firstName, lastName, userMail, password,  imagenUser,userCountry})
-          if (user.data.success && !user.data.error) {   
+          const token = localStorage.getItem('token')
+        const user = await axios.post('http://localhost:4000/api/auth/signUp',{firstName, lastName, userMail, password,  imagenUser,userCountry},{
+          headers:{
+            'Authorization':'Bearer '+ token
+          }
+        })
+          if (user.data.success && !user.data.error) { 
+            localStorage.setItem('token',user.data.response.token)
             dispatch({type:'cargar_User', payload:{firstName, lastName, userMail, imagenUser, userCountry}})  
       }else{
         console.error(user.data.response)
@@ -27,9 +33,13 @@ const authActions = {
       return async(dispatch, getState)=>{
         console.log(userMail, password)
           try {
-              const user = await axios.post('http://localhost:4000/api/auth/signIn',{userMail, password})
+            const token = localStorage.getItem('token')
+              const user = await axios.post('http://localhost:4000/api/auth/signIn',{userMail, password},{headers:{
+                'Authorization':'Bearer '+ token
+              }})
               console.log(user)
               if(user.data.success && !user.data.error){
+                localStorage.setItem('token',user.data.response.token)
                 const loggedUser = {
                 
                     firstName:user.data.response.userExiste.firstName,
@@ -45,6 +55,7 @@ const authActions = {
               }
           }catch(error){
               console.log(error)
+              // alert(user.data.error)
           }
       }
   }

@@ -8,7 +8,10 @@
     "express": "^4.17.1",
     "joi": "^17.5.0",
     "mongoose": "^6.0.13",
+    "passport": "^0.5.0",
+    "passport-jwt": "^4.0.0",
     "react-bootstrap": "^2.0.2",
+    "react-google-login": "^5.2.2",
     "react-promise-tracker": "^2.1.0"
   },
   "name": "mytinerary-guemes",

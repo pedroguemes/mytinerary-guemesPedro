@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import axios from "axios";
+import React from "react";
+// import axios from "axios";
 import Navheader from "../componentes/Navheader";
 import Footer from "../componentes/Footer";
 // import imagen from '../assets/logocall.png';

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Navheader from "../componentes/Navheader";
 
 export default class Error404 extends React.Component {

@@ -1,3 +1,4 @@
+const { boolean } = require('joi');
 const mongoose = require('mongoose');
 const UserSchema = new mongoose.Schema({
     firstName:{type: String, required: true},
@@ -6,6 +7,7 @@ const UserSchema = new mongoose.Schema({
     password:{type: String, required: true},
     imagenUser:{type: String, required: true},
     userCountry:{type:String,  required: true},
+    google:{type:Boolean, default:false}
 })
 const User = mongoose.model('user', UserSchema)
 module.exports = User;

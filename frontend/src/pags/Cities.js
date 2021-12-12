@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from "react";
+import React, { Component} from "react";
 import Navheader from "../componentes/Navheader";
 import Cardcities from "../componentes/Cardcities";
 import Footer from "../componentes/Footer";

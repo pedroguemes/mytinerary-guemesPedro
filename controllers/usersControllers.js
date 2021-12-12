@@ -1,5 +1,6 @@
 const User = require("../models/User");
 const bcryptjs = require("bcryptjs");
+const jwt = require ('jsonwebtoken')
 
 const usersControllers = {
   //q no haya usuarios repetidos-
@@ -10,15 +11,14 @@ const usersControllers = {
   //   User.findOne({ _id: req.params.id }).then((user) => res.json({user}));
   // },
   cargarUser: async (req, res) => {
-          const { firstName, lastName, userMail, password, imagenUser, userCountry } =
+          const { firstName, lastName, userMail, password, imagenUser, userCountry, google } =
             req.body;
-          // const {firstName, lastName, userMail, password} = req.body;
           try {
             const userExiste = await User.findOne({ userMail });
             if (userExiste) {
               res.json({
                 success: false,
-                error: "User name already exists.",
+                error: "User mail already exists.",
                 response: null,
               });
             } else {
@@ -30,9 +30,11 @@ const usersControllers = {
                 password: passwordHasheada,
                 imagenUser,
                 userCountry,
+                google
               });
+              const token = jwt.sign({...newUser}, process.env.S_KEY)
               await newUser.save();
-              res.json({ success: true, response: newUser, error: null });
+              res.json({ success: true, response: {token,newUser}, error: null });
             }
           } catch (error) {
             res.json({ success: false, response: null, error: error });
@@ -43,11 +45,12 @@ const usersControllers = {
         User.find().then((users) => res.json({ users }));
       },
       cargarSignIn: async (req, res) => {
-        const { userMail, password } = req.body;
+        const { userMail, password, google} = req.body;
         try {
           console.log(req.body)
           const userExiste = await User.findOne({ userMail });
-          if (!userExiste) {
+          if (userExiste.google && !google) throw new Error ("E-mail or password incorrect.")
+         else if (!userExiste) {
             res.json({
               success: false,
               error: "E-mail or password incorrect.",
@@ -59,6 +62,8 @@ const usersControllers = {
               userExiste.password
             );
             if (passwordMatch) {
+              const token = jwt.sign({...userExiste}, process.env.S_KEY)
+              // console.log(token)
               res.json({ success: true, response: { userExiste }, error: null });
             } else {
               res.json({ success: false, error: "E-mail or password incorrect." });
@@ -69,6 +74,7 @@ const usersControllers = {
           res.json({ success: false, response: null, error: error });
         }
   },
+
 };
 module.exports = usersControllers;
 

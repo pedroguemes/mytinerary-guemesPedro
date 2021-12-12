@@ -1,9 +1,7 @@
-import React from "react"
-import {useRef} from "react"
+import React, {useRef} from "react"
 import {connect} from 'react-redux'
-import authActions from "../redux/actions/authActions";
-
-
+import authActions from "../redux/actions/authActions"
+import GoogleLogin from 'react-google-login'
 
 function SignInForm (props) {
 
@@ -12,7 +10,11 @@ function SignInForm (props) {
     const inputUserMail = useRef()
     const inputPassword = useRef()
 
-    
+    const responseGoogle = (res) => {
+      console.log(res);
+      props.signIn(res.profileObj.email, res.profileObj.googleId, true)
+  }
+
     const handleSubmit = (userMail, password) => {
         const errores =  signIn(userMail, password);
         console.log(errores)
@@ -29,7 +31,7 @@ function SignInForm (props) {
     
     return (
         <>
-        {console.log(loggedUser)}
+
                 <form onSubmit={handleInputsSubmit}>
                 <div>
                     <input type="text" ref={inputUserMail} name="userMail" placeholder="Your Mail" />
@@ -37,12 +39,19 @@ function SignInForm (props) {
                 <div>
                     <input type="password" ref={inputPassword} name="password" placeholder="Password"/>
                 </div>
-                <div className="formButtons">
+                <div>
                         <button type="submit">Sign in</button>
                 </div>
-                </form>
+                <GoogleLogin className="formButtons"
+                clientId="378148122283-d1dapvv0m2ni54j49ol1pk2qbgdoqnms.apps.googleusercontent.com"
+                buttonText="Sign in with Google"
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
+                cookiePolicy={'single_host_origin'} />
+                                </form>
             </>
-)
+
+    )
 }
 
 
@@ -57,4 +66,6 @@ const mapStateToProps = (state) => {
     signIn: authActions.cargarSignIn,
   };
 
+
 export default connect(mapStateToProps, mapDispatchToProps)(SignInForm);
+// export default SignInForm;
