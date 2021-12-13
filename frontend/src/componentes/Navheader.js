@@ -4,7 +4,7 @@ import { BsPersonCircle } from "react-icons/bs";
 // import {Nav, Navbar, NavDropdown, Container} from 'react-bootstrap'
 import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 import {Link} from "react-router-dom";
-// import authActions from "../redux/actions/authActions";
+import authActions from "../redux/actions/authActions";
 import { connect } from "react-redux";
 
 
@@ -12,7 +12,7 @@ const logopersona = <BsPersonCircle className="logoperson" />;
 
 function Navheader(props) {
  
-const {loggedUser} = props;
+const {loggedUser, logOut} = props;
  console.log(loggedUser)
 
   return (
@@ -55,6 +55,7 @@ const {loggedUser} = props;
                <Link to="/signup"> Sign Up </Link>
               </NavDropdown.Item></>)
                :(<NavDropdown.Item className="sign">
+               {/* <Link onClick={logOut()} to="/Home"> Log out </Link> */}
                <Link to="/Home"> Log out </Link>
               </NavDropdown.Item>)}
             </NavDropdown>
@@ -72,5 +73,9 @@ const mapStateToProps = (state) => {
   }
 };
 
-export default connect(mapStateToProps, null)(Navheader);
+const mapDispatchToProps = {
+  logOut: authActions.logOut,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navheader);
 // export default Navheader
