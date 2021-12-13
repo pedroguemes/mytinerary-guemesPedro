@@ -47,12 +47,16 @@ const {loggedUser} = props;
           <div>
             {/* <NavDropdown className="logopersona" title={loggedUser.imagenUser ? loggedUser.imagenUser : logopersona}> */}
             <NavDropdown className="logopersona" title={logopersona}>
-              <NavDropdown.Item className="sign">
+              { (props.loggedUser.firstName === '') ? (
+              <><NavDropdown.Item className="sign">
                <Link to="/signin"> Sign In </Link>
               </NavDropdown.Item>
               <NavDropdown.Item className="sign">
                <Link to="/signup"> Sign Up </Link>
-              </NavDropdown.Item>
+              </NavDropdown.Item></>)
+               :(<NavDropdown.Item className="sign">
+               <Link to="/Home"> Log out </Link>
+              </NavDropdown.Item>)}
             </NavDropdown>
           </div>
         </Navbar.Collapse>

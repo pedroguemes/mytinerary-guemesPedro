@@ -58,6 +58,13 @@ const authActions = {
               // alert(user.data.error)
           }
       }
+  },
+
+  logOut: () => {
+    return (dispatch, getState)=>{
+      localStorage.clear()
+      dispatch({type:'logOut',payload:{}})
+    }
   }
 
 }

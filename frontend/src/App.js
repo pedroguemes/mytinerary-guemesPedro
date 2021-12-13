@@ -8,22 +8,31 @@ import Error404 from "./pags/Error404.js";
 import Citysinprops from "./pags/City";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { withRouter } from "./utils/routes/withRouter";
+import {connect} from "react-redux";
 
 const City = withRouter(Citysinprops);
 
-function App() {
+function App(props) {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/signin" element={<SignIn/>} />
-        <Route path="/signup" element={<SignUp/>} />
+       {props.user.firstName === '' && <Route path="/signin" element={<SignIn/>} />}
+       {props.user.firstName === '' && <Route path="/signup" element={<SignUp/>} />}
         <Route path="/cities" element={<Cities />} />
         <Route path="/cities/:id" element={<City />} />
-        <Route path="*" element={<Error404 />} />
+        <Route path="*" element={<Home />} />
+        {/* <Route path="*" element={<Error404 />} /> */}
       </Routes>
     </Router>
   );
 }
 
-export default App;
+
+const mapStateToProps = (state) => {
+  return {
+   user: state.authReducer.user,
+  };
+};
+
+export default connect(mapStateToProps, null)(App);

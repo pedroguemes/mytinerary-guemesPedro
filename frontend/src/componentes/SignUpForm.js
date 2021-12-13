@@ -5,7 +5,7 @@ import authActions from "../redux/actions/authActions";
 import {Link} from 'react-router-dom'
 
 function SignUpForm(props) {
-  const { getCountryNames, countryNames, cargarUser, newUser } = props;
+  const { getCountryNames, countryNames, cargarUser} = props;
 
     const inputFirstName = useRef()
     const inputLastName = useRef()

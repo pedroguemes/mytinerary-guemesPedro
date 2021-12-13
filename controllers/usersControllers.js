@@ -44,6 +44,8 @@ const usersControllers = {
   obtenerUsers: (req, res) => {
         User.find().then((users) => res.json({ users }));
       },
+
+
       cargarSignIn: async (req, res) => {
         const { userMail, password, google} = req.body;
         try {
@@ -64,7 +66,7 @@ const usersControllers = {
             if (passwordMatch) {
               const token = jwt.sign({...userExiste}, process.env.S_KEY)
               // console.log(token)
-              res.json({ success: true, response: { userExiste }, error: null });
+              res.json({ success: true, response: {token, userExiste }, error: null });
             } else {
               res.json({ success: false, error: "E-mail or password incorrect." });
             }

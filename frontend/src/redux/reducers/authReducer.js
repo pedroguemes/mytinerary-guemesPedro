@@ -27,6 +27,10 @@ const initialState = {
               userCountry:action.payload.userCountry                          
             }
           };
+        case "logOut":
+          return {
+            ...initialState,
+          };
         default:
           return state;
     }
