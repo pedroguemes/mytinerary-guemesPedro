@@ -18,7 +18,7 @@ const validator = (req, res, next) => {
             'string.min': 'The password must have eight letters at least ',
             'string.max': 'The password must have less than twenty letters'
         }) : joi.string().required(),
-        userMail: joi.required().mail(),
+        userMail: joi.string().email().required(),
         imagenUser: joi.string().required(),
        userCountry: joi.required(),
        google: joi.boolean()

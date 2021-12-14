@@ -9,10 +9,25 @@ import Citysinprops from "./pags/City";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { withRouter } from "./utils/routes/withRouter";
 import {connect} from "react-redux";
+import authActions from "./redux/actions/authActions";
+import { useEffect } from "react";
 
 const City = withRouter(Citysinprops);
 
+// console.log(token)
+
 function App(props) {
+
+  const {user, verifyToken} = props
+  
+  useEffect(()=>{
+    if(localStorage.getItem('token')){
+        verifyToken(localStorage.getItem('token'))
+    }     
+  },[])
+  
+  console.log(user.token)
+  
   return (
     <Router>
       <Routes>
@@ -34,5 +49,8 @@ const mapStateToProps = (state) => {
    user: state.authReducer.user,
   };
 };
+const mapDispatchToProps = { 
+   verifyToken: authActions.verifyToken 
+};
 
-export default connect(mapStateToProps, null)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

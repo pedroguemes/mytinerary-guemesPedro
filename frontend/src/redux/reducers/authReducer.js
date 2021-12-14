@@ -4,7 +4,8 @@ const initialState = {
     firstName:'',
     lastName:'',
     imagenUser:'',
-    userCountry:''
+    userCountry:'',
+    token:''
   }
   };
   
@@ -21,10 +22,11 @@ const initialState = {
           return {
             ...state,
             user:{
-              firstName:action.payload.firstName,
-              lastName:action.payload.lastName,
-              imagenUser:action.payload.imagenUser,
-              userCountry:action.payload.userCountry                          
+              token:action.payload.token,
+              firstName:action.payload.userExiste.firstName,
+              lastName:action.payload.userExiste.lastName,
+              imagenUser:action.payload.userExiste.imagenUser,
+              userCountry:action.payload.userExiste.userCountry                          
             }
           };
         case "logOut":

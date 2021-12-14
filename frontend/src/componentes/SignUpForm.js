@@ -3,6 +3,8 @@ import CalltoSign from "./CalltoSign";
 import { connect } from "react-redux";
 import authActions from "../redux/actions/authActions";
 import {Link} from 'react-router-dom'
+import GoogleLogin from 'react-google-login'
+
 
 function SignUpForm(props) {
   const { getCountryNames, countryNames, cargarUser} = props;
@@ -28,6 +30,12 @@ function SignUpForm(props) {
     const errores = await cargarUser(
       firstName, lastName, userMail, password, imagenUser, userCountry);
   };
+
+
+  const responseGoogle = (res) => {
+    console.log(res);
+    props.cargarUser(res.profileObj.givenName, res.profileObj.familyName, res.profileObj.email, res.profileObj.googleId, res.profileObj.imageUrl, " ", true)
+}
 
 
  const handleSubmitInputs = (e)=> {
@@ -125,6 +133,12 @@ function SignUpForm(props) {
                 </div>
                     <input className="formButtons" type='submit' value='Create account'></input>
               </form>
+              <GoogleLogin className="formButtons"
+                clientId="378148122283-d1dapvv0m2ni54j49ol1pk2qbgdoqnms.apps.googleusercontent.com"
+                buttonText="Sign in with Google"
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
+                cookiePolicy={'single_host_origin'} />
               {/* <div className="formButtons"> */}
                 {/* <button onClick={handleSubmit()}>Create account</button> */}
               {/* </div> */}

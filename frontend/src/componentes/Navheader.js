@@ -46,7 +46,9 @@ const {loggedUser, logOut} = props;
           </Nav>
           <div>
             {/* <NavDropdown className="logopersona" title={loggedUser.imagenUser ? loggedUser.imagenUser : logopersona}> */}
-            <NavDropdown className="logopersona" title={logopersona}>
+            <NavDropdown className="logopersona" title={loggedUser.imagenUser ? <img className="logoImagenPerfil" src={loggedUser.imagenUser}/>: logopersona}>
+            {/* <img className="logopersona" src={loggedUser.imagenUser}/> */}
+            {/* <NavDropdown className="logopersona" title={logopersona}> */}
               { (props.loggedUser.firstName === '') ? (
               <><NavDropdown.Item className="sign">
                <Link to="/signin"> Sign In </Link>
@@ -55,8 +57,8 @@ const {loggedUser, logOut} = props;
                <Link to="/signup"> Sign Up </Link>
               </NavDropdown.Item></>)
                :(<NavDropdown.Item className="sign">
-               {/* <Link onClick={logOut()} to="/Home"> Log out </Link> */}
-               <Link to="/Home"> Log out </Link>
+               <Link onClick={()=>logOut()} to="/Home"> Log out </Link>
+               {/* <Link to="/Home"> Log out </Link> */}
               </NavDropdown.Item>)}
             </NavDropdown>
           </div>

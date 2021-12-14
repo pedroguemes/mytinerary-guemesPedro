@@ -77,6 +77,15 @@ const usersControllers = {
         }
   },
 
+  verifyToken: (req,res) => {
+   res.json({ 
+    token, 
+    firstName:req.user.firstName,
+   lastName:req.user.lastName,
+   imagenUser:req.user.imagenUser,
+   userCountry:req.user.firstName})   
+  }
+
 };
 module.exports = usersControllers;
 

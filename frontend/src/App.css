@@ -1492,4 +1492,12 @@ button.accordion-button {
   border-radius: 10px !important;
   background-color: rgba(9, 80, 138, 0.65) !important;
   color: rgba(250, 235, 215, 0.507) !important;
+  margin: .5rem !important;
+}
+
+.logoImagenPerfil {
+
+    height:54px;
+    width: 54px;
+    border-radius: 50%;
 }
