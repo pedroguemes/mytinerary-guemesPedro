@@ -23,6 +23,7 @@ const authActions = {
             localStorage.setItem('token',user.data.response.userExiste.token)
             // dispatch({type:'cargar_User', payload:{firstName, lastName, userMail, imagenUser, userCountry}})  
             dispatch({type:'cargar_User', payload:{token, firstName, lastName, userMail, imagenUser, userCountry}})  
+            return {success:true, response:user}
       }else{
         console.error(user.data.response)
               return { errores : [{message:user.data.error}]}

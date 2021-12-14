@@ -11,13 +11,13 @@ function SignInForm (props) {
     const inputPassword = useRef()
 
     const responseGoogle = (res) => {
-      console.log(res);
+      // console.log(res);
       props.signIn(res.profileObj.email, res.profileObj.googleId, true)
   }
 
     const handleSubmit = (userMail, password) => {
         const errores =  signIn(userMail, password);
-        console.log(errores)
+        // console.log(errores)
     }
     
     const handleInputsSubmit  = (e)=> {        

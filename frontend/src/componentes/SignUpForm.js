@@ -4,6 +4,11 @@ import { connect } from "react-redux";
 import authActions from "../redux/actions/authActions";
 import {Link} from 'react-router-dom'
 import GoogleLogin from 'react-google-login'
+// import toasty from "./Toast"
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+
+
 
 
 function SignUpForm(props) {
@@ -27,13 +32,13 @@ function SignUpForm(props) {
   
     // console.log(firstName)
     
-    const errores = await cargarUser(
-      firstName, lastName, userMail, password, imagenUser, userCountry);
+    const errores = await cargarUser( firstName, lastName, userMail, password, imagenUser, userCountry);
+    // console.log(errores);
   };
 
 
   const responseGoogle = (res) => {
-    console.log(res);
+    // console.log(res);
     props.cargarUser(res.profileObj.givenName, res.profileObj.familyName, res.profileObj.email, res.profileObj.googleId, res.profileObj.imageUrl, " ", true)
 }
 
@@ -147,6 +152,16 @@ function SignUpForm(props) {
           </div>
         </div>
       </div>
+      {/* <ToastContainer 
+            position="bottom-right"
+            autoClose={4000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss={false}
+            draggable
+            pauseOnHover={false}/> */}
     </>
   );
 }

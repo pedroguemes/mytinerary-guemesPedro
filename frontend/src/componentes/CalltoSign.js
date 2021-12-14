@@ -1,6 +1,5 @@
 import React from "react";
 import { Alert } from "react-bootstrap";
-import {Link} from 'react-router-dom'
 
 function CalltoSign() {
   return (

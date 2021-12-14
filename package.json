@@ -12,7 +12,9 @@
     "passport-jwt": "^4.0.0",
     "react-bootstrap": "^2.0.2",
     "react-google-login": "^5.2.2",
-    "react-promise-tracker": "^2.1.0"
+    "react-promise-tracker": "^2.1.0",
+    "react-toastify": "^8.1.0",
+    "sweetalert2": "^11.3.0"
   },
   "name": "mytinerary-guemes",
   "version": "1.0.0",

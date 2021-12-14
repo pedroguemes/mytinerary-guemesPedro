@@ -13,7 +13,7 @@ const logopersona = <BsPersonCircle className="logoperson" />;
 function Navheader(props) {
  
 const {loggedUser, logOut} = props;
- console.log(loggedUser)
+//  console.log(loggedUser)
 
   return (
     <div>
