@@ -13,20 +13,18 @@ const authActions = {
       return async (dispatch, getState) => {
         try {   
           const token = localStorage.getItem('token')
-        const user = await axios.post('http://localhost:4000/api/auth/signUp',{firstName, lastName, userMail, password,  imagenUser,userCountry},{
+        const user = await axios.post('http://localhost:4000/api/auth/signUp',{firstName, lastName, userMail, password,imagenUser,userCountry},{
           headers:{
             'Authorization':'Bearer '+ token
           }
         })
           if (user.data.success && !user.data.error) { 
-            // localStorage.setItem('token',user.data.response.token)
             localStorage.setItem('token',user.data.response.userExiste.token)
-            // dispatch({type:'cargar_User', payload:{firstName, lastName, userMail, imagenUser, userCountry}})  
             dispatch({type:'cargar_User', payload:{token, firstName, lastName, userMail, imagenUser, userCountry}})  
             return {success:true, response:user}
       }else{
         console.error(user.data.response)
-              return { errores : [{message:user.data.error}]}
+              return {errores:user.data.errores}
         }
           }catch(error){ }
         }

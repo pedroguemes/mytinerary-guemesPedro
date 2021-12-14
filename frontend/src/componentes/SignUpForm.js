@@ -5,8 +5,8 @@ import authActions from "../redux/actions/authActions";
 import {Link} from 'react-router-dom'
 import GoogleLogin from 'react-google-login'
 // import toasty from "./Toast"
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -34,6 +34,18 @@ function SignUpForm(props) {
     
     const errores = await cargarUser( firstName, lastName, userMail, password, imagenUser, userCountry);
     // console.log(errores);
+    if (errores.errores){
+      errores.errores.map(e => toast(e.message,{
+      position:"bottom-right",
+      autoClose:4000,
+      hideProgressBar:false,
+      newestOnTop:false,
+      closeOnClick:true,
+      rtl:false,
+      pauseOnFocusLoss:false,
+      draggable:false,
+      pauseOnHover:false}))
+    }
   };
 
 

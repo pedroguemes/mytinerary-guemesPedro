@@ -18,7 +18,7 @@ const usersControllers = {
             if (userExiste) {
               res.json({
                 success: false,
-                error: "User mail already exists.",
+                errores: [{message:"User mail already exists."}],
                 response: null,
               });
             } else {

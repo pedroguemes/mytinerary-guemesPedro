@@ -27,6 +27,10 @@ function App(props) {
   },[])
   
   console.log(user.token)
+
+  // if(!user && localStorage.getItem('token')){
+    // props.logueoForzado(token)
+  // }
   
   return (
     <Router>
