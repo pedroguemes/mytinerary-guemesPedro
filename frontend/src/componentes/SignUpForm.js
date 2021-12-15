@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import CalltoSign from "./CalltoSign";
 import { connect } from "react-redux";
 import authActions from "../redux/actions/authActions";
@@ -12,6 +12,15 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 function SignUpForm(props) {
+  
+  useEffect(
+    () => getCountryNames(),
+    [],
+    window.scroll({ left: 0, top: 145, behavior: "smooth" })
+  );
+  
+   const [ error, setError] = useState({})
+
   const { getCountryNames, countryNames, cargarUser} = props;
 
     const inputFirstName = useRef()
@@ -34,19 +43,29 @@ function SignUpForm(props) {
     
     const cargarUserRes = await cargarUser( firstName, lastName, userMail, password, imagenUser, userCountry);
     
-    console.log(cargarUserRes)
+    console.log(cargarUserRes.error)
     
-    if (cargarUserRes.errores){
-      cargarUserRes.errores.map(e => toast(e.message,{
-      position:"bottom-right",
-      autoClose:4000,
-      hideProgressBar:false,
-      newestOnTop:false,
-      closeOnClick:true,
-      rtl:false,
-      pauseOnFocusLoss:false,
-      draggable:false,
-      pauseOnHover:false}))
+    // if (cargarUserRes.errores){
+      //   cargarUserRes.errores.map(e => toast(e.message,{
+        //   position:"bottom-right",
+        //   autoClose:4000,
+        //   hideProgressBar:false,
+        //   newestOnTop:false,
+        //   closeOnClick:true,
+        //   rtl:false,
+    //   pauseOnFocusLoss:false,
+    //   draggable:false,
+    //   pauseOnHover:false}))
+    // }
+
+    if (cargarUserRes.error){
+      const error={}
+        cargarUserRes.error.forEach(err=>{
+          let key = err.context.key
+          error[key] = err.message
+        })
+        console.log(error)
+        setError(error)
     }
 
   };
@@ -54,7 +73,7 @@ function SignUpForm(props) {
 
   const responseGoogle = (res) => {
     // console.log(res);
-    props.cargarUser(res.profileObj.givenName, res.profileObj.familyName, res.profileObj.email, res.profileObj.googleId, res.profileObj.imageUrl, " ", true)
+    cargarUser(res.profileObj.givenName, res.profileObj.familyName, res.profileObj.email, res.profileObj.googleId, res.profileObj.imageUrl, " ", true)
 }
 
 
@@ -77,12 +96,6 @@ function SignUpForm(props) {
  }
 
   // console.log(countryNames)
-  
-  useEffect(
-    () => getCountryNames(),
-    [],
-    window.scroll({ left: 0, top: 145, behavior: "smooth" })
-  );
 
   return (
     <>
@@ -99,12 +112,15 @@ function SignUpForm(props) {
             <div>
               <form onSubmit={handleSubmitInputs}>
                 <div>
+
                   <input
                     type="text"
                     name="firstName"
                     ref = {inputFirstName}                 
                     placeholder="First name"
                   />
+                  {error.firstName && <p>{error.firstName}</p> }
+                
                 </div>
                 <div>
                   <input
@@ -113,6 +129,7 @@ function SignUpForm(props) {
                     ref = {inputLastName}
                     placeholder="Last name"
                   />
+             {error.lastName && <p>{error.lastName}</p> }
                 </div>
                 <div>
                   <input
@@ -120,15 +137,17 @@ function SignUpForm(props) {
                     name="userMail"
                     ref = {inputUserMail}
                     placeholder="Email"
-                  />
+                    />
                 </div>
+                  {error.userMail && <p>{error.userMail}</p> }
                 <div>
                   <input
                     type="password"
                     name="password"
-                   ref = {inputPassword}
+                    ref = {inputPassword}
                     placeholder="Password"
-                  />
+                    />
+                    {error.password && <p>{error.password}</p> }
                 </div>
                 <div>
                   <input
@@ -136,7 +155,8 @@ function SignUpForm(props) {
                     name="imagenUser"
                     ref = {inputImagenUser}
                     placeholder="Profile picture image Url"
-                  />
+                    />
+                    {error.imagenUser && <p>{error.imagenUser}</p> }
                 </div>
                 <div>
                   <select
@@ -144,7 +164,8 @@ function SignUpForm(props) {
                     name="userCountry"
                     ref = {inputUserCountry}
                     placeholder="Country"
-                  >
+                    >
+                    {error.userCountry && <p>{error.userCountry}</p> }
                     <option>Country</option>
                     {countryNames.map((countryName) => (
                       <option key={countryName.name}>{countryName.name}</option>
@@ -190,7 +211,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   getCountryNames: authActions.getCountryNames,
-  cargarUser: authActions.cargarUsuario,
+  cargarUser: authActions.signUpUserAction,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm);

@@ -30,6 +30,8 @@ const validator = (req, res, next) => {
         return res.json( { success:false, errores: validate.error.details } )
     }
 
+    console.log(validate.error.details)
+
     next()
 }
 

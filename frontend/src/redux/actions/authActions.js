@@ -9,27 +9,28 @@ const authActions = {
         };
   },
   
-    cargarUsuario: (firstName, lastName, userMail, password, imagenUser,userCountry) => {
-      return async (dispatch, getState) => {
-        try {   
-          const token = localStorage.getItem('token')
-          // console.log(token)
-          const user = await axios.post('http://localhost:4000/api/auth/signUp',{firstName, lastName, userMail, password,imagenUser,userCountry},{
-          headers:{
-            'Authorization':'Bearer '+ token
+    signUpUserAction: (firstName, lastName, userMail, password, imagenUser,userCountry) => {
+        // console.log(firstName, lastName, userMail, password, imagenUser,userCountry)
+        return async (dispatch, getState) => {
+      try {   
+                // const token = localStorage.getItem('token')
+                // console.log(token)
+                const user = await axios.post('http://localhost:4000/api/auth/signUp',{firstName, lastName, userMail, password,imagenUser,userCountry})
+              console.log(user)
+              // console.log(user.data.response.newUser)
+                if (user.data.success && !user.data.errores) { 
+                  localStorage.setItem('token',user.data.response.token)
+                  dispatch({type:'cargar_User', payload:user.data.response.newUser})  
+                  // return {success:true, response:user}
+                  return user
+            }
+            else{
+              console.log(user.data.errores)
+                    return {error:user.data.errores}
+              }
+
+        }catch(error){ console.log(error) }
           }
-        })
-        console.log(user)
-          if (user.data.success && !user.data.error) { 
-            localStorage.setItem('token',user.data.response.userExiste.token)
-            dispatch({type:'cargar_User', payload:{token, firstName, lastName, userMail, imagenUser, userCountry}})  
-            return {success:true, response:user}
-      }else{
-        console.error(user.data.response)
-              return {success:false, response:user.data.errores}
-        }
-          }catch(error){ console.error(error) }
-        }
      },
 
      cargarSignIn: (userMail,password) => {
@@ -44,7 +45,7 @@ const authActions = {
               if(user.data.success && !user.data.error){
                 localStorage.setItem('token',user.data.response.token)
                 console.log(user.data.response)
-                  dispatch({type:'cargar_User', payload:user.data.response})
+                  dispatch({type:'cargar_User', payload:user.data.response.userExiste})
                   // return {user}
                 }else{
                   console.log(user.data)
@@ -72,8 +73,8 @@ const authActions = {
         }
          }
         )        
-        console.log(user.data.response)
-        dispatch({type:"cargar_User", payload: user.data.response })
+        console.log(user.data.response)       
+        dispatch({type:"cargar_User", payload: user.data.response.userExiste })
       }catch(error){
         console.log(error)
         return dispatch({type:"logOut", payload:{}})

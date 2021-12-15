@@ -14,15 +14,18 @@ const initialState = {
           countryNames: action.payload,
         }
         case "cargar_User":
+          console.log("reducer")
+          console.log(action.payload)
           return {
             ...state,
-            user:{
-              token:action.payload.token || localStorage.getItem('token'),
-              firstName:action.payload.userExiste.firstName,
-              lastName:action.payload.userExiste.lastName,
-              imagenUser:action.payload.userExiste.imagenUser,
-              userCountry:action.payload.userExiste.userCountry                          
-            }
+            user:action.payload
+            // user:{
+            //   token:action.payload.token || localStorage.getItem('token'),
+            //   firstName:action.payload.firstName,
+            //   lastName:action.payload.lastName,
+            //   imagenUser:action.payload.imagenUser,
+            //   userCountry:action.payload.userCountry                          
+            // }
           };
         case "logOut":
           return {
