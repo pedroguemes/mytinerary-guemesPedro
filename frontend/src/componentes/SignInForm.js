@@ -10,9 +10,32 @@ function SignInForm (props) {
     const inputUserMail = useRef()
     const inputPassword = useRef()
 
-    const responseGoogle = (res) => {
-      // console.log(res);
-      props.signIn(res.profileObj.email, res.profileObj.googleId, true)
+    const responseGoogle = async (res) => {
+      console.log(res)
+      let googleUser = {
+
+          email: res.profileObj.email,
+          password: res.profileObj.googleId,
+          google: true, 
+      }
+       await signIn( googleUser.email, googleUser.password)
+      .then((response) => {
+          console.log(response)
+          if (!response){
+              alert('Your account has been created!')
+
+          }
+          else{
+          alert(response.map(err =>err.message))
+          }
+
+      })
+      .catch((error) => {
+          console.log(error)
+          alert('Something went wrong! Come back later!')
+
+      })
+
   }
 
     const handleSubmit = (userMail, password) => {

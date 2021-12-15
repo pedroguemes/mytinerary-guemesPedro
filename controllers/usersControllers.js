@@ -13,6 +13,7 @@ const usersControllers = {
   cargarUser: async (req, res) => {
           const { firstName, lastName, userMail, password, imagenUser, userCountry, google } =
             req.body;
+            console.log(req)
           try {
             const userExiste = await User.findOne({ userMail });
             if (userExiste) {
@@ -48,11 +49,11 @@ const usersControllers = {
   
   
       cargarSignIn: async (req, res) => {
-        const { userMail, password, google} = req.body;
+        const { email, password, google} = req.body;
         try {
           console.log(req.body)
-          const userExiste = await User.findOne({ userMail });
-          if (userExiste.google && !google) throw new Error ("E-mail or password incorrect.")
+          const userExiste = await User.findOne({ email });
+          if (userExiste.userMail && !google) throw new Error ("E-mail or password incorrect.")
           else if (!userExiste) {
             res.json({
               success: false,

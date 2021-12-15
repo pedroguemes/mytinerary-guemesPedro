@@ -73,7 +73,43 @@ function SignUpForm(props) {
 
   const responseGoogle = (res) => {
     // console.log(res);
-    cargarUser(res.profileObj.givenName, res.profileObj.familyName, res.profileObj.email, res.profileObj.googleId, res.profileObj.imageUrl, " ", true)
+    // const  userGoogle = {
+
+    // }
+
+    // cargarUser(res.profileObj.givenName, res.profileObj.familyName, res.profileObj.email, res.profileObj.googleId, res.profileObj.imageUrl, "argentina", true)
+
+    const responseGoogle = async (res) => {
+      console.log(res)
+      let googleUser = {
+        firstName:res.profileObj.givenName,
+        lastName:res.profileObj.familyName,
+        userMail: res.profileObj.email,
+        password: res.profileObj.googleId,
+        imagenUser:  res.profileObj.imageUrl,
+        userCountry:"argentina",
+        google: true, 
+      }
+
+       await cargarUser(googleUser.firstName,googleUser.lastName,googleUser.userMail,googleUser.password,googleUser.imagenUser,googleUser.google)
+      .then((response) => {
+          console.log(response)
+          if (!response){
+              alert('Your account has been created. 👍')
+
+          }
+          else{
+          alert(response.map(err =>err.message))
+          }
+
+      })
+      .catch((error) => {
+          console.log(error)
+          alert('Something went wrong! Come back later!')
+
+      })
+
+  }
 }
 
 
@@ -176,7 +212,7 @@ function SignUpForm(props) {
               </form>
               <GoogleLogin className="formButtons"
                 clientId="378148122283-d1dapvv0m2ni54j49ol1pk2qbgdoqnms.apps.googleusercontent.com"
-                buttonText="Sign in with Google"
+                buttonText="Sign up with Google"
                 onSuccess={responseGoogle}
                 onFailure={responseGoogle}
                 cookiePolicy={'single_host_origin'} />

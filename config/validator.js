@@ -20,7 +20,7 @@ const validator = (req, res, next) => {
         }) : joi.string().required(),
         userMail: joi.string().email().required(),
         imagenUser: joi.string().required(),
-       userCountry: joi.required(),
+       userCountry: joi.sting().required(),
        google: joi.boolean()
     })
 

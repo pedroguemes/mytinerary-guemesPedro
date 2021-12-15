@@ -9,7 +9,7 @@ const authActions = {
         };
   },
   
-    signUpUserAction: (firstName, lastName, userMail, password, imagenUser,userCountry) => {
+    signUpUserAction: (firstName, lastName, userMail, password, imagenUser,userCountry, google) => {
         // console.log(firstName, lastName, userMail, password, imagenUser,userCountry)
         return async (dispatch, getState) => {
       try {   
@@ -25,17 +25,21 @@ const authActions = {
                   return user
             }
             else{
+              if(google){
+                alert("You have to sign up before you log in")
+            }else{
               console.log(user.data.errores)
                     return {error:user.data.errores}
+              }
               }
 
         }catch(error){ console.log(error) }
           }
      },
 
-     cargarSignIn: (userMail,password) => {
+     cargarSignIn: (userMail,password, google) => {
       return async(dispatch, getState)=>{
-        console.log(userMail, password)
+        console.log(userMail, password, google)
           try {
             const token = localStorage.getItem('token')
               const user = await axios.post('http://localhost:4000/api/auth/signIn',{userMail, password},{
