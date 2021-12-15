@@ -34,7 +34,7 @@ const usersControllers = {
               });
               const token = jwt.sign({...newUser}, process.env.S_KEY)
               await newUser.save();
-              res.json({ success: true, response: {token,newUser}, error: null });
+              res.json({ success: true, response: {token, userExiste}, error: null });
             }
           } catch (error) {
             res.json({ success: false, response: null, error: error });
@@ -75,15 +75,16 @@ const usersControllers = {
           console.log(error)
           res.json({ success: false, response: null, error: error });
         }
-  },
+      },
 
-  verifyToken: (req,res) => {
-   res.json({ 
-    token, 
+      verifyToken: (req,res) => {
+       const userExiste = { 
     firstName:req.user.firstName,
-   lastName:req.user.lastName,
+    lastName:req.user.lastName,
    imagenUser:req.user.imagenUser,
-   userCountry:req.user.firstName})   
+   userCountry:req.user.firstName
+  }  
+   res.json({ success: true, response:{userExiste} });
   }
 
 };

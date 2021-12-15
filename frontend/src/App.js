@@ -21,23 +21,18 @@ function App(props) {
   const {user, verifyToken} = props
   
   useEffect(()=>{
-    if(localStorage.getItem('token')){
+    if( !user.token &&  localStorage.getItem('token')){
         verifyToken(localStorage.getItem('token'))
     }     
   },[])
   
-  console.log(user.token)
-
-  // if(!user && localStorage.getItem('token')){
-    // props.logueoForzado(token)
-  // }
-  
+ 
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-       {props.user.firstName === '' && <Route path="/signin" element={<SignIn/>} />}
-       {props.user.firstName === '' && <Route path="/signup" element={<SignUp/>} />}
+       {!props.user.firstName  && <Route path="/signin" element={<SignIn/>} />}
+       {!props.user.firstName  && <Route path="/signup" element={<SignUp/>} />}
         <Route path="/cities" element={<Cities />} />
         <Route path="/cities/:id" element={<City />} />
         <Route path="*" element={<Home />} />

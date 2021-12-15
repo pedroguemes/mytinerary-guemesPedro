@@ -4,6 +4,7 @@ import { AiTwotoneLike } from "react-icons/ai";
 import { connect } from "react-redux";
 import City from "../pags/City";
 import itinerariesActions from "../redux/actions/itinerariesActions";
+import Activity from "./Activity";
 
 function Itinerario(props) {
   // const id = window.location.href.split("/").pop()
@@ -54,13 +55,25 @@ function Itinerario(props) {
           <Accordion className="viewMore" defaultActiveKey="0">
             <Accordion.Item bg="myviewMore" eventKey="1">
               <Accordion.Header>View more</Accordion.Header>
-              <Accordion.Body>
+              <Accordion.Body className="accordionBody">
                 <div className="viewMoreContenido">
                   <div className="actividadesItinerary">
-                    <h1> ( activitiesUnder construction)</h1>
-                  </div>
-                  <div className="comentariosItinerary">
-                    <h1>(Comments under construction)</h1>
+                        <div className="actividadesContenedorInterno">
+                          <Activity/>
+                          <Activity/>
+                          <Activity/>
+                        </div>
+                        <h1>(Comments under construction)</h1>
+                      {/* </div>
+                        <Activity/>
+                      <div className="actividadesItinerary">
+                      </div>
+                      <div className="actividadesItinerary">
+                        <Activity/>
+                      </div>
+                      <div className="comentariosItinerary">
+                        <h1>(Comments under construction)</h1>
+                      </div> */}
                   </div>
                 </div>
               </Accordion.Body>

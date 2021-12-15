@@ -13,20 +13,22 @@ const authActions = {
       return async (dispatch, getState) => {
         try {   
           const token = localStorage.getItem('token')
-        const user = await axios.post('http://localhost:4000/api/auth/signUp',{firstName, lastName, userMail, password,imagenUser,userCountry},{
+          // console.log(token)
+          const user = await axios.post('http://localhost:4000/api/auth/signUp',{firstName, lastName, userMail, password,imagenUser,userCountry},{
           headers:{
             'Authorization':'Bearer '+ token
           }
         })
+        console.log(user)
           if (user.data.success && !user.data.error) { 
             localStorage.setItem('token',user.data.response.userExiste.token)
             dispatch({type:'cargar_User', payload:{token, firstName, lastName, userMail, imagenUser, userCountry}})  
             return {success:true, response:user}
       }else{
         console.error(user.data.response)
-              return {errores:user.data.errores}
+              return {success:false, response:user.data.errores}
         }
-          }catch(error){ }
+          }catch(error){ console.error(error) }
         }
      },
 
@@ -39,17 +41,9 @@ const authActions = {
                 headers:{
                 'Authorization':'Bearer '+ token
               }})
-              console.log(user)
               if(user.data.success && !user.data.error){
                 localStorage.setItem('token',user.data.response.token)
-
-                // const loggedUser = {                
-                //     firstName:user.data.response.userExiste.firstName,
-                //     lastName:user.data.response.userExiste.lastName,
-                //     imagenUser:user.data.response.userExiste.imagenUser,
-                //     userCountry:user.data.response.userExiste.userCountry                          
-                  
-                // }
+                console.log(user.data.response)
                   dispatch({type:'cargar_User', payload:user.data.response})
                   // return {user}
                 }else{
@@ -72,21 +66,16 @@ const authActions = {
   verifyToken: (token) => {
     return async (dispatch,getState)=>{
       try {
-        const user = await axios.get("http://localhost:4000/auth/verifytoken",
+        const user = await axios.get("http://localhost:4000/api/auth/verifytoken",
        { headers:{
           'Authorization':'Bearer '+ token,
         }
          }
-        ) 
-        const userToken = {   
-          token,
-          firstName:user.data.response.userExiste.firstName,
-          lastName:user.data.response.userExiste.lastName,
-          imagenUser:user.data.response.userExiste.imagenUser,
-          userCountry:user.data.response.userExiste.userCountry         
-        } 
-        dispatch({type:"cargar_User", payload: userToken })
+        )        
+        console.log(user.data.response)
+        dispatch({type:"cargar_User", payload: user.data.response })
       }catch(error){
+        console.log(error)
         return dispatch({type:"logOut", payload:{}})
       }
     }

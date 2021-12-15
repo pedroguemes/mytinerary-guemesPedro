@@ -49,7 +49,7 @@ const {loggedUser, logOut} = props;
             <NavDropdown className="logopersona" title={loggedUser.imagenUser ? <img className="logoImagenPerfil" src={loggedUser.imagenUser}/>: logopersona}>
             {/* <img className="logopersona" src={loggedUser.imagenUser}/> */}
             {/* <NavDropdown className="logopersona" title={logopersona}> */}
-              { (props.loggedUser.firstName === '') ? (
+              { (!props.loggedUser.firstName) ? (
               <><NavDropdown.Item className="sign">
                <Link to="/signin"> Sign In </Link>
               </NavDropdown.Item>

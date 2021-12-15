@@ -898,11 +898,23 @@ button.accordion-button {
 }
 
 
-.accordion-body {
+/* .accordion-body {
   background-color: rgba(59, 104, 143, 0.527) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex-wrap: wrap !important;
+} */
+
+.accordionBody {
+  background-color: rgba(59, 104, 143, 0.527) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex-wrap: wrap !important;
 }
+
 .viewMoreContenido {
-  display: flex;
+  display: flex !important;
+  flex-direction: column !important;
   justify-content: space-around;
   background-color: rgba(0, 128, 0, 0) !important;
 }
@@ -911,9 +923,17 @@ button.accordion-button {
   background-color: rgba(255, 0, 0, 0)!important;
   padding: 1rem;
 }
+
+.actividadesContenedorInterno{
+  background-color: antiquewhite !important;
+  display: flex !important;
+  flex-direction: row !important;
+}
+
 .comentariosItinerary {
   background-color: rgba(255, 0, 0, 0.048)!important;
   padding: 1rem;
+  width: 100% !important;
 }
 
 
@@ -1280,6 +1300,10 @@ button.accordion-button {
 
 .accordion-body {
   background-color: rgba(59, 104, 143, 0.527) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center;
+  align-items: center;
 }
 .viewMoreContenido {
   display: flex;
@@ -1287,14 +1311,42 @@ button.accordion-button {
   background-color: rgba(0, 128, 0, 0) !important;
 }
 
+.actividadesContenedorInterno{
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-around;
+  align-content: center;
+}
+
 .actividadesItinerary {
   background-color: rgba(255, 0, 0, 0)!important;
-  padding: 1rem;
+  /* padding: 1rem; */
+  width: 100%;
 }
+
+.containerActivity{
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.containerImagenActivity {
+  margin:0.5rem;
+  padding: 0.3rem;
+  width: 33%;
+  display: flex !important;
+  justify-content: center;
+}
+.containerImagenActivity img {
+    width: 75%;
+}
+
 .comentariosItinerary {
   background-color: rgba(255, 0, 0, 0.048)!important;
   padding: 1rem;
 }
+
 
 .error {
   margin: 5rem;

@@ -1,11 +1,6 @@
 const initialState = {
     countryNames: [],
-    user:{
-    firstName:'',
-    lastName:'',
-    imagenUser:'',
-    userCountry:'',
-    token:''
+    user:{  
   }
   };
   
@@ -22,7 +17,7 @@ const initialState = {
           return {
             ...state,
             user:{
-              token:action.payload.token,
+              token:action.payload.token || localStorage.getItem('token'),
               firstName:action.payload.userExiste.firstName,
               lastName:action.payload.userExiste.lastName,
               imagenUser:action.payload.userExiste.imagenUser,

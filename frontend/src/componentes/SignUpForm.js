@@ -30,12 +30,14 @@ function SignUpForm(props) {
     userCountry
   ) => {
   
-    // console.log(firstName)
+    console.log(firstName)
     
-    const errores = await cargarUser( firstName, lastName, userMail, password, imagenUser, userCountry);
-    // console.log(errores);
-    if (errores.errores){
-      errores.errores.map(e => toast(e.message,{
+    const cargarUserRes = await cargarUser( firstName, lastName, userMail, password, imagenUser, userCountry);
+    
+    console.log(cargarUserRes)
+    
+    if (cargarUserRes.errores){
+      cargarUserRes.errores.map(e => toast(e.message,{
       position:"bottom-right",
       autoClose:4000,
       hideProgressBar:false,
@@ -46,6 +48,7 @@ function SignUpForm(props) {
       draggable:false,
       pauseOnHover:false}))
     }
+
   };
 
 
