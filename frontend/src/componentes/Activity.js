@@ -5,7 +5,7 @@ const Activity = (props) => {
     return (
        <>
             <div className="containerActivity">
-                                       <h4 className="tituloActividad">Titulo Actividad</h4>
+                                       <h4 className="tituloActivity">Titulo Actividad</h4>
                                        <div className="containerImagenActivity">
                                             <img src={imagenActividad} className="imagenActivity"/>
                                        </div>

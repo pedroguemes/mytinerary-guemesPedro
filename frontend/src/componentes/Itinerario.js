@@ -63,7 +63,7 @@ function Itinerario(props) {
                           <Activity/>
                           <Activity/>
                         </div>
-                        <h1>(Comments under construction)</h1>
+                        {/* <h1>(Comments under construction)</h1> */}
                       {/* </div>
                         <Activity/>
                       <div className="actividadesItinerary">
@@ -75,6 +75,9 @@ function Itinerario(props) {
                         <h1>(Comments under construction)</h1>
                       </div> */}
                   </div>
+                  <div className="comentariosItinerary">
+                        <h1>(Comments under construction)</h1>
+                  </div> 
                 </div>
               </Accordion.Body>
             </Accordion.Item>

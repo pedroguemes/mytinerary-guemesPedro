@@ -13,10 +13,9 @@ const validator = (req, res, next) => {
             'string.min': 'Last name must be longer',
             'string.max': 'Last name must have less letters (20 max)'
         }),
-        password: !req.body.google ? joi.string().max(16).min(8).trim().required().messages({
+        password: !req.body.google ? joi.string().min(8).trim().required().messages({
             'string.empty':'All fields must be completed',
             'string.min': 'The password must have eight letters at least ',
-            'string.max': 'The password must have less than twenty letters'
         }) : joi.string().required(),
         userMail: joi.string().email().required().messages({
             'string.empty':'Email must be completed'
