@@ -15,22 +15,20 @@ const authActions = {
       try {   
                 // const token = localStorage.getItem('token')
                 // console.log(token)
-                const user = await axios.post('http://localhost:4000/api/auth/signUp',{firstName, lastName, userMail, password,imagenUser,userCountry})
+                const user = await axios.post('http://localhost:4000/api/auth/signUp',{firstName, lastName, userMail, password,imagenUser,userCountry,google})
               console.log(user)
               // console.log(user.data.response.newUser)
-                if (user.data.success && !user.data.errores) { 
+                if (user.data.success && !user.data.error) { 
                   localStorage.setItem('token',user.data.response.token)
                   dispatch({type:'cargar_User', payload:user.data.response.newUser})  
                   // return {success:true, response:user}
                   return user
             }
             else{
-              if(google){
-                alert("You have to sign up before you log in")
-            }else{
-              console.log(user.data.errores)
-                    return {error:user.data.errores}
-              }
+              
+              console.log(user.data.response)
+                    return {error:user.data.response}
+              
               }
 
         }catch(error){ console.log(error) }

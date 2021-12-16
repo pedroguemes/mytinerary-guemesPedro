@@ -2,7 +2,7 @@ import React from "react";
 import Navheader from "../componentes/Navheader";
 import Herowelcome from "../componentes/Herowelcome";
 import Calltoaction from "../componentes/Calltoaction";
-import Divcarousel from "../componentes/Carousel";
+import Carousel from "../componentes/Carousel";
 import Footer from "../componentes/Footer";
 
 export default class Home extends React.Component {
@@ -12,7 +12,7 @@ export default class Home extends React.Component {
         <Navheader/>
         <Herowelcome />
         <Calltoaction />
-        <Divcarousel />
+        <Carousel />
         <Footer />
       </>
     );

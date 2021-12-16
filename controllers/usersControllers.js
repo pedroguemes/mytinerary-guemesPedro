@@ -13,7 +13,6 @@ const usersControllers = {
   cargarUser: async (req, res) => {
           const { firstName, lastName, userMail, password, imagenUser, userCountry, google } =
             req.body;
-            console.log(req)
           try {
             const userExiste = await User.findOne({ userMail });
             if (userExiste) {
@@ -39,7 +38,7 @@ const usersControllers = {
               res.json({ success: true, response: {token, newUser}, error: null });
             }
           } catch (error) {
-            res.json({ success: false, response: null, error: error });
+            res.json({ success: false, response: null, error:error });
           }
         },
         
@@ -49,11 +48,11 @@ const usersControllers = {
   
   
       cargarSignIn: async (req, res) => {
-        const { email, password, google} = req.body;
+        const { userMail, password, google} = req.body;
         try {
           console.log(req.body)
-          const userExiste = await User.findOne({ email });
-          if (userExiste.userMail && !google) throw new Error ("E-mail or password incorrect.")
+          const userExiste = await User.findOne({ userMail });
+          if (userExiste.google && !google) throw new Error ("E-mail or password incorrect.")
           else if (!userExiste) {
             res.json({
               success: false,

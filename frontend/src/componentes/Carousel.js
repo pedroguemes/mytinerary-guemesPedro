@@ -76,7 +76,6 @@ export default function Divcarousel() {
   return (
     <>
       <h1 className="mostpop">Most popular Mytineraries</h1>
-
       <Carousel className="carousel">
         {arrayCiudades.map((ciudad) => {
           return (

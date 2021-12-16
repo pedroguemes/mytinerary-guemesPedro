@@ -4,7 +4,7 @@ const  activitySchema = new mongoose.Schema({
     activities:[{
         title:{type:String},
         image:{type:String},
-        description::{type:String}
+        description:{type:String}
     }],
     itineraryId:{type: mongoose.Types.ObjectId, ref:'itinerario'}
 })

@@ -21,6 +21,8 @@ function SignUpForm(props) {
   
    const [ error, setError] = useState({})
 
+console.log(props)
+
   const { getCountryNames, countryNames, cargarUser} = props;
 
     const inputFirstName = useRef()
@@ -43,6 +45,7 @@ function SignUpForm(props) {
     
     const cargarUserRes = await cargarUser( firstName, lastName, userMail, password, imagenUser, userCountry);
     
+    console.log(cargarUserRes)
     console.log(cargarUserRes.error)
     
     // if (cargarUserRes.errores){
@@ -53,12 +56,13 @@ function SignUpForm(props) {
         //   newestOnTop:false,
         //   closeOnClick:true,
         //   rtl:false,
-    //   pauseOnFocusLoss:false,
-    //   draggable:false,
-    //   pauseOnHover:false}))
-    // }
-
-    if (cargarUserRes.error){
+        //   pauseOnFocusLoss:false,
+        //   draggable:false,
+        //   pauseOnHover:false}))
+        // }
+        
+        if (cargarUserRes.error){
+      console.log(cargarUserRes.error)
       const error={}
         cargarUserRes.error.forEach(err=>{
           let key = err.context.key
@@ -67,19 +71,28 @@ function SignUpForm(props) {
         console.log(error)
         setError(error)
     }
+    
+    // else{
+    //   const success = "Signed Up successfully."
+    //   toast(success,{
+    //       position:"bottom-right",
+    //       autoClose:4000,
+    //       hideProgressBar:false,
+    //       newestOnTop:false,
+    //       closeOnClick:true,
+    //       rtl:false,
+    //       pauseOnFocusLoss:false,
+    //       draggable:false,
+    //       pauseOnHover:false})
+        
+    //     }
+    
 
   };
 
 
-  const responseGoogle = (res) => {
-    // console.log(res);
-    // const  userGoogle = {
-
-    // }
-
-    // cargarUser(res.profileObj.givenName, res.profileObj.familyName, res.profileObj.email, res.profileObj.googleId, res.profileObj.imageUrl, "argentina", true)
-
-    const responseGoogle = async (res) => {
+  const responseGoogle = async (res) => {
+      
       console.log(res)
       let googleUser = {
         firstName:res.profileObj.givenName,
@@ -94,7 +107,7 @@ function SignUpForm(props) {
        await cargarUser(googleUser.firstName,googleUser.lastName,googleUser.userMail,googleUser.password,googleUser.imagenUser,googleUser.google)
       .then((response) => {
           console.log(response)
-          if (!response){
+          if (response.data.success){
               alert('Your account has been created. 👍')
 
           }
@@ -109,7 +122,7 @@ function SignUpForm(props) {
 
       })
 
-  }
+  
 }
 
 

@@ -31,6 +31,7 @@ const {loggedUser, logOut} = props;
             width="210"
             className="logoheader"
             src={logosecundario}
+            alt=''
           />{" "}
           Mytinerary
         </Navbar.Brand>

@@ -18,19 +18,22 @@ const validator = (req, res, next) => {
             'string.min': 'The password must have eight letters at least ',
             'string.max': 'The password must have less than twenty letters'
         }) : joi.string().required(),
-        userMail: joi.string().email().required(),
+        userMail: joi.string().email().required().messages({
+            'string.empty':'Email must be completed'
+        }) ,
         imagenUser: joi.string().required(),
-       userCountry: joi.sting().required(),
+       userCountry: joi.string().required(),
        google: joi.boolean()
     })
 
-    const validate = schema.validate(req.body, { abortEarly: false })
+    const validation = schema.validate(req.body,{abortEarly:false})
 
-    if(validate.error) {
-        return res.json( { success:false, errores: validate.error.details } )
-    }
 
-    console.log(validate.error.details)
+            if (validation.error) {
+                console.log(validation.error)
+                return res.json({success: false, response:validation.error.details})
+            }
+            
 
     next()
 }

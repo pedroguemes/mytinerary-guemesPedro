@@ -4,7 +4,7 @@ import Home from "./pags/Home.js";
 import SignIn from "./pags/SignIn";
 import SignUp from "./pags/SignUp";
 import Cities from "./pags/Cities.js";
-import Error404 from "./pags/Error404.js";
+// import Error404 from "./pags/Error404.js";
 import Citysinprops from "./pags/City";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { withRouter } from "./utils/routes/withRouter";
