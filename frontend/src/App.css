@@ -1260,9 +1260,14 @@ button.accordion-button {
   flex-direction: column !important;
   align-items: center;
   background-color: rgba(177, 107, 15, 0);
-  justify-content: center;
+  justify-content: space-around;
 }
 
+.imagenYnombre {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
 .imagenYnombre h2 {
   margin:0.5rem;
   padding: 1rem;
@@ -1278,6 +1283,38 @@ button.accordion-button {
 
 .itineraryDescription {
   padding: 1rem
+}
+
+.buttonLikeContainer {
+  padding: 1rem;
+  font-size: large;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 255, 255, 0);
+  border: 0px;
+}
+
+.buttonLike {
+    background-color: rgba(180, 39, 39, 0);
+    border:none;
+    padding: 0.4rem;
+    opacity: 60%;
+    filter: sepia(70%);
+    filter: blur(0.5px);
+}
+
+.buttonLike:hover {
+    background-color: rgba(180, 39, 39, 0);
+    border:none;
+    padding: 0.4rem;
+    opacity: 100%;
+}
+
+.buttonLikeLiked {
+    background-color: rgba(180, 39, 39, 0);
+    border:none;
+    padding: 0.4rem;
+    opacity: 100%;
 }
 
 .aboutItinerary {

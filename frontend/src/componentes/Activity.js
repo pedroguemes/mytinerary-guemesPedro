@@ -1,11 +1,15 @@
+import { useEffect } from 'react';
 // import { connect } from 'react-redux'
 import imagenActividad from '../assets/imagenActividades.jpg'
 
 const Activity = (props) => {
+     useEffect(() => {
+          // getActivities(idItinerary);
+        }, []); 
     return (
        <>
             <div className="containerActivity">
-                                       <h4 className="tituloActivity">Titulo Actividad</h4>
+                                       <h5 className="tituloActivity">Titulo Actividad</h5>
                                        <div className="containerImagenActivity">
                                             <img src={imagenActividad} className="imagenActivity"/>
                                        </div>
