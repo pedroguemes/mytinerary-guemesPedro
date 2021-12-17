@@ -1,0 +1,51 @@
+const Comment = require("../models/Comment");
+
+const commentsControllers = {
+  obtenerComments: (req, res) => {
+    Comment.find()
+      .populate("itinerary")
+      .then((comments) => res.json({ comments }));
+  },
+  cargarComment: (req, res) => {
+    const bodyComment = req.body;
+    new Comment(bodyComment).save().then((resp) => res.json({ resp }));
+  },
+  obtenerComment: (req, res) => {
+    Comment.findOne({ _id: req.params.id })
+      .populate("itinerary")
+      .then((comment) => res.json({ comment }));
+  },
+
+  modificarComment: async (req, res) => {
+    const bodyComment = req.body;
+    let modifyComment;
+    try {
+      modifyComment = await Comment.findOneAndUpdate(
+        { _id: req.params.id },
+        bodyComment,
+        { new: true }
+      );
+    } catch (error) {}
+    res.json({ success: modifyComment ? true : false });
+  },
+  borrarComment: async (req, res) => {
+    let comment;
+    const id = req.params.id;
+    try {
+      comment = await Comment.findOneAndDelete({
+        _id: id,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+    res.json({ response: comment, success: true });
+  },
+
+  obtenerCommentPorItinerary: (req, res) => {
+    Activity.find({ itinerary: req.params.id })
+      .populate("itinerary")
+      .then((comment) => res.json({ comment }));
+  },
+};
+
+module.exports = commentsControllers;

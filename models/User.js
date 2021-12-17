@@ -1,6 +1,7 @@
 const { boolean } = require('joi');
 const mongoose = require('mongoose');
 const UserSchema = new mongoose.Schema({
+    // activities:[{}]
     firstName:{type: String, required: true},
     lastName:{type: String, required: true},
     userMail:{type: String},

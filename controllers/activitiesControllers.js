@@ -1,9 +1,9 @@
 const Activity = require("../models/Activity");
 
-const ActivitiesControllers = {
+const activitiesControllers = {
   obtenerActivities: (req, res) => {
     Activity.find()
-      .populate("Itinerary")
+      .populate("itinerary")
       .then((activities) => res.json({ activities }));
   },
   cargarActivity: (req, res) => {
@@ -42,8 +42,8 @@ const ActivitiesControllers = {
   },
 
   obtenerActivityPorItinerary: (req, res) => {
-    Activity.find({ city: req.params.id })
-      .populate("city")
+    Activity.find({ itinerary: req.params.id })
+      .populate("itinerary")
       .then((activities) => res.json({ activities }));
   },
 };
