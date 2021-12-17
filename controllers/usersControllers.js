@@ -3,13 +3,9 @@ const bcryptjs = require("bcryptjs");
 const jwt = require ('jsonwebtoken')
 
 const usersControllers = {
-  //q no haya usuarios repetidos-
-  //seguridad de la contraseña
-  //validacion de datos
-
-  // obtenerUser: (req, res) => {
-  //   User.findOne({ _id: req.params.id }).then((user) => res.json({user}));
-  // },
+  obtenerUser: (req, res) => {
+    User.findOne({ _id: req.params.id }).then((user) => res.json({user}));
+  },
   cargarUser: async (req, res) => {
           const { firstName, lastName, userMail, password, imagenUser, userCountry, google } =
             req.body;

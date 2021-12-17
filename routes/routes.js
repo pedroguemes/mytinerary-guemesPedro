@@ -2,6 +2,7 @@ const Router = require("express").Router();
 const validator = require("../config/validator");
 const citiesControllers = require("../controllers/citiesControllers");
 const activitiesControllers = require("../controllers/activitiesControllers");
+const commentsControllers = require("../controllers/commentsControllers");
 const usersControllers = require("../controllers/usersControllers");
 const itinerariesControllers = require("../controllers/itinerariesControllers");
 const { cargarUser, obtenerUsers, cargarSignIn, verifyToken } =
@@ -17,13 +18,21 @@ const {
   obtenerItinerary,
 } = itinerariesControllers;
 const {
-  obtenerActivityPorItinerary,
+  // obtenerActivityPorItinerary,
   obtenerActivities,
   modificarActivity,
   cargarActivity,
   borrarActivity,
   obtenerActivity,
 } = activitiesControllers;
+const {
+  // obtenerCommentPorItinerary,
+  obtenerComments,
+  modificarComment,
+  cargarComment,
+  borrarComment,
+  obtenerComment,
+} = commentsControllers;
 
 const passport = require("../config/passport");
 
@@ -49,6 +58,13 @@ Router.route("/activities/:id")
 .put(modificarActivity)
 .delete(borrarActivity)
 .get(obtenerActivity);
+
+Router.route("/comments").post(cargarComment).get(obtenerComments);
+
+Router.route("/comments/:id")
+.put(modificarComment)
+.delete(borrarComment)
+.get(obtenerComment);
 
 
 Router.route("/auth/signUp").post(validator, cargarUser).get(obtenerUsers);
