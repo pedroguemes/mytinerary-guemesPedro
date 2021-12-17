@@ -12,5 +12,5 @@ const ItinerarySchema = new mongoose.Schema({
     hashtags:{type:Array},
     comments:{type:String},
 })
-const Itinerary = mongoose.model('itinerary', ItinerarySchema)
+const Itinerary = mongoose.model("itinerary", ItinerarySchema)
 module.exports = Itinerary;

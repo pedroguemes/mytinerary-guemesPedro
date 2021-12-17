@@ -3,7 +3,7 @@ const Activity = require("../models/Activity");
 const activitiesControllers = {
   obtenerActivities: (req, res) => {
     Activity.find()
-      .populate("itinerary")
+      .populate("itineraryId")
       .then((activities) => res.json({ activities }));
   },
   cargarActivity: (req, res) => {
@@ -12,7 +12,7 @@ const activitiesControllers = {
   },
   obtenerActivity: (req, res) => {
     Activity.findOne({ _id: req.params.id })
-      .populate("itinerary")
+      .populate("itineraryId")
       .then((activity) => res.json({ activity }));
   },
 
@@ -43,7 +43,7 @@ const activitiesControllers = {
 
   obtenerActivityPorItinerary: (req, res) => {
     Activity.find({ itinerary: req.params.id })
-      .populate("itinerary")
+      .populate("itineraryId")
       .then((activities) => res.json({ activities }));
   },
 };

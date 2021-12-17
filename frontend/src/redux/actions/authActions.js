@@ -9,7 +9,8 @@ const authActions = {
         };
   },
   
-    signUpUserAction: (firstName, lastName, userMail, password, imagenUser,userCountry, google) => {
+    // signUpUserAction: (firstName, lastName, userMail, password, imagenUser,userCountry, google) => {
+    signUpUserAction: ({firstName, lastName, userMail, password, imagenUser,userCountry, google}) => {
         // console.log(firstName, lastName, userMail, password, imagenUser,userCountry)
         return async (dispatch, getState) => {
       try {   

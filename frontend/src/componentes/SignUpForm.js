@@ -42,8 +42,8 @@ console.log(props)
   ) => {
   
     console.log(firstName)
-    
-    const cargarUserRes = await cargarUser( firstName, lastName, userMail, password, imagenUser, userCountry);
+    const cargarUserRes = await cargarUser({firstName, lastName, userMail, password, imagenUser, userCountry});
+    // const cargarUserRes = await cargarUser( firstName, lastName, userMail, password, imagenUser, userCountry);
     
     console.log(cargarUserRes)
     console.log(cargarUserRes.error)
@@ -104,7 +104,8 @@ console.log(props)
         google: true, 
       }
 
-       await cargarUser(googleUser.firstName,googleUser.lastName,googleUser.userMail,googleUser.password,googleUser.imagenUser,googleUser.google)
+      //  await cargarUser(googleUser.firstName,googleUser.lastName,googleUser.userMail,googleUser.password,googleUser.imagenUser,googleUser.google)
+       await cargarUser(googleUser)
       .then((response) => {
           console.log(response)
           if (response.data.success){

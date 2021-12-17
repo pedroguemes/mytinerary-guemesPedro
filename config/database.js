@@ -8,4 +8,4 @@ mongoose
     useNewUrlParser: true,
   })
   .then(() => console.log("databaseconnected!:)"))
-  .catch((err) => console.err(err));
+  .catch((err) => console.log(err));
