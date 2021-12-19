@@ -946,7 +946,7 @@ button.accordion-button {
 
 .comentariosItinerary {
   background-color: rgba(255, 0, 0, 0.048)!important;
-  padding: 1rem;
+  /* padding: 1rem; */
   width: 100% !important;
 }
 
@@ -1417,8 +1417,8 @@ button.accordion-button {
 }
 
 .comentariosItinerary {
-  background-color: rgba(255, 0, 0, 0.979)!important;
-  padding: 1rem;
+  background-color: rgba(255, 0, 0, 0)!important;
+  /* padding: 1rem; */
   width: 100% !important;
   margin: 0 !important;
 }
@@ -1625,4 +1625,38 @@ button.accordion-button {
     height:54px;
     width: 54px;
     border-radius: 50%;
+}
+
+.contenedorCommentInput {
+  background-color: blue;
+  width: 100%;
+}
+
+.contenedorCommentInput form{
+  background-color: rgb(174, 0, 255);
+  display: flex;
+  flex-direction: row !important;
+
+}
+
+.contenedorCommentInput form textarea{
+  background-color: rgb(255, 255, 255);
+  width: 90%;
+}
+
+
+.contenedorCommentInput form textarea :focus{
+  display: flex !important;
+align-items: center !important;
+justify-content: center !important;
+}
+.contenedorCommentInput form button{
+  background-color: rgb(255, 255, 255);
+  width: 10%;
+}
+
+.textareaComment {
+  text-align: center;
+  display: flex !important;
+  align-content: center !important;
 }

@@ -25,9 +25,9 @@ function CreateComment (props) {
 
         return (
         <>
-            <div className="contenedorComment">
+            <div className="contenedorCommentInput">
                 <form onSubmit={handleSubmitInputs}>
-                    <textarea ref={commentRef}></textarea>
+                    <textarea className="textareaComment" placeholder="comment" ref={commentRef}></textarea>
                     <button>🔼</button>
                 </form>
             </div>

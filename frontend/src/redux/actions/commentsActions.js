@@ -12,16 +12,17 @@ const commentsActions = {
     dispatch({ type: "post_Comments", payload:response});
     };
   },
-  getComment: (itineraryId) => {
-    const token = localStorage.getItem('token')
 
+  getComments: (itineraryId) => {
+    const token = localStorage.getItem('token')
     return async (dispatch, getState) => {
-      let response = await axios.get(
-        `http://localhost:4000/api/comments/${itineraryId}`,null,{
+      let comments = await axios.get(
+        `http://localhost:4000/api/comments/${itineraryId._id}`,null,{
             headers:{
             'Authorization':'Bearer '+ token
           }});
-    dispatch({ type: "get_Comments", payload:response});
+          console.log(comments)
+    dispatch({ type: "get_Comments", payload:comments});
     };
   },
 };

@@ -2,7 +2,8 @@ const initialState = {
     comments: [{}],
   };
   
-  const itinerariesReducer = (state = initialState, action) => {
+  const commentsReducer = (state = initialState, action) => {
+    console.log(action.payload)
     switch (action.type) {
       case "post_Comments":
         return {
@@ -19,5 +20,5 @@ const initialState = {
     }
   };
   
-  export default itinerariesReducer;
+  export default commentsReducer;
   

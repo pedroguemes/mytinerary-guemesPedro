@@ -31,6 +31,7 @@ const commentsControllers = {
     } catch (error) {}
     res.json({ success: modifyComment ? true : false });
   },
+
   borrarComment: async (req, res) => {
     let comment;
     const id = req.params.id;
@@ -44,11 +45,12 @@ const commentsControllers = {
     res.json({ response: comment, success: true });
   },
 
-  obtenerCommentPorItinerary: (req, res) => {
+  obtenerCommentsPorItinerary: (req, res) => {
     Comment.find({ itinerary: req.params.itineraryId })
       .populate("itineraryId")
       .populate("user")
-      .then((comment) => res.json({ comment }));
+      .then((comments) => res.json({ comments }));
+      console.log(res.comments)
   },
 };
 

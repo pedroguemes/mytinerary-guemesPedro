@@ -104,9 +104,7 @@ function Itinerario(props) {
                   <div className="viewMoreContenido">
                     <div className="actividadesItinerary">
                       <div className="actividadesContenedorInterno">
-                        <Activity />
-                        <Activity />
-                        <Activity />
+                        <Activity/>
                       </div>
                       {/* <h1>(Comments under construction)</h1> */}
                       {/* </div>

@@ -3,6 +3,9 @@ import { useEffect } from 'react';
 import imagenActividad from '../assets/imagenActividades.jpg'
 
 const Activity = (props) => {
+
+     // const { } = props
+
      useEffect(() => {
           // getActivities(idItinerary);
         }, []); 

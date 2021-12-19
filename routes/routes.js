@@ -26,13 +26,12 @@ const {
   obtenerActivity,
 } = activitiesControllers;
 const {
-  // obtenerCommentPorItinerary,
   obtenerComments,
   modificarComment,
   cargarComment,
   borrarComment,
   obtenerComment,
-  obtenerCommentPorItinerary
+  obtenerCommentsPorItinerary
 } = commentsControllers;
 
 const passport = require("../config/passport");
@@ -67,7 +66,7 @@ Router.route("/comments/:id")
 .delete(borrarComment)
 
 Router.route("/comments/:itineraryId")
-.get(obtenerCommentPorItinerary);
+.get(obtenerCommentsPorItinerary);
 
 Router.route("/auth/signUp").post(validator, cargarUser).get(obtenerUsers);
 Router.route("/auth/signIn").post(cargarSignIn);
