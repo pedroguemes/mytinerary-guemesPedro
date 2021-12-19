@@ -17,7 +17,7 @@ const commentsActions = {
     const token = localStorage.getItem('token')
     return async (dispatch, getState) => {
       let comments = await axios.get(
-        `http://localhost:4000/api/comments/${itineraryId._id}`,null,{
+        `http://localhost:4000/api/comments/${itineraryId}`,null,{
             headers:{
             'Authorization':'Bearer '+ token
           }});

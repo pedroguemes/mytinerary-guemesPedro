@@ -1,17 +1,32 @@
-import React, {useRef} from "react"
+import React, {useState, useRef} from "react"
 import {connect} from 'react-redux'
+import { BsPersonCircle } from "react-icons/bs";
+
 // import authActions from "../redux/actions/authActions"
-
 function Comment (props) {
+  
+  const [editing, setEditing]= useState(false)
+  
+const textAreaRef = useRef()
 
-    const {} = props
-
+    const {comment} = props
+    console.log(comment.user)
         return (
         <>
-            <div className="contenedorComment">
-                
-            </div>
-
+        { editing ? 
+        <>
+          <form>
+              <textarea ref={textAreaRef}>{comment.comment}</textarea>
+              <button type="submit" ></button>
+            </form>
+        </>
+      : 
+      <div className="contenedorComment">
+               <p>{comment.comment}</p>
+               {/* ternario usuario ==usuario creador del cometn entonces boton existe */}
+              <button onClick={()=>setEditing(true)}>editar</button>
+            </div>}
+ 
         </>
 
     )
@@ -31,3 +46,6 @@ const mapStateToProps = (state) => {
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Comment);
+
+
+{/* <img src={!!comment ? comment.user[0].imagenUser:"BsPersonCircle" }/> */}

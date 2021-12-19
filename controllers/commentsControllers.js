@@ -46,12 +46,11 @@ const commentsControllers = {
   },
 
   obtenerCommentsPorItinerary: (req, res) => {
-    Comment.find({ itinerary: req.params.itineraryId })
+    Comment.find({ itineraryId: req.params.itineraryId })
       .populate("itineraryId")
       .populate("user")
       .then((comments) => res.json({ comments }));
-      console.log(res.comments)
-  },
+     },
 };
 
 module.exports = commentsControllers;

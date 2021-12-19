@@ -7,18 +7,23 @@ import commentsActions from "../redux/actions/commentsActions"
 
 function Comments (props) {
 
-    const { itineraryId, getComments } = props
+    const { itineraryId, getComments, comments } = props
 
-      console.log(getComments)
+    console.log(itineraryId)
+    
+    useEffect(() => getComments(itineraryId), []);
+    
+    console.log(comments)
 
-    useEffect(() => getComments(itineraryId._id), []);
-
+    const itineraryComment = comments.filter((comment)=>{
+      return comment.itineraryId[0]._id === itineraryId
+    })
 
         return (
             <>
                 <div className="contenedorComments">
-              { comments.map((comment) => (
-                    <Comment comment={comments}/>
+              { itineraryComment.map((comment) => (
+                    <Comment comment={comment}/>
                 ) )}
                 </div>
                   <CreateComment itineraryId={itineraryId}/>
