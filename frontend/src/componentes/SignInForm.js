@@ -22,7 +22,7 @@ function SignInForm (props) {
       .then((response) => {
           console.log(response)
           if (!response){
-              alert('Your account has been created!')
+              alert('Your logged in!')
 
           }
           else{
@@ -39,8 +39,7 @@ function SignInForm (props) {
   }
 
     const handleSubmit = (userMail, password) => {
-        const errores =  signIn(userMail, password);
-        // console.log(errores)
+        signIn(userMail, password);
     }
     
     const handleInputsSubmit  = (e)=> {        
@@ -59,7 +58,7 @@ function SignInForm (props) {
                 <div>
                     <input type="text" ref={inputUserMail} name="userMail" placeholder="Your Mail" />
                 </div>
-                <div>
+                <div> 
                     <input type="password" ref={inputPassword} name="password" placeholder="Password"/>
                 </div>
                 <div>

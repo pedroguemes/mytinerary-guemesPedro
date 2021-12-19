@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import City from "../pags/City";
 import itinerariesActions from "../redux/actions/itinerariesActions";
 import Activity from "./Activity";
+import Comments from "./Comments";
 
 function Itinerario(props) {
   // const id = window.location.href.split("/").pop()
@@ -119,8 +120,10 @@ function Itinerario(props) {
                         <h1>(Comments under construction)</h1>
                       </div> */}
                     </div>
+                  
                     <div className="comentariosItinerary">
-                      <h1>(Comments under construction)</h1>
+                      {/* <h1>(Comments under construction)</h1> */}
+                      <Comments itineraryId={itinerary._id}/>
                     </div>
                   </div>
                 </Accordion.Body>

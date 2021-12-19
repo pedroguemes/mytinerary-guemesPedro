@@ -3,9 +3,11 @@ const Comment = require("../models/Comment");
 const commentsControllers = {
   obtenerComments: (req, res) => {
     Comment.find()
-      .populate("itineraryId")
+    .populate("itineraryId")
+    .populate("user")
       .then((comments) => res.json({ comments }));
   },
+  
   cargarComment: (req, res) => {
     const bodyComment = req.body;
     new Comment(bodyComment).save().then((resp) => res.json({ resp }));
@@ -43,8 +45,9 @@ const commentsControllers = {
   },
 
   obtenerCommentPorItinerary: (req, res) => {
-    Activity.find({ itinerary: req.params.id })
+    Comment.find({ itinerary: req.params.itineraryId })
       .populate("itineraryId")
+      .populate("user")
       .then((comment) => res.json({ comment }));
   },
 };

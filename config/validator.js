@@ -20,7 +20,9 @@ const validator = (req, res, next) => {
         userMail: joi.string().email().required().messages({
             'string.empty':'Email must be completed'
         }) ,
-        imagenUser: joi.string().required(),
+        imagenUser: joi.string().required().messages({
+            'string.empty':'Please add a profile picture.'
+        }) ,
        userCountry: joi.string().required(),
        google: joi.boolean()
     })

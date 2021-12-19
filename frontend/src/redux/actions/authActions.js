@@ -19,9 +19,9 @@ const authActions = {
                 const user = await axios.post('http://localhost:4000/api/auth/signUp',{firstName, lastName, userMail, password,imagenUser,userCountry,google})
               console.log(user)
               // console.log(user.data.response.newUser)
-                if (user.data.success && !user.data.error) { 
-                  localStorage.setItem('token',user.data.response.token)
-                  dispatch({type:'cargar_User', payload:user.data.response.newUser})  
+              if (user.data.success && !user.data.error) { 
+                localStorage.setItem('token',user.data.response.token)
+                dispatch({type:'cargar_User', payload:user.data.response.newUser})  
                   // return {success:true, response:user}
                   return user
             }

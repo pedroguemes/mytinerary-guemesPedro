@@ -73,9 +73,11 @@ const usersControllers = {
           res.json({ success: false, response: null, error: error });
         }
       },
-
-      verifyToken: (req,res) => {
+      
+      verifyToken: (req,res) => {        
+        console.log(req.user)
        const userExiste = { 
+    _id:req.user._id,
     firstName:req.user.firstName,
     lastName:req.user.lastName,
    imagenUser:req.user.imagenUser,
