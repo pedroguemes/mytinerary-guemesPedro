@@ -18,7 +18,7 @@ const {
   obtenerItinerary,
 } = itinerariesControllers;
 const {
-  // obtenerActivityPorItinerary,
+  obtenerActivityPorItinerary,
   obtenerActivities,
   modificarActivity,
   cargarActivity,
@@ -54,10 +54,10 @@ Router.route("/itineraries/city/:id").get(obtenerItineraryPorCity);
 
 Router.route("/activities").post(cargarActivity).get(obtenerActivities);
 
-Router.route("/activities/:id")
-.put(modificarActivity)
-.delete(borrarActivity)
-.get(obtenerActivity);
+Router.route("/activities/:itineraryId")
+.get(obtenerActivityPorItinerary);
+// .put(modificarActivity)
+// .delete(borrarActivity)
 
 Router.route("/comments").post(cargarComment).get(obtenerComments);
 
