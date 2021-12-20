@@ -11,7 +11,7 @@ const initialState = {
           comments: action.payload,
         };
         case "get_Comments":
-          console.log(state.comments)
+          // console.log(state.comments)
           return {
             ...state,
             comments:[

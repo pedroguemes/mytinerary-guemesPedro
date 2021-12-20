@@ -9,11 +9,11 @@ function Comments (props) {
 
     const { itineraryId, getComments, comments } = props
 
-    console.log(itineraryId)
+    // console.log(itineraryId)
     
     useEffect(() => getComments(itineraryId), []);
     
-    console.log(comments)
+    // console.log(comments)
 
     const itineraryComment = comments.filter((comment)=>{
       return comment.itineraryId[0]._id === itineraryId

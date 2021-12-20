@@ -14,8 +14,8 @@ const initialState = {
           countryNames: action.payload,
         }
         case "cargar_User":
-          console.log("reducer")
-          console.log(action.payload)
+          // console.log("reducer")
+          // console.log(action.payload)
           return {
             ...state,
             user:action.payload

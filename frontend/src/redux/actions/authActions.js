@@ -76,7 +76,7 @@ const authActions = {
         }
          }
         )        
-        console.log(user.data.response)       
+        // console.log(user.data.response)       
         dispatch({type:"cargar_User", payload: user.data.response.userExiste })
       }catch(error){
         console.log(error)

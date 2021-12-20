@@ -3,11 +3,11 @@ import axios from "axios";
 const activiesActions = {
   getActivities: (id) => {
     return async (dispatch, getState) => {
-      let response = await axios.get(
+      let activities = await axios.get(
         `http://localhost:4000/api/activities/${id}`
       );
-
-      dispatch({ type: "Get_activities", payload: response.data.activities });
+        console.log(activities)
+      dispatch({ type: "Get_Activities", payload:activities });
     };
   },
 };

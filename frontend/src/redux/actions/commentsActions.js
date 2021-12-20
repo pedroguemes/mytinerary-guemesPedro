@@ -21,7 +21,7 @@ const commentsActions = {
             headers:{
             'Authorization':'Bearer '+ token
           }});
-          console.log(comments)
+          // console.log(comments)
     dispatch({ type: "get_Comments", payload:comments});
     };
   },

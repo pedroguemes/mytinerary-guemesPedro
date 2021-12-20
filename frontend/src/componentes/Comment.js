@@ -9,10 +9,10 @@ function Comment(props) {
   const textAreaRef = useRef();
 
   const { comment } = props;
-  console.log(comment);
-  console.log(comment.user[0]);
-  console.log(comment.user[0].firstName);
-  console.log(comment.user[0].lastName);
+  // console.log(comment);
+  // console.log(comment.user[0]);
+  // console.log(comment.user[0].firstName);
+  // console.log(comment.user[0].lastName);
   return (
     <>
       {editing ? (

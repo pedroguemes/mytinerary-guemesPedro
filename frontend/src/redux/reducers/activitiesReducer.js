@@ -3,7 +3,7 @@ const initialState = {
   };
   
   const activitiesReducer = (state = initialState, action) => {
-    // console.log(action.payload)
+    console.log(action.payload)
     switch (action.type) {
         case "get_Activities":
           console.log(state.activities)

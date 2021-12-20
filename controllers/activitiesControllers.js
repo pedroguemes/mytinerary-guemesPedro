@@ -52,6 +52,7 @@ const activitiesControllers = {
 };
 
 module.exports = activitiesControllers;
+
 // obtenerCommentsPorItinerary: (req, res) => {
 //   Comment.find({ itineraryId: req.params.itineraryId })
 //     .populate("itineraryId")
