@@ -18,24 +18,19 @@ function Itinerario(props) {
   }, []);
   
   const [button, setButton] = useState(false)
+  // const [disliked, setDisliked] = useState(false)
 
   const buttonHandler = () => {
-    setButton(!button)
-    
+    setButton(!button)    
 }
 
+  const  likesAndDislikes = async() => {
+        let like 
+          {
+            
+          }
+      }
 
-
-//   const viewMoreButton = document.getElementById("accordionViewMore");
-
-//   viewMoreButton.addEventListener("click", ()=>{
-
-//     if(viewMoreButton.innerText === "View more"){
-//       viewMoreButton.innerText = "View less";
-//     }else{
-//       viewMoreButton.innerText= "View more";
-//     }
-// });
 
 
   let disliked = true;
@@ -120,7 +115,7 @@ function Itinerario(props) {
           <div>
             <Accordion className="viewMore" defaultActiveKey="0">
               <Accordion.Item bg="myviewMore" eventKey="1">
-                <Accordion.Header id="accordionViewMore" onClick={buttonHandler}>{!button  ? "View More" : "Hide"}</Accordion.Header>
+                <Accordion.Header onClick={buttonHandler}>{!button  ? "View More" : "Hide"}</Accordion.Header>
                 <Accordion.Body className="accordionBody">
                   <div className="viewMoreContenido">
                     <div className="actividadesItinerary">

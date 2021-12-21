@@ -12,7 +12,17 @@ const itinerariesActions = {
   },
   
   likesAndDislikesAction: (like) => {
-   
+          return async (dispatch,getState)=> {
+            try{
+              await axios.put(
+                `http://localhost:4000/api/itinerary/likes`,
+                {...like}
+              )
+              return{success:true}
+            }catch(err){
+             console.log(err)
+            }
+          }
   },
   
 };

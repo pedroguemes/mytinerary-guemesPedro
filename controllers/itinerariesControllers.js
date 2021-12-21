@@ -47,22 +47,39 @@ const itinerariesControllers = {
       .populate("city")
       .then((itineraries) => res.json({ itineraries }));
   },
-
+  
   LikesAndDislikesController: async (req, res) => {
-    Itinerary.findOne({_id: req.params.id})
-    .then((itinerary) =>{
-        if(itinerary.likes.includes(req.user._id)){
-           Itinerary.findOneAndUpdate({_id:req.params.id}, {$pull:{likes:req.user.id}},{new:true})
-           .then((newItinerary)=> res.json({success:true, response:newItinerary.likes}))
-           .catch((error) => console.log(error))
-        }else{
-            Itinerary.findOneAndUpdate({_id: req.params.id}, {$push:{likes:req.user.id}},{new:true})
-            .then((newItinerary) => res.json({success:true, response:newItinerary.likes}))
-            .catch((error) => console.log(error))
+      const{itineraryId, userId, boolean} = req.body
+        // console.log(req.body)
+        try{
+              const itinerary = await Itinerary.findOneAndUpdate(
+                {_id:itineraryId},
+                boolean ? 
+                {$addToSet:{likes:userId}}
+                :
+                {$pull:{likes:userId}},
+                {new:true}
+              )
+              res.json({success:true,response:itinerary})
+        }catch(err){
+              res.json({success:false, response:null, error:err.message})
         }
-    })
-    .catch((error) => res.json({success:false, response:error}))
-  }
+      },
 };
 
 module.exports = itinerariesControllers;
+
+// Itinerary.findOne({_id: req.params.id})
+// .then((itinerary) =>{
+//     if(itinerary.likes.includes(req.user._id)){
+//        Itinerary.findOneAndUpdate({_id:req.params.id}, {$pull:{likes:req.user.id}},{new:true})
+//        .then((newItinerary)=> res.json({success:true, response:newItinerary.likes}))
+//        .catch((error) => console.log(error))
+//     }else{
+//         Itinerary.findOneAndUpdate({_id: req.params.id}, {$push:{likes:req.user.id}},{new:true})
+//         .then((newItinerary) => res.json({success:true, response:newItinerary.likes}))
+//         .catch((error) => console.log(error))
+//     }
+// })
+// .catch((error) => res.json({success:false, response:error}))
+// }
