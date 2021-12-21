@@ -12,7 +12,7 @@ function Activity (props) {
        getActivities(itineraryId);
         }, []); 
 
-    console.log(activities)
+    // console.log(activities)
           
           const itineraryActivities = activities.filter((activity)=>{
                return activity.itineraryId[0]._id === itineraryId})

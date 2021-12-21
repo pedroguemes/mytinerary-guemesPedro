@@ -6,7 +6,7 @@ const activiesActions = {
       let activities = await axios.get(
         `http://localhost:4000/api/activities/${itineraryId}`
       );
-        console.log(activities)
+        // console.log(activities)
       dispatch({ type: "get_Activities", payload:activities });
     };
   },

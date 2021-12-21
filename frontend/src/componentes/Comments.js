@@ -13,13 +13,13 @@ function Comments (props) {
     
     useEffect(() => getComments(itineraryId), []);
     
-    console.log(comments)
+    // console.log(comments)
     
     const itineraryComments = comments.filter((comment)=>{
       return comment.itineraryId[0]._id === itineraryId
     })
     
-    console.log(itineraryComments)
+    // console.log(itineraryComments)
 
    if (itineraryComments.length > 0){ 
         return (

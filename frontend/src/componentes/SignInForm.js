@@ -13,12 +13,11 @@ function SignInForm (props) {
     const responseGoogle = async (res) => {
       console.log(res)
       let googleUser = {
-
-          email: res.profileObj.email,
+         userMail: res.profileObj.email,
           password: res.profileObj.googleId,
           google: true, 
       }
-       await signIn( googleUser.email, googleUser.password)
+       await signIn( googleUser.userMail, googleUser.password, googleUser.google)
       .then((response) => {
           console.log(response)
           if (!response){

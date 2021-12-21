@@ -1,91 +1,102 @@
 const User = require("../models/User");
 const bcryptjs = require("bcryptjs");
-const jwt = require ('jsonwebtoken')
+const jwt = require("jsonwebtoken");
 
 const usersControllers = {
   obtenerUser: (req, res) => {
-    User.findOne({ _id: req.params.id }).then((user) => res.json({user}));
+    User.findOne({ _id: req.params.id }).then((user) => res.json({ user }));
   },
-  cargarUser: async (req, res) => {
-          const { firstName, lastName, userMail, password, imagenUser, userCountry, google } =
-            req.body;
-          try {
-            const userExiste = await User.findOne({ userMail });
-            if (userExiste) {
-              res.json({
-                success: false,
-                error:"User mail already exists.",
-                response: null,
-              });
-            } else {
-              const passwordHasheada = bcryptjs.hashSync(password, 10);
-              const newUser = new User({
-                firstName,
-                lastName,
-                userMail,
-                password: passwordHasheada,
-                imagenUser,
-                userCountry,
-                google
-              });
-              const token = jwt.sign({...newUser}, process.env.S_KEY)
-              await newUser.save();
-              console.log("te registraste exitosamente")
-              res.json({ success: true, response: {token, newUser}, error: null });
-            }
-          } catch (error) {
-            res.json({ success: false, response: null, error:error });
-          }
-        },
-        
-        obtenerUsers: (req, res) => {
-              User.find().then((users) => res.json({ users }));
-            },
-  
-  
-      cargarSignIn: async (req, res) => {
-        const { userMail, password, google} = req.body;
-        try {
-          console.log(req.body)
-          const userExiste = await User.findOne({ userMail });
-          if (userExiste.google && !google) throw new Error ("E-mail or password incorrect.")
-          else if (!userExiste) {
-            res.json({
-              success: false,
-              error: "E-mail or password incorrect.",
-              response: null,
-            });
-          } else {
-            const passwordMatch = bcryptjs.compareSync(
-              password,
-              userExiste.password
-              );
-            if (passwordMatch) {
-              const token = jwt.sign({...userExiste}, process.env.S_KEY)
-              // console.log(token)
-              res.json({ success: true, response: {token, userExiste }, error: null });
-            } else {
-              res.json({ success: false, error: "E-mail or password incorrect." });
-            }
-          }
-        } catch (error) {
-          console.log(error)
-          res.json({ success: false, response: null, error: error });
-        }
-      },
-      
-      verifyToken: (req,res) => {        
-        console.log(req.user)
-       const userExiste = { 
-    _id:req.user._id,
-    firstName:req.user.firstName,
-    lastName:req.user.lastName,
-   imagenUser:req.user.imagenUser,
-   userCountry:req.user.firstName
-  }  
-  res.json({ success: true, response:{userExiste} });
-  }
 
+  cargarUser: async (req, res) => {
+    const {
+      firstName,
+      lastName,
+      userMail,
+      password,
+      imagenUser,
+      userCountry,
+      google,
+    } = req.body;
+    try {
+      const userExiste = await User.findOne({ userMail });
+      if (userExiste) {
+        res.json({
+          success: false,
+          error: "User mail already exists.",
+          response: null,
+        });
+      } else {
+        const passwordHasheada = bcryptjs.hashSync(password, 10);
+        const newUser = new User({
+          firstName,
+          lastName,
+          userMail,
+          password: passwordHasheada,
+          imagenUser,
+          userCountry,
+          google,
+        });
+        const token = jwt.sign({ ...newUser }, process.env.S_KEY);
+        await newUser.save();
+        console.log("te registraste exitosamente");
+        res.json({ success: true, response: { token, newUser }, error: null });
+      }
+    } catch (error) {
+      res.json({ success: false, response: null, error: error });
+    }
+  },
+
+  obtenerUsers: (req, res) => {
+    User.find().then((users) => res.json({ users }));
+  },
+
+  cargarSignIn: async (req, res) => {
+    const { userMail, password, google } = req.body;
+    try {
+      console.log(req.body);
+      const userExiste = await User.findOne({ userMail });
+      if (userExiste.google && !google)
+        throw new Error("E-mail or password incorrect.");
+      else if (!userExiste) {
+        res.json({
+          success: false,
+          error: "E-mail or password incorrect.",
+          response: null,
+        });
+      } else {
+        const passwordMatch = bcryptjs.compareSync(
+          password,
+          userExiste.password
+        );
+        if (passwordMatch) {
+          const token = jwt.sign({ ...userExiste }, process.env.S_KEY);
+          // console.log(token)
+          res.json({
+            success: true,
+            response: { token, userExiste },
+            error: null,
+          });
+        } else {
+          res.json({ success: false, error: "E-mail or password incorrect." });
+        }
+      }
+    } catch (error) {
+      console.log(error);
+      res.json({ success: false, response: "ALGO", error: error });
+    }
+  },
+
+  verifyToken: (req, res) => {
+    console.log(req.user);
+    const userExiste = {
+      _id: req.user._id,
+      firstName: req.user.firstName,
+      lastName: req.user.lastName,
+      imagenUser: req.user.imagenUser,
+      userCountry: req.user.firstName,
+    };
+    res.json({ success: true, response: { userExiste } });
+  },
 };
 module.exports = usersControllers;
 
