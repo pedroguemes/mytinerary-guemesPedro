@@ -16,6 +16,7 @@ const {
   cargarItinerary,
   borrarItinerary,
   obtenerItinerary,
+  LikesAndDislikesController,
 } = itinerariesControllers;
 const {
   obtenerActivityPorItinerary,
@@ -50,6 +51,9 @@ Router.route("/itineraries/:id")
 .delete(borrarItinerary)
 .get(obtenerItinerary);
 Router.route("/itineraries/city/:id").get(obtenerItineraryPorCity);
+
+Router.route("/itinerary/likes").put(LikesAndDislikesController)
+
 
 
 Router.route("/activities").post(cargarActivity).get(obtenerActivities);

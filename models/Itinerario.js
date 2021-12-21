@@ -8,7 +8,7 @@ const ItinerarySchema = new mongoose.Schema({
     price:{type: Number, required: true, min:1, max: 5 },
     description:{type: String, required: true},
     duration:{type: Number, required: true},
-    likes:{type:Number, default: 0},
+    likes: [{ type: mongoose.Types.ObjectId, ref: "user" }],
     hashtags:{type:Array},
 })
 const Itinerary = mongoose.model("itinerary", ItinerarySchema)

@@ -10,6 +10,10 @@ const itinerariesActions = {
       dispatch({ type: "Get_itineraries", payload: response.data.itineraries });
     };
   },
+  
+  likesAndDislikesAction: (like) => {
+   
+  },
+  
 };
-
 export default itinerariesActions;

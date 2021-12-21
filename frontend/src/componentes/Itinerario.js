@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Accordion } from "react-bootstrap";
 import { AiOutlineLike } from "react-icons/ai";
 import { connect } from "react-redux";
@@ -9,7 +9,7 @@ import Comments from "./Comments";
 
 function Itinerario(props) {
   // const id = window.location.href.split("/").pop()
-  const { getItineraries, idCity, itineraries, nombreCity } = props;
+  const { getItineraries, idCity, itineraries, nombreCity, likesAndDislikes} = props;
 
   // console.log(props);
 
@@ -17,6 +17,15 @@ function Itinerario(props) {
     getItineraries(idCity);
   }, []);
   
+  const [button, setButton] = useState(false)
+
+  const buttonHandler = () => {
+    setButton(!button)
+    
+}
+
+
+
 //   const viewMoreButton = document.getElementById("accordionViewMore");
 
 //   viewMoreButton.addEventListener("click", ()=>{
@@ -63,7 +72,7 @@ function Itinerario(props) {
                 </p>
                 <div className="buttonLikeContainer">
                   {disliked ? (
-                    <button className="buttonLike">
+                    <button onClick={likesAndDislikes} className="buttonLike">
                       {" "}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +109,7 @@ function Itinerario(props) {
                       </svg>
                     </button>
                   )}
-                  <span>{itinerary.likes}</span>
+                  <span>{itinerary.likes.length}</span>
                 </div>
               </div>
               <div>
@@ -111,7 +120,7 @@ function Itinerario(props) {
           <div>
             <Accordion className="viewMore" defaultActiveKey="0">
               <Accordion.Item bg="myviewMore" eventKey="1">
-                <Accordion.Header id="accordionViewMore">View more</Accordion.Header>
+                <Accordion.Header id="accordionViewMore" onClick={buttonHandler}>{!button  ? "View More" : "Hide"}</Accordion.Header>
                 <Accordion.Body className="accordionBody">
                   <div className="viewMoreContenido">
                     <div className="actividadesItinerary">
@@ -147,6 +156,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   getItineraries: itinerariesActions.getItineraries,
+  likesAndDislikes: itinerariesActions.likesAndDislikesAction,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Itinerario);

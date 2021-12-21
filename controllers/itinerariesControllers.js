@@ -28,6 +28,7 @@ const itinerariesControllers = {
     } catch (error) {}
     res.json({ success: modifyItinerary ? true : false });
   },
+  
   borrarItinerary: async (req, res) => {
     let itinerary;
     const id = req.params.id;
@@ -46,6 +47,22 @@ const itinerariesControllers = {
       .populate("city")
       .then((itineraries) => res.json({ itineraries }));
   },
+
+  LikesAndDislikesController: async (req, res) => {
+    Itinerary.findOne({_id: req.params.id})
+    .then((itinerary) =>{
+        if(itinerary.likes.includes(req.user._id)){
+           Itinerary.findOneAndUpdate({_id:req.params.id}, {$pull:{likes:req.user.id}},{new:true})
+           .then((newItinerary)=> res.json({success:true, response:newItinerary.likes}))
+           .catch((error) => console.log(error))
+        }else{
+            Itinerary.findOneAndUpdate({_id: req.params.id}, {$push:{likes:req.user.id}},{new:true})
+            .then((newItinerary) => res.json({success:true, response:newItinerary.likes}))
+            .catch((error) => console.log(error))
+        }
+    })
+    .catch((error) => res.json({success:false, response:error}))
+  }
 };
 
 module.exports = itinerariesControllers;

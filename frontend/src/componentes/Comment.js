@@ -6,6 +6,8 @@ import { BsPersonCircle } from "react-icons/bs";
 function Comment(props) {
   const [editing, setEditing] = useState(false);
 
+ 
+
   const textAreaRef = useRef();
 
   const { comment } = props;
