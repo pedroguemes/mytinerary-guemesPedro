@@ -30,7 +30,7 @@ function CreateComment(props) {
             placeholder="comment"
             ref={commentRef}
           ></textarea>
-          <button>
+          <button className="sendComment">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="icon icon-tabler icon-tabler-arrow-up-circle"

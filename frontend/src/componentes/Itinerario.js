@@ -17,6 +17,18 @@ function Itinerario(props) {
     getItineraries(idCity);
   }, []);
   
+//   const viewMoreButton = document.getElementById("accordionViewMore");
+
+//   viewMoreButton.addEventListener("click", ()=>{
+
+//     if(viewMoreButton.innerText === "View more"){
+//       viewMoreButton.innerText = "View less";
+//     }else{
+//       viewMoreButton.innerText= "View more";
+//     }
+// });
+
+
   let disliked = true;
 
   return itineraries.length > 0 ? (
@@ -99,7 +111,7 @@ function Itinerario(props) {
           <div>
             <Accordion className="viewMore" defaultActiveKey="0">
               <Accordion.Item bg="myviewMore" eventKey="1">
-                <Accordion.Header>View more</Accordion.Header>
+                <Accordion.Header id="accordionViewMore">View more</Accordion.Header>
                 <Accordion.Body className="accordionBody">
                   <div className="viewMoreContenido">
                     <div className="actividadesItinerary">

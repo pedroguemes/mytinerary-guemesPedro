@@ -13,23 +13,32 @@ function Comments (props) {
     
     useEffect(() => getComments(itineraryId), []);
     
-    // console.log(comments)
-
-    const itineraryComment = comments.filter((comment)=>{
+    console.log(comments)
+    
+    const itineraryComments = comments.filter((comment)=>{
       return comment.itineraryId[0]._id === itineraryId
     })
+    
+    console.log(itineraryComments)
 
+   if (itineraryComments.length > 0){ 
         return (
             <>
                 <div className="contenedorComments">
-              { itineraryComment.map((comment) => (
+              { itineraryComments.map((comment) => (
                     <Comment comment={comment}/>
                 ) )}
                 </div>
                   <CreateComment itineraryId={itineraryId}/>
             </>
 
-    )
+    )}else{
+        return (
+            <>
+              <h6 className="noComments">No comments yet.</h6>
+            </>
+
+    )}
 }
 
 
