@@ -54,6 +54,11 @@ Router.route("/itineraries/city/:id").get(obtenerItineraryPorCity);
 
 Router.route("/itinerary/likes").put(LikesAndDislikesController)
 
+// Router.route("/itinerary/like/:id").put(
+//     passport.authenticate('jwt', {session:false}),
+//     LikesAndDislikesController
+//     )
+
 
 
 Router.route("/activities").post(cargarActivity).get(obtenerActivities);

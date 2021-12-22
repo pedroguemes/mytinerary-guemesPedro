@@ -49,23 +49,22 @@ const itinerariesControllers = {
   },
   
   LikesAndDislikesController: async (req, res) => {
-      const{itineraryId, userId, boolean} = req.body
-        // console.log(req.body)
-        try{
-              const itinerary = await Itinerary.findOneAndUpdate(
-                {_id:itineraryId},
-                boolean ? 
-                {$addToSet:{likes:userId}}
-                :
-                {$pull:{likes:userId}},
-                {new:true}
-              )
-              res.json({success:true,response:itinerary})
-        }catch(err){
-              res.json({success:false, response:null, error:err.message})
-        }
-      },
-};
+    const { itineraryId, userId, boolean } = req.body;
+    try {
+      const itinerary = await Itinerary.findOneAndUpdate(
+        { _id: itineraryId },
+        bool 
+        ? { $addToSet: { likes: userId } } 
+        : { $pull: { likes: userId } },
+        { new: true }
+      );
+      res.json({ success: true, response: itinerary, error: null });
+    } catch (e) {
+      res.json({ success: false, response: null, error: e.message });
+    }
+  },
+      }
+
 
 module.exports = itinerariesControllers;
 

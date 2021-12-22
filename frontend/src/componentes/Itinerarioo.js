@@ -6,67 +6,29 @@ import City from "../pags/City";
 import itinerariesActions from "../redux/actions/itinerariesActions";
 import Activity from "./Activity";
 import Comments from "./Comments";
-import Swal from 'sweetalert2'
-import { boolean } from "joi";
 
 
 function Itinerario(props) {
 
   const { getItineraries, idCity, itineraries, nombreCity, likesAndDislikes, user} = props;
-
-  console.log(user);
-
-  const Toast = Swal.mixin({
-    toast: true,
-    position: 'top-end',
-    showConfirmButton: false,
-    timer: 3000,
-    timerProgressBar: true,
-    didOpen: (toast) => {
-      toast.addEventListener('mouseenter', Swal.stopTimer)
-      toast.addEventListener('mouseleave', Swal.resumeTimer)
-    }
-  })
-
-  const [itinerariesLikes, setItinerariesLikes] = useState(itineraries.likes)
-  
-  // const [like, setLike] = useState(true)
   const [button, setButton] = useState(false)
   const [disliked, setDisliked] = useState(true)
+
+  console.log(user);
   
   useEffect(() => {
     getItineraries(idCity);
   }, []);
   
-  // let disliked = true;
-  // itinerariesLikes.includes(user.userId) ?  setDisliked(!disliked) : 
-
-    // const resLikesAndDislikes = likesAndDislikes()
-
+  
   const buttonHandler = () => {
     setButton(!button)
   }
 
   const resLikesAndDislikes = async () => {
-    let like
-    itineraries.map((itinerary) => (
-    like = {itineraryId:itinerary._id, userId:user._id, boolean}))
-
-    // setLike(false) 
-    if(!props.user._id) {
-      Toast.fire({
-        icon: 'error',
-        title: 'You must be logged to like this post!'
-      })  
-    }else {
-    let response = await likesAndDislikes(like)
-    console.log(response)
-    setItinerariesLikes(response)
-
+    likesAndDislikes()
     } 
-      // setLike(true)
-    }
-
+    
 
   return itineraries.length > 0 ? (
     itineraries.map((itinerary) => (
