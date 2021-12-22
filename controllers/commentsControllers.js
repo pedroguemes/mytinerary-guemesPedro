@@ -28,16 +28,21 @@ const commentsControllers = {
        comment,
         { new: true }
       );
+      if(modifyComment){
+        res.json({success:true, response:modifyComment.comments})
+    }else{
+        throw new Error()
+    }
     } catch (error) {}
     res.json({ success: modifyComment ? true : false });
   },
 
   deleteComment: async (req, res) => {
     let comment;
-    const id = req.params.id;
+    const _id = req.params.commentId;
     try {
       comment = await Comment.findOneAndDelete({
-        _id: id,
+        _id:_id,
       });
     } catch (error) {
       console.log(error);

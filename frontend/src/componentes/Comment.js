@@ -14,9 +14,16 @@ function Comment(props) {
   // console.log(comment.user[0]);
   // console.log(comment.user[0].firstName);
   // console.log(comment.user[0].lastName);
+
+  function deleteHandler(){
+    const token = localStorage.getItem('token')
+    console.log(token)
+    deleteComment( token, comment._id)
+  }
+
   
   function handleModify(e){
-    const token = localStorage.getItem(token)
+    const token = localStorage.getItem('token')
     console.log(token)
     e.preventDefault()
     modifyComment(comment._id,textAreaRef.current.value, token)
@@ -26,11 +33,21 @@ function Comment(props) {
     <>
       {editing ? (
         <>
-          <form onSubmit={(e)=>handleModify(e)}>
+          <form className="editCommentForm" onSubmit={(e)=>handleModify(e)}>
             <textarea ref={textAreaRef}>{comment.comment}</textarea>
-            <button type="submit">edit</button>
+            <button className="editCommentButton" type="submit"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-check" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7bc62d" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M5 12l5 5l10 -10" />
+</svg></button>
+            <button className="cancelEditCommentButton" onClick={() => setEditing(false)}><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-back-up" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7bc62d" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 13l-4 -4l4 -4m-4 4h11a4 4 0 0 1 0 8h-1" />
+</svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7bc62d" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <line x1="18" y1="6" x2="6" y2="18" />
+  <line x1="6" y1="6" x2="18" y2="18" />
+</svg></button>
           </form>
-            <button onClick={() => setEditing(false)}>cancel</button>
         </>
       ) : (
         <div className="contenedorContenedorComment">
@@ -67,7 +84,7 @@ function Comment(props) {
                   <line x1="16" y1="5" x2="19" y2="8" />
                 </svg>
               </button>
-              <button onClick={deleteComment}>
+              <button onClick={deleteHandler()}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="icon icon-tabler icon-tabler-trash"

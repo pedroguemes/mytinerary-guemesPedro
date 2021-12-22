@@ -21,7 +21,8 @@ const Toast = Swal.mixin({
 
 function CreateComment(props) {
   const { itineraryId, loggedUser, postComment } = props;
-  console.log(loggedUser)
+  // console.log(loggedUser)
+
   const handleSubmitInputs = (e) => {
     e.preventDefault();
    if(loggedUser._id){
@@ -30,6 +31,7 @@ function CreateComment(props) {
       comment: commentRef.current.value,
       user: loggedUser._id,
     };
+    
     postComment(newComment);
          }else{
           Toast.fire({

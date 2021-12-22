@@ -31,11 +31,11 @@ function LikeButton(props) {
 //   const [like, setLike] = useState(true)
   const [button, setButton] = useState(false)
   const [boolean, setBoolean] = useState(itinerary.likes.find((like)=>like===user._id) ? true : false)
-//   const [disliked, setDisliked] = useState(true)
+  const [disliked, setDisliked] = useState(true)
   
   
   // let disliked = true;
-  // itinerariesLikes.includes(user.userId) ?  setDisliked(!disliked) : 
+  // itinerariesLikes.includes(user._id) ?  setDisliked(!disliked) 
 
     // const resLikesAndDislikes = likesAndDislikes()
 
