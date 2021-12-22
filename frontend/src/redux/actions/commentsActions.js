@@ -26,7 +26,7 @@ const commentsActions = {
     };
   },
 
-  editAComment:(id, comment, token ) => {
+  modifyComment:(id, comment, token ) => {
     return async (dispatch, getState)=> {
         try{
             let response = await axios.put(`http://localhost:4000/api/itinerary/comments/${id}`, {comment, type:"editComment"},{

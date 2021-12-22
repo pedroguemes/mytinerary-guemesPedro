@@ -1,25 +1,47 @@
 import React, { useRef } from "react";
 import { connect } from "react-redux";
 import commentsActions from "../redux/actions/commentsActions";
+import Swal from 'sweetalert2'
+
+
+
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
+
+
 
 function CreateComment(props) {
   const { itineraryId, loggedUser, postComment } = props;
-
+  console.log(loggedUser)
   const handleSubmitInputs = (e) => {
     e.preventDefault();
+   if(loggedUser._id){
     const newComment = {
       itineraryId: itineraryId,
       comment: commentRef.current.value,
       user: loggedUser._id,
     };
     postComment(newComment);
+         }else{
+          Toast.fire({
+            icon: 'error',
+            title: 'You must be logged to comment this post!'
+          })  
+         }
   };
 
   const commentRef = useRef();
 
-  if (!loggedUser) {
-    return null;
-  }
+ 
 
   return (
     <>

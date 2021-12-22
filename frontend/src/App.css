@@ -1718,6 +1718,11 @@ button.sendComment {
   flex-direction: row;
   margin: 0.4rem;
 }
+
+  .divButtonsHidden {
+    display: none;
+  }
+
 .divButtons button{
     background-color: rgba(238, 141, 15, 0);
     border: none;

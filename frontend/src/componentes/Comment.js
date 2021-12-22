@@ -1,28 +1,36 @@
 import React, { useState, useRef } from "react";
 import { connect } from "react-redux";
 import { BsPersonCircle } from "react-icons/bs";
-// import authActions from "../redux/actions/authActions"
+import authActions from "../redux/actions/authActions"
 import commentsActions from "../redux/actions/commentsActions"
 function Comment(props) {
   const [editing, setEditing] = useState(false);
 
- 
-
+  
   const textAreaRef = useRef();
-
-  const { comment, deleteComment } = props;
+  
+  const { comment, deleteComment, modifyComment, loggedUser} = props;
   // console.log(comment);
   // console.log(comment.user[0]);
   // console.log(comment.user[0].firstName);
   // console.log(comment.user[0].lastName);
+  
+  function handleModify(e){
+    const token = localStorage.getItem(token)
+    console.log(token)
+    e.preventDefault()
+    modifyComment(comment._id,textAreaRef.current.value, token)
+  }
+
   return (
     <>
       {editing ? (
         <>
-          <form>
+          <form onSubmit={(e)=>handleModify(e)}>
             <textarea ref={textAreaRef}>{comment.comment}</textarea>
-            <button type="submit"></button>
+            <button type="submit">edit</button>
           </form>
+            <button onClick={() => setEditing(false)}>cancel</button>
         </>
       ) : (
         <div className="contenedorContenedorComment">
@@ -38,8 +46,8 @@ function Comment(props) {
             <p>{comment.comment}</p>
             </div>
             {/* ternario usuario ==usuario creador del cometn entonces boton existe */}
-
-            <div className="divButtons">
+            
+            <div className={comment.user[0]._id === loggedUser._id ? "divButtons": "divButtonsHidden"}>
               <button onClick={() => setEditing(true)}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -90,12 +98,13 @@ function Comment(props) {
 
 const mapStateToProps = (state) => {
   return {
-    //   loggedUser: state.authReducer.user,
+      loggedUser: state.authReducer.user,
   };
 };
 
 const mapDispatchToProps = {
   deleteComment: commentsActions.deleteComment,
+  modifyComment: commentsActions.modifyComment,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Comment);

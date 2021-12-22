@@ -25,7 +25,7 @@ const commentsControllers = {
     try {
       modifyComment = await Comment.findOneAndUpdate(
         { _id: req.params.id },
-        bodyComment,
+       comment,
         { new: true }
       );
     } catch (error) {}

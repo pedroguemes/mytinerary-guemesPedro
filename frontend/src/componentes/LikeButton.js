@@ -7,14 +7,13 @@ import itinerariesActions from "../redux/actions/itinerariesActions";
 import Activity from "./Activity";
 import Comments from "./Comments";
 import Swal from 'sweetalert2'
-// import { boolean } from "joi";
 
 
 function LikeButton(props) {
 
   const {itinerary, itineraryId, likesAndDislikes, user, cityId, getItineraries} = props;
 
-  console.log(user);
+  // console.log(user);
 
   const Toast = Swal.mixin({
     toast: true,
