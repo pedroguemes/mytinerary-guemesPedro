@@ -28,9 +28,9 @@ const {
 } = activitiesControllers;
 const {
   obtenerComments,
-  modificarComment,
+  modifyComment,
   cargarComment,
-  borrarComment,
+ deleteComment,
   obtenerComment,
   obtenerCommentsPorItinerary
 } = commentsControllers;
@@ -71,8 +71,8 @@ Router.route("/activities/:itineraryId")
 Router.route("/comments").post(cargarComment).get(obtenerComments);
 
 Router.route("/comments/:id")
-.put(modificarComment)
-.delete(borrarComment)
+.put(modifyComment)
+.delete(deleteComment)
 
 Router.route("/comments/:itineraryId")
 .get(obtenerCommentsPorItinerary);

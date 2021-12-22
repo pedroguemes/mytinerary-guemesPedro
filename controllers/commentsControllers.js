@@ -19,7 +19,7 @@ const commentsControllers = {
       .then((comment) => res.json({ comment }));
   },
 
-  modificarComment: async (req, res) => {
+  modifyComment: async (req, res) => {
     const bodyComment = req.body;
     let modifyComment;
     try {
@@ -32,7 +32,7 @@ const commentsControllers = {
     res.json({ success: modifyComment ? true : false });
   },
 
-  borrarComment: async (req, res) => {
+  deleteComment: async (req, res) => {
     let comment;
     const id = req.params.id;
     try {

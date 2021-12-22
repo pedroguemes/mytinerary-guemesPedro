@@ -1,8 +1,8 @@
 import React, { useState, useRef } from "react";
 import { connect } from "react-redux";
 import { BsPersonCircle } from "react-icons/bs";
-
 // import authActions from "../redux/actions/authActions"
+import commentsActions from "../redux/actions/commentsActions"
 function Comment(props) {
   const [editing, setEditing] = useState(false);
 
@@ -10,7 +10,7 @@ function Comment(props) {
 
   const textAreaRef = useRef();
 
-  const { comment } = props;
+  const { comment, deleteComment } = props;
   // console.log(comment);
   // console.log(comment.user[0]);
   // console.log(comment.user[0].firstName);
@@ -59,7 +59,7 @@ function Comment(props) {
                   <line x1="16" y1="5" x2="19" y2="8" />
                 </svg>
               </button>
-              <button>
+              <button onClick={deleteComment}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="icon icon-tabler icon-tabler-trash"
@@ -95,7 +95,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
-  // signIn: authActions.cargarSignIn,
+  deleteComment: commentsActions.deleteComment,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Comment);

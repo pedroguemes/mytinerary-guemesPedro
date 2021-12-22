@@ -45,20 +45,26 @@ const itinerariesControllers = {
   obtenerItineraryPorCity: (req, res) => {
     Itinerary.find({ city: req.params.id })
       .populate("city")
-      .then((itineraries) => res.json({ itineraries }));
+      .then((itineraries) =>
+    //  { console.log(itineraries)
+     { res.json({ itineraries })}
+      );
   },
   
   LikesAndDislikesController: async (req, res) => {
-    const { itineraryId, userId, boolean } = req.body;
+    const { itineraryId, userId, boolean, cityId } = req.body;
     try {
       const itinerary = await Itinerary.findOneAndUpdate(
-        { _id: itineraryId },
-        boolean 
-        ? { $addToSet: { likes: userId } } 
-        : { $pull: { likes: userId } },
+        { _id:itineraryId },
+       !boolean
+        ? { $addToSet: { likes: userId }} 
+        : { $pull: { likes: userId }},
         { new: true }
-      );
-      res.json({ success: true, response: itinerary, error: null });
+        );
+        // console.log(boolean)
+        // console.log(itinerary)
+        // const itineraries = await Itinerary.find({ city:cityId })
+      res.json({ success: true, error: null });
     } catch (e) {
       res.json({ success: false, response: null, error: e.message });
     }
@@ -67,18 +73,3 @@ const itinerariesControllers = {
 
 
 module.exports = itinerariesControllers;
-
-// Itinerary.findOne({_id: req.params.id})
-// .then((itinerary) =>{
-//     if(itinerary.likes.includes(req.user._id)){
-//        Itinerary.findOneAndUpdate({_id:req.params.id}, {$pull:{likes:req.user.id}},{new:true})
-//        .then((newItinerary)=> res.json({success:true, response:newItinerary.likes}))
-//        .catch((error) => console.log(error))
-//     }else{
-//         Itinerary.findOneAndUpdate({_id: req.params.id}, {$push:{likes:req.user.id}},{new:true})
-//         .then((newItinerary) => res.json({success:true, response:newItinerary.likes}))
-//         .catch((error) => console.log(error))
-//     }
-// })
-// .catch((error) => res.json({success:false, response:error}))
-// }

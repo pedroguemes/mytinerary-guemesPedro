@@ -15,7 +15,7 @@ function Itinerario(props) {
 
   const { getItineraries, idCity, itineraries, nombreCity, likesAndDislikes, user} = props;
 
-  console.log(user);
+  // console.log(user);
 
   const Toast = Swal.mixin({
     toast: true,
@@ -100,7 +100,7 @@ function Itinerario(props) {
                   Price:<span>{"💵".repeat(itinerary.price)}</span>
                 </p>
                 <div className="buttonLikeContainer">
-                    <LikeButton itineraryId={itinerary._id}/>
+                    <LikeButton itinerary={itinerary} cityId={idCity} itineraryId={itinerary._id}/>
                 <span>{itinerary.likes.length}</span>
                 </div>
               </div>

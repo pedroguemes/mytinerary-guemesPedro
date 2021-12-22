@@ -7,12 +7,12 @@ import itinerariesActions from "../redux/actions/itinerariesActions";
 import Activity from "./Activity";
 import Comments from "./Comments";
 import Swal from 'sweetalert2'
-import { boolean } from "joi";
+// import { boolean } from "joi";
 
 
 function LikeButton(props) {
 
-  const {itineraryId, likesAndDislikes, user} = props;
+  const {itinerary, itineraryId, likesAndDislikes, user, cityId, getItineraries} = props;
 
   console.log(user);
 
@@ -31,6 +31,7 @@ function LikeButton(props) {
   
 //   const [like, setLike] = useState(true)
   const [button, setButton] = useState(false)
+  const [boolean, setBoolean] = useState(itinerary.likes.find((like)=>like===user._id) ? true : false)
 //   const [disliked, setDisliked] = useState(true)
   
   
@@ -41,11 +42,13 @@ function LikeButton(props) {
 
   const buttonHandler = () => {
     setButton(!button)
-  }
-
-  let like = {itineraryId:itineraryId, userId:user._id, boolean}
+  } 
+ 
   const resLikesAndDislikes = async () => {
     // setLike(false) 
+    
+ 
+    let like = {itineraryId:itineraryId, userId:user._id, cityId, boolean}
     if(!props.user._id) {
       Toast.fire({
         icon: 'error',
@@ -53,6 +56,10 @@ function LikeButton(props) {
       })  
     }else {
     let response = await likesAndDislikes(like)
+    if(response.success){
+      setBoolean(!boolean) 
+        getItineraries(cityId)
+    }
     console.log(response)
     } 
       // setLike(true)
