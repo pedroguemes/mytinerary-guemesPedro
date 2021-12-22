@@ -53,7 +53,7 @@ const itinerariesControllers = {
     try {
       const itinerary = await Itinerary.findOneAndUpdate(
         { _id: itineraryId },
-        bool 
+        boolean 
         ? { $addToSet: { likes: userId } } 
         : { $pull: { likes: userId } },
         { new: true }
