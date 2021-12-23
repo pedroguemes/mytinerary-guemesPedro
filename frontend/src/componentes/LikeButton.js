@@ -59,7 +59,7 @@ function LikeButton(props) {
       setBoolean(!boolean) 
         getItineraries(cityId)
     }
-    console.log(response)
+    // console.log(response)
     } 
       // setLike(true)
     }

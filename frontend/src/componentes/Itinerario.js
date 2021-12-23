@@ -62,7 +62,7 @@ function Itinerario(props) {
       })  
     }else {
     let response = await likesAndDislikes(like)
-    console.log(response)
+    // console.log(response)
     setItinerariesLikes(response)
 
     } 

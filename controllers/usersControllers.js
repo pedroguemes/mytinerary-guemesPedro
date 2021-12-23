@@ -53,7 +53,7 @@ const usersControllers = {
   cargarSignIn: async (req, res) => {
     const { userMail, password, google } = req.body;
     try {
-      console.log(req.body);
+      // console.log(req.body);
       const userExiste = await User.findOne({ userMail });
       if (userExiste.google && !google)
         throw new Error("E-mail or password incorrect.");
@@ -87,7 +87,7 @@ const usersControllers = {
   },
 
   verifyToken: (req, res) => {
-    console.log(req.user);
+    // console.log(req.user);
     const userExiste = {
       _id: req.user._id,
       firstName: req.user.firstName,

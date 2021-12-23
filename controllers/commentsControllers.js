@@ -25,9 +25,9 @@ const commentsControllers = {
 
   modifyComment: async (req, res) => {
     
-    console.log("controller");
+    // console.log("controller");
     // const modifiedComment = req.body.modifiedComment;
-    console.log(req)
+    // console.log(req)
     let modifyComment;
     try {
       modifyComment = await Comment.findOneAndUpdate(
@@ -35,7 +35,7 @@ const commentsControllers = {
         {comment: req.body.modifiedComment,},
         { new: true, }
       );
-      console.log(modifyComment)
+      // console.log(modifyComment)
       if(modifyComment){
         return Comment.find()
         .then((comments) => res.json({ comments }));
@@ -49,7 +49,7 @@ const commentsControllers = {
   deleteComment:async (req, res) => {
     let comment;
     const _id = req.params.commentId;
-    console.log(req.params.commentId)
+    // console.log(req.params.commentId)
     try {
       comment = await Comment.findOneAndDelete({
         _id:_id,

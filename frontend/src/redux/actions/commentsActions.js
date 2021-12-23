@@ -37,7 +37,7 @@ modifyComment:(commentId, modifiedComment, token ) => {
           Authorization: 'Bearer '+ token
         }
       })
-      console.log(response)
+      // console.log(response)
       if(response.data.success) return {success:true, res:response.data}
       dispatch({ type: "modify_Comments", payload:response.data})
     }catch (error){
@@ -47,7 +47,7 @@ modifyComment:(commentId, modifiedComment, token ) => {
 },
 
 deleteComment:(token, commentId) => {      
-  console.log(commentId)
+  // console.log(commentId)
   return async (dispatch, getState) => {
     try{
       let response = await axios.delete(`http://localhost:4000/api/comments/${commentId}`

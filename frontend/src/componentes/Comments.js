@@ -15,7 +15,7 @@ function Comments (props) {
     
     // console.log(comments)
     
-    console.log(comments)
+    // console.log(comments)
 
     const itineraryComments = comments.filter((comment)=>{
       return comment.itineraryId[0]._id === itineraryId

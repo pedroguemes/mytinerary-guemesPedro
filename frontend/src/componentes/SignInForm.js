@@ -11,7 +11,7 @@ function SignInForm (props) {
     const inputPassword = useRef()
 
     const responseGoogle = async (res) => {
-      console.log(res)
+    //   console.log(res)
       let googleUser = {
          userMail: res.profileObj.email,
           password: res.profileObj.googleId,
@@ -19,7 +19,7 @@ function SignInForm (props) {
       }
        await signIn( googleUser.userMail, googleUser.password, googleUser.google)
       .then((response) => {
-          console.log(response)
+        //   console.log(response)
           if (!response){
               alert('Your logged in!')
 

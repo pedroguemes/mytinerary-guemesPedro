@@ -21,7 +21,7 @@ function SignUpForm(props) {
   
    const [ error, setError] = useState({})
 
-console.log(props)
+// console.log(props)
 
   const { getCountryNames, countryNames, cargarUser} = props;
 
@@ -41,12 +41,12 @@ console.log(props)
     userCountry
   ) => {
   
-    console.log(firstName)
+    // console.log(firstName)
     const cargarUserRes = await cargarUser({firstName, lastName, userMail, password, imagenUser, userCountry});
     // const cargarUserRes = await cargarUser( firstName, lastName, userMail, password, imagenUser, userCountry);
     
-    console.log(cargarUserRes)
-    console.log(cargarUserRes.error)
+    // console.log(cargarUserRes)
+    // console.log(cargarUserRes.error)
     
     // if (cargarUserRes.errores){
       //   cargarUserRes.errores.map(e => toast(e.message,{
@@ -62,7 +62,7 @@ console.log(props)
         // }
         
         if (cargarUserRes.error){
-      console.log(cargarUserRes.error)
+      // console.log(cargarUserRes.error)
       const error={}
         cargarUserRes.error.forEach(err=>{
           let key = err.context.key
@@ -93,7 +93,7 @@ console.log(props)
 
   const responseGoogle = async (res) => {
       
-      console.log(res)
+      // console.log(res)
       let googleUser = {
         firstName:res.profileObj.givenName,
         lastName:res.profileObj.familyName,
