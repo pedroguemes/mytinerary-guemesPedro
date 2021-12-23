@@ -1823,5 +1823,6 @@ button.sendComment {
   width:70%;
   background-color: rgba(12, 69, 83, 0.294);
   padding: 0.5rem;
+  border-radius: 11px;
 
 }

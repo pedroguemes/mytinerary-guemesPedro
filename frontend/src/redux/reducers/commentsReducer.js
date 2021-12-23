@@ -8,7 +8,7 @@ const initialState = {
       case "post_Comments":
         return {
           ...state,
-          comments: action.payload,
+          comments: [...state.comments, action.payload]
         };
         case "get_Comments":
           // console.log(state.comments)
@@ -18,6 +18,12 @@ const initialState = {
               ...state.comments,
               ...action.payload.data.comments,
             ] 
+          };
+        case "delete_Comments":
+          // console.log(state.comments)
+          return {
+            ...state,
+            comments:state.comments.filter((comment)=> comment._id !== action.payload)
           };
       default:
         return state;

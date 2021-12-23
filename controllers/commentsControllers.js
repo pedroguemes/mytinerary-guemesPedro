@@ -10,7 +10,11 @@ const commentsControllers = {
   
   cargarComment: (req, res) => {
     const bodyComment = req.body;
-    new Comment(bodyComment).save().then((resp) => res.json({ resp }));
+    new Comment(bodyComment).save().then((resp) => Comment.findOne({_id:resp._id}).populate("itineraryId")
+    .populate("user")
+    .then((resp => res.json({resp})))
+    )
+
   },
   
   obtenerComment: (req, res) => {
@@ -37,17 +41,20 @@ const commentsControllers = {
     res.json({ success: modifyComment ? true : false });
   },
 
-  deleteComment: async (req, res) => {
+  deleteComment:async (req, res) => {
     let comment;
     const _id = req.params.commentId;
+    console.log(req.params.commentId)
     try {
       comment = await Comment.findOneAndDelete({
         _id:_id,
       });
+      return Comment.find()
+      .then((comments) => res.json({ comments }));
     } catch (error) {
       console.log(error);
     }
-    res.json({ response: comment, success: true });
+    res.json({ response:comments, success:true });
   },
 
   obtenerCommentsPorItinerary: (req, res) => {

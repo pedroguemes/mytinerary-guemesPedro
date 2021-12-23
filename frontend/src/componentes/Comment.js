@@ -6,10 +6,10 @@ import commentsActions from "../redux/actions/commentsActions"
 function Comment(props) {
   const [editing, setEditing] = useState(false);
 
-  
+ 
   const textAreaRef = useRef();
   
-  const { comment, deleteComment, modifyComment, loggedUser} = props;
+  const { comment, deleteComment, modifyComment, loggedUser, getComments, itineraryId} = props;
   // console.log(comment);
   // console.log(comment.user[0]);
   // console.log(comment.user[0].firstName);
@@ -17,14 +17,16 @@ function Comment(props) {
 
   function deleteHandler(){
     const token = localStorage.getItem('token')
-    console.log(token)
+    // console.log(token)
+    // console.log(deleteComment( token, comment._id))
     deleteComment( token, comment._id)
+    // .then(()=>getComments(itineraryId))
   }
 
   
   function handleModify(e){
     const token = localStorage.getItem('token')
-    console.log(token)
+    // console.log(token)
     e.preventDefault()
     modifyComment(comment._id,textAreaRef.current.value, token)
   }
@@ -36,17 +38,17 @@ function Comment(props) {
           <form className="editCommentForm" onSubmit={(e)=>handleModify(e)}>
             <textarea ref={textAreaRef}>{comment.comment}</textarea>
             <button className="editCommentButton" type="submit"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-check" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7bc62d" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M5 12l5 5l10 -10" />
-</svg></button>
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 12l5 5l10 -10" />
+          </svg></button>
             <button className="cancelEditCommentButton" onClick={() => setEditing(false)}><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-back-up" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7bc62d" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M9 13l-4 -4l4 -4m-4 4h11a4 4 0 0 1 0 8h-1" />
-</svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7bc62d" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <line x1="18" y1="6" x2="6" y2="18" />
-  <line x1="6" y1="6" x2="18" y2="18" />
-</svg></button>
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path d="M9 13l-4 -4l4 -4m-4 4h11a4 4 0 0 1 0 8h-1" />
+            </svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7bc62d" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg></button>
           </form>
         </>
       ) : (
@@ -84,7 +86,7 @@ function Comment(props) {
                   <line x1="16" y1="5" x2="19" y2="8" />
                 </svg>
               </button>
-              <button onClick={deleteHandler()}>
+              <button onClick={deleteHandler}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="icon icon-tabler icon-tabler-trash"
@@ -120,6 +122,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
+  getComments: commentsActions.getComments,
   deleteComment: commentsActions.deleteComment,
   modifyComment: commentsActions.modifyComment,
 };

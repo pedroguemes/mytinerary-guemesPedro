@@ -70,7 +70,7 @@ Router.route("/activities/:itineraryId")
 
 Router.route("/comments").post(cargarComment).get(obtenerComments);
 
-Router.route("/comments/:id")
+Router.route("/comments/:commentId")
 .put(modifyComment)
 .delete(deleteComment)
 

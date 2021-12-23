@@ -9,7 +9,7 @@ const commentsActions = {
             headers:{
             'Authorization':'Bearer '+ token
           }});
-    dispatch({ type: "post_Comments", payload:response});
+    dispatch({ type: "post_Comments", payload:response.data.resp});
     };
   },
 
@@ -23,43 +23,47 @@ const commentsActions = {
           }});
           // console.log(comments)
     dispatch({ type: "get_Comments", payload:comments});
-    };
-  },
-
-  modifyComment:(id, comment, token ) => {
-    return async (dispatch, getState)=> {
-        try{
-            let response = await axios.put(`http://localhost:4000/api/itinerary/comments/${id}`, comment,{
-                headers : {
-                    Authorization: 'Bearer '+token
-                }
-            })
-            console.log(response)
-            if(response.data.success) return {success:true, res:response.data.response}
-        }catch (error){
-            console.log(error)
-        }
-    }
+  };
 },
 
-deleteComment:(token, commentId, ) => {      
-  return async (dispatch, getState) => {
-      try{
-          let response = await axios.put(`http://localhost:4000/api/itinerary/comments/${commentId}`
-          , {
-              headers : {
-                  Authorization: 'Bearer '+ token
-              }
-          }
-          )
-          if(response.data.success){
-              return response.data
-          }
-      }catch (error){
-          console.log(error)
-      }
+modifyComment:(id, comment, token ) => {
+  return async (dispatch, getState)=> {
+    try{
+      let response = await axios.put(`http://localhost:4000/api/itinerary/comments/${id}`, comment,{
+        headers : {
+          Authorization: 'Bearer '+token
+        }
+      })
+      console.log(response)
+      if(response.data.success) return {success:true, res:response.data.response}
+    }catch (error){
+      console.log(error)
+    }
   }
-}
+},
+
+deleteComment:(token, commentId) => {      
+  console.log(commentId)
+  return async (dispatch, getState) => {
+    try{
+      let response = await axios.delete(`http://localhost:4000/api/comments/${commentId}`
+      , {
+        headers : {
+          Authorization: 'Bearer '+ token
+        }
+      }
+      )
+      // if(response.data.success){
+      //   return response.data
+      // }
+      
+      dispatch({ type: "delete_Comments", payload:commentId})
+    }catch (error){
+      console.log(error)
+    }
+    
+  }
+},
 
 };
 
