@@ -6,6 +6,7 @@ import City from "../pags/City";
 import itinerariesActions from "../redux/actions/itinerariesActions";
 import Activity from "./Activity";
 import Comments from "./Comments";
+import CreateComment from "./CreateComment";
 import Swal from 'sweetalert2'
 import { boolean } from "joi";
 import LikeButton from "./LikeButton";
@@ -124,6 +125,7 @@ function Itinerario(props) {
                     <div className="comentariosItinerary">
                       {/* <h1>(Comments under construction)</h1> */}
                       <Comments itineraryId={itinerary._id}/>
+                      <CreateComment itineraryId={itinerary._id}/>
                     </div>
                   </div>
                 </Accordion.Body>

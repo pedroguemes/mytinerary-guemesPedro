@@ -5,7 +5,7 @@ import authActions from "../redux/actions/authActions"
 import commentsActions from "../redux/actions/commentsActions"
 function Comment(props) {
   const [editing, setEditing] = useState(false);
-
+  // const [myComment, setMyComment] = useState();
  
   const textAreaRef = useRef();
   
@@ -17,19 +17,19 @@ function Comment(props) {
 
   function deleteHandler(){
     const token = localStorage.getItem('token')
-    // console.log(token)
-    // console.log(deleteComment( token, comment._id))
     deleteComment( token, comment._id)
-    // .then(()=>getComments(itineraryId))
   }
 
   
   function handleModify(e){
     const token = localStorage.getItem('token')
-    // console.log(token)
     e.preventDefault()
-    modifyComment(comment._id,textAreaRef.current.value, token)
+    let commentId=comment._id
+    modifyComment(commentId, textAreaRef.current.value, token)
   }
+
+  // if(comment.user[0]._id === loggedUser._id){setMyComment(true)}else{setMyComment(false)}
+
 
   return (
     <>
@@ -53,7 +53,8 @@ function Comment(props) {
         </>
       ) : (
         <div className="contenedorContenedorComment">
-          <div className="contenedorComment">
+          {/* <div  className={{myComment:true ? "myCommentClass" : "contenedorComment" }}> */}
+          <div  className="contenedorComment">
               <div className="commentComment">
             <div className="contenedorUserComment">
               <img

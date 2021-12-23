@@ -31,7 +31,7 @@ function Comments (props) {
                     <Comment itineraryId={itineraryId} comment={comment}/>
                 ) )}
                 </div>
-                  <CreateComment itineraryId={itineraryId}/>
+                  {/* <CreateComment itineraryId={itineraryId}/> */}
             </>
 
     )}else{

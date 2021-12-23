@@ -39,6 +39,7 @@ function CreateComment(props) {
             title: 'You must be logged to comment this post!'
           })  
          }
+         commentRef.current.value = ""
   };
 
   const commentRef = useRef();

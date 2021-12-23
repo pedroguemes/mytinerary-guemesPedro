@@ -26,16 +26,20 @@ const commentsActions = {
   };
 },
 
-modifyComment:(id, comment, token ) => {
+modifyComment:(commentId, modifiedComment, token ) => {
+  // console.log(commentId)
+  // console.log(modifiedComment)
+  // console.log(token)
   return async (dispatch, getState)=> {
     try{
-      let response = await axios.put(`http://localhost:4000/api/itinerary/comments/${id}`, comment,{
+      let response = await axios.put(`http://localhost:4000/api/comments/${commentId}`, {modifiedComment},{
         headers : {
-          Authorization: 'Bearer '+token
+          Authorization: 'Bearer '+ token
         }
       })
       console.log(response)
-      if(response.data.success) return {success:true, res:response.data.response}
+      if(response.data.success) return {success:true, res:response.data}
+      dispatch({ type: "modify_Comments", payload:response.data})
     }catch (error){
       console.log(error)
     }

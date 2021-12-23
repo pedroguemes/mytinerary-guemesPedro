@@ -24,21 +24,26 @@ const commentsControllers = {
   },
 
   modifyComment: async (req, res) => {
-    const bodyComment = req.body;
+    
+    console.log("controller");
+    // const modifiedComment = req.body.modifiedComment;
+    console.log(req)
     let modifyComment;
     try {
       modifyComment = await Comment.findOneAndUpdate(
-        { _id: req.params.id },
-       comment,
-        { new: true }
+        { _id: req.params.commentId, },
+        {comment: req.body.modifiedComment,},
+        { new: true, }
       );
+      console.log(modifyComment)
       if(modifyComment){
-        res.json({success:true, response:modifyComment.comments})
-    }else{
-        throw new Error()
-    }
-    } catch (error) {}
-    res.json({ success: modifyComment ? true : false });
+        return Comment.find()
+        .then((comments) => res.json({ comments }));
+        }else{
+              throw new Error()
+          }
+        } catch (error) {}
+        res.json({ response:modifyComment, success:true });
   },
 
   deleteComment:async (req, res) => {

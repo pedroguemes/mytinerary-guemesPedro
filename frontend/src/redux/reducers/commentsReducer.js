@@ -25,6 +25,15 @@ const initialState = {
             ...state,
             comments:state.comments.filter((comment)=> comment._id !== action.payload)
           };
+        case "modify_Comments":
+          // console.log(state.comments)
+          return {
+            ...state,
+            comments:[
+              ...state.comments,
+              ...action.payload.data.comments,
+            ] 
+          };
       default:
         return state;
     }
