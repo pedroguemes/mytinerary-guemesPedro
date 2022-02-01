@@ -1,4 +1,4 @@
-import React, {useEffect} from "react"
+import React, {useEffect, useState} from "react"
 import {connect} from 'react-redux'
 import CreateComment from "./CreateComment"
 import Comment from "./Comment"
@@ -7,28 +7,33 @@ import commentsActions from "../redux/actions/commentsActions"
 
 function Comments (props) {
 
-    const { itineraryId, getComments, comments } = props
+    const { itineraryId, getComments, commentsReducer, comments, setComments } = props
+
+  //  const [comments, setComments]= useState([])
 
     // console.log(itineraryId)
     
-    useEffect(() => getComments(itineraryId), []);
+    useEffect(async() =>{
+      let data = await getComments(itineraryId)
+     setComments(data.data.comments)
+     console.log(data)
+    }, []);
     
-    // console.log(comments)
     
-    // console.log(comments)
+    console.log(comments)
 
-    const itineraryComments = comments.filter((comment)=>{
-      return comment.itineraryId[0]._id === itineraryId
-    })
+    // const itineraryComments = comments.filter((comment)=>{
+    //   return comment.itineraryId[0]._id === itineraryId
+    // })
     
     // console.log(itineraryComments)
 
-   if (itineraryComments.length > 0){ 
+   if (comments.length > 0){ 
         return (
             <>
                 <div className="contenedorComments">
-              { itineraryComments.map((comment) => (
-                    <Comment itineraryId={itineraryId} comment={comment}/>
+              { comments.map((comment) => (
+                    <Comment itineraryId={itineraryId} setComments={setComments} comments={comments} comment={comment}/>
                 ) )}
                 </div>
                   {/* <CreateComment itineraryId={itineraryId}/> */}
@@ -47,7 +52,7 @@ function Comments (props) {
 
 const mapStateToProps = (state) => {
     return {
-      comments: state.commentsReducer.comments,
+      // comments: state.commentsReducer.comments,
     };
   };
 

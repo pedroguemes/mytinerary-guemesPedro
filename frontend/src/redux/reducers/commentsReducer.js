@@ -15,7 +15,7 @@ const initialState = {
           return {
             ...state,
             comments:[
-              ...state.comments,
+              // ...state.comments,
               ...action.payload.data.comments,
             ] 
           };
@@ -31,7 +31,7 @@ const initialState = {
             ...state,
             comments:[
               ...state.comments,
-              ...action.payload.data.comments,
+              ...action.payload.comments,
             ] 
           };
       default:

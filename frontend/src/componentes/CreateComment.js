@@ -18,12 +18,11 @@ const Toast = Swal.mixin({
 })
 
 
-
-function CreateComment(props) {
-  const { itineraryId, loggedUser, postComment } = props;
+ function CreateComment(props) {
+  const { itineraryId, loggedUser, postComment, comments, setComments } = props;
   // console.log(loggedUser)
 
-  const handleSubmitInputs = (e) => {
+  const handleSubmitInputs = async (e) => {
     e.preventDefault();
    if(loggedUser._id){
     const newComment = {
@@ -32,8 +31,10 @@ function CreateComment(props) {
       user: loggedUser._id,
     };
     
-    postComment(newComment);
-         }else{
+    const newCommentState = await postComment(newComment);
+    console.log(newCommentState)
+    setComments(newCommentState.comments)
+           }else{
           Toast.fire({
             icon: 'error',
             title: 'You must be logged to comment this post!'

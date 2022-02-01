@@ -7,12 +7,14 @@ const initialState = {
     switch (action.type) {
         case "get_Activities":
           // console.log(state.activities)
+          console.log(action.payload)
           return {
             ...state,
-            activities:[
-              ...state.activities,
-              ...action.payload.data.activities,
-            ] 
+            // activities:[
+            //   ...state.activities,
+            //   ...action.payload.data.activities,
+            // ] 
+            activities:action.payload.data.activities,
           };
       default:
         return state;

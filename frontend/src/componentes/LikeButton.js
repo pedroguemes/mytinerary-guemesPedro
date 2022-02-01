@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Accordion } from "react-bootstrap";
-import { AiOutlineLike } from "react-icons/ai";
 import { connect } from "react-redux";
-import City from "../pags/City";
 import itinerariesActions from "../redux/actions/itinerariesActions";
-import Activity from "./Activity";
-import Comments from "./Comments";
 import Swal from 'sweetalert2'
 
 
@@ -46,7 +41,7 @@ function LikeButton(props) {
   const resLikesAndDislikes = async () => {
     // setLike(false) 
     
- 
+    setDisliked(!disliked)
     let like = {itineraryId:itineraryId, userId:user._id, cityId, boolean}
     if(!props.user._id) {
       Toast.fire({
@@ -64,11 +59,18 @@ function LikeButton(props) {
       // setLike(true)
     }
 
+// const  matchLike = itinerary.likes.find((id)=>
+// id === user._id)
+    
+// if(matchLike){
+//   setDisliked(false)
+// }
+
 
   return  (
    
       <>
-                       {/* {disliked ? ( */}
+                       {!boolean ? (
                     <button onClick={resLikesAndDislikes} className="buttonLike">
                       {" "}
                       <svg
@@ -87,8 +89,8 @@ function LikeButton(props) {
                         <path d="M7 11v8a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1v-7a1 1 0 0 1 1 -1h3a4 4 0 0 0 4 -4v-1a2 2 0 0 1 4 0v5h3a2 2 0 0 1 2 2l-1 5a2 3 0 0 1 -2 2h-7a3 3 0 0 1 -3 -3" />
                       </svg>
                     </button>
-                  {/* ) : ( */}
-                    {/* <button className="buttonLike">
+                  ) : ( 
+                    <button  onClick={resLikesAndDislikes} className="buttonLike">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         class="icon icon-tabler icon-tabler-thumb-up"
@@ -104,8 +106,8 @@ function LikeButton(props) {
                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                         <path d="M7 11v8a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1v-7a1 1 0 0 1 1 -1h3a4 4 0 0 0 4 -4v-1a2 2 0 0 1 4 0v5h3a2 2 0 0 1 2 2l-1 5a2 3 0 0 1 -2 2h-7a3 3 0 0 1 -3 -3" />
                       </svg>
-                    </button> */}
-                  {/* )} */}
+                    </button> 
+                   )} 
                  
     </>
   );

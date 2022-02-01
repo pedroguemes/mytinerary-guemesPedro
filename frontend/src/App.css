@@ -149,6 +149,24 @@ div.dropdown-menu.show {
   height: fit-content;
 }
 
+
+a.carousel-control-prev {
+  display: flex !important;
+  justify-content: left !important;
+}
+a.carousel-control-next {
+  display: flex !important;
+  justify-content: right !important;
+}
+span.carousel-control-next-icon {
+  padding-left: 1rem !important;
+  margin-right: -1rem !important;
+}
+span.carousel-control-prev-icon {
+  padding-right: 1rem !important;
+  margin-left: -1rem !important;
+}
+
 .logofooter {
   opacity: 45% !important;
   padding: 0.5rem !important;
@@ -359,6 +377,8 @@ div.dropdown-menu.show {
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////// */
+
+
 
 
 @media (max-width: 1000px) {
@@ -1651,6 +1671,7 @@ button.accordion-button {
 .contenedorCommentInput form textarea{
   background-color: rgba(12, 69, 83, 0.013);
   width: 90%;
+  max-height: 100px;
 }
 
 
@@ -1826,4 +1847,16 @@ button.sendComment {
   border-radius: 11px;
   margin:0.5rem;
 
+}
+
+
+@media (max-width: 600px) {
+  .actividadesContenedorInterno{
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .actividadesItinerary{
+    display: flex !important;
+    flex-direction: column !important;
+  }
 }

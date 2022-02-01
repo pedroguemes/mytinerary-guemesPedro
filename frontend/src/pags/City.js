@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import Itinerario from "../componentes/Itinerario";
 import { connect } from "react-redux";
 import citiesActions from "../redux/actions/citiesActions";
+import itinerariesActions from "../redux/actions/itinerariesActions";
 // import { withRouter } from '../utils/routes/withRouter';
 
 class City extends React.Component {
@@ -19,6 +20,7 @@ class City extends React.Component {
   componentDidMount() {
     const { getCity } = this.props;
     getCity(this.id);
+   this.props.getItineraries(this.id);   
   }
 
   render() {
@@ -34,7 +36,10 @@ class City extends React.Component {
             </div>
             <img src={this.props.city.imagenCiudad} alt="imagen city" />
           </div>
-          <Itinerario idCity={this.id} nombreCity={this.props.city.nombreCiudad}/>          
+          {this.props.itineraries.length > 0 && (
+    this.props.itineraries.map((itinerary) =>(
+      <Itinerario idCity={this.id} nombreCity={this.props.city.nombreCiudad} itinerary={itinerary}/>          
+    )))}
           <div className="backtocitiesdiv">
             <Link className="backtocities" to={"/cities"}>
               Back to Cities ⬅
@@ -50,11 +55,13 @@ class City extends React.Component {
 const mapStateToProps = (state) => {
   return {
     city: state.citiesReducer.city,
+    itineraries: state.itinerariesReducer.itineraries,
   };
 };
 
 const mapDispatchToProps = {
   getCity: citiesActions.getCity,
+  getItineraries: itinerariesActions.getItineraries,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(City);

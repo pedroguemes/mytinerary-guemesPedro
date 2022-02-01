@@ -10,11 +10,13 @@ const commentsControllers = {
   
   cargarComment: (req, res) => {
     const bodyComment = req.body;
-    new Comment(bodyComment).save().then((resp) => Comment.findOne({_id:resp._id}).populate("itineraryId")
-    .populate("user")
-    .then((resp => res.json({resp})))
-    )
-
+    new Comment(bodyComment).save() 
+    .then(response=>{
+      Comment.find({ itineraryId: req.body.itineraryId })
+      .populate("itineraryId")
+      .populate("user")  
+      .then((comments => res.json({comments})))
+    })
   },
   
   obtenerComment: (req, res) => {
@@ -37,7 +39,9 @@ const commentsControllers = {
       );
       // console.log(modifyComment)
       if(modifyComment){
-        return Comment.find()
+      return  Comment.find({ itineraryId: req.body.itineraryId })
+      .populate("itineraryId")
+      .populate("user")
         .then((comments) => res.json({ comments }));
         }else{
               throw new Error()
@@ -54,7 +58,9 @@ const commentsControllers = {
       comment = await Comment.findOneAndDelete({
         _id:_id,
       });
-      return Comment.find()
+      return  Comment.find({ itineraryId: req.params.itineraryId })
+      .populate("itineraryId")
+      .populate("user")     
       .then((comments) => res.json({ comments }));
     } catch (error) {
       console.log(error);

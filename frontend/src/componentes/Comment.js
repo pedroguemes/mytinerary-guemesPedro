@@ -5,27 +5,32 @@ import authActions from "../redux/actions/authActions"
 import commentsActions from "../redux/actions/commentsActions"
 function Comment(props) {
   const [editing, setEditing] = useState(false);
+  const [modified, setModified] = useState(false)
   // const [myComment, setMyComment] = useState();
  
   const textAreaRef = useRef();
   
-  const { comment, deleteComment, modifyComment, loggedUser, getComments, itineraryId} = props;
+  const { comment, deleteComment, modifyComment, loggedUser, getComments, itineraryId, setComments} = props;
   // console.log(comment);
   // console.log(comment.user[0]);
   // console.log(comment.user[0].firstName);
   // console.log(comment.user[0].lastName);
 
-  function deleteHandler(){
+  async function deleteHandler(){
     const token = localStorage.getItem('token')
-    deleteComment( token, comment._id)
+   const deleteCommentHandler= await deleteComment( token, comment._id, itineraryId)
+   setComments(deleteCommentHandler.comments)
   }
 
   
-  function handleModify(e){
+  async function handleModify(e){
+
     const token = localStorage.getItem('token')
     e.preventDefault()
     let commentId=comment._id
-    modifyComment(commentId, textAreaRef.current.value, token)
+    const modifyCommentVar = await modifyComment(commentId, textAreaRef.current.value, token, itineraryId)
+    setComments(modifyCommentVar.comments)
+    setEditing(!editing)
   }
 
   // if(comment.user[0]._id === loggedUser._id){setMyComment(true)}else{setMyComment(false)}

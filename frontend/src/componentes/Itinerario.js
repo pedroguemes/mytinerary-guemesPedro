@@ -14,7 +14,7 @@ import LikeButton from "./LikeButton";
 
 function Itinerario(props) {
 
-  const { getItineraries, idCity, itineraries, nombreCity, likesAndDislikes, user} = props;
+  const { getItineraries, idCity, itineraries, nombreCity, likesAndDislikes, user, itinerary} = props;
 
   // console.log(user);
 
@@ -30,20 +30,13 @@ function Itinerario(props) {
     }
   })
 
-  const [itinerariesLikes, setItinerariesLikes] = useState(itineraries.likes)
+  const [itinerariesLikes, setItinerariesLikes] = useState(itinerary.likes)
   
-  // const [like, setLike] = useState(true)
   const [button, setButton] = useState(false)
-  const [disliked, setDisliked] = useState(true)
-  
-  useEffect(() => {
-    getItineraries(idCity);
-  }, []);
-  
-  // let disliked = true;
-  // itinerariesLikes.includes(user.userId) ?  setDisliked(!disliked) : 
+  const [comments, setComments]= useState([])
 
-    // const resLikesAndDislikes = likesAndDislikes()
+  // const [disliked, setDisliked] = useState(true) 
+
 
   const buttonHandler = () => {
     setButton(!button)
@@ -54,7 +47,6 @@ function Itinerario(props) {
     itineraries.map((itinerary) => (
     like = {itineraryId:itinerary._id, userId:user._id, boolean}))
 
-    // setLike(false) 
     if(!props.user._id) {
       Toast.fire({
         icon: 'error',
@@ -70,8 +62,7 @@ function Itinerario(props) {
     }
 
 
-  return itineraries.length > 0 ? (
-    itineraries.map((itinerary) => (
+  return itinerary ? (
       <>
         <div className="containerItinerary">
           <div className="tituloItinerary">
@@ -124,8 +115,8 @@ function Itinerario(props) {
                   
                     <div className="comentariosItinerary">
                       {/* <h1>(Comments under construction)</h1> */}
-                      <Comments itineraryId={itinerary._id}/>
-                      <CreateComment itineraryId={itinerary._id}/>
+                      <Comments comments={comments} setComments={setComments} itineraryId={itinerary._id}/>
+                      <CreateComment comments={comments} setComments={setComments} itineraryId={itinerary._id}/>
                     </div>
                   </div>
                 </Accordion.Body>
@@ -134,8 +125,7 @@ function Itinerario(props) {
           </div>
         </div>
       </>
-    ))
-  ) : (
+    ) : (
     <h1 className="emptyItineraries">
       ..There are no itineraries for {nombreCity} yet..
     </h1>
@@ -144,13 +134,12 @@ function Itinerario(props) {
 
 const mapStateToProps = (state) => {
   return {
-    itineraries: state.itinerariesReducer.itineraries,
+    // itineraries: state.itinerariesReducer.itineraries,
     user: state.authReducer.user,
   };
 };
 
 const mapDispatchToProps = {
-  getItineraries: itinerariesActions.getItineraries,
   likesAndDislikes: itinerariesActions.likesAndDislikesAction,
 };
 

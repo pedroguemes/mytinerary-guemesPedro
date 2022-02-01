@@ -61,7 +61,8 @@ Router.route("/itinerary/likes").put(LikesAndDislikesController)
 
 
 
-Router.route("/activities").post(cargarActivity).get(obtenerActivities);
+// Router.route("/activities").post(cargarActivity).get(obtenerActivities);
+Router.route("/activities").post(cargarActivity)
 
 Router.route("/activities/:itineraryId")
 .get(obtenerActivityPorItinerary);
@@ -72,7 +73,10 @@ Router.route("/comments").post(cargarComment).get(obtenerComments);
 
 Router.route("/comments/:commentId")
 .put(modifyComment)
+
+Router.route("/comments/:commentId/:itineraryId")
 .delete(deleteComment)
+
 
 Router.route("/comments/:itineraryId")
 .get(obtenerCommentsPorItinerary);

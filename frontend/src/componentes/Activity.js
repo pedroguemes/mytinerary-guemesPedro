@@ -1,25 +1,42 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux'
 import imagenActividad from '../assets/imagenActividades.jpg'
 import activitiesActions from "../redux/actions/activitiesActions"
+import axios from 'axios';
 
 
 function Activity (props) {
+  
+    const [activities, setActivities] = useState("")
 
-     const {itineraryId, getActivities, activities} = props
+    //  const {itineraryId, getActivities, activities} = props
 
-     useEffect(() => {
-       getActivities(itineraryId);
-        }, []); 
+    //  useEffect(() => {
+    //    getActivities(itineraryId);
+    //     }, []); 
 
-    // console.log(activities)
+    const {itineraryId} = props
+     useEffect(async () =>  {
+       try{
+      let getActivities = await axios.get(
+        `http://localhost:4000/api/activities/${itineraryId}`        
+        );
+        setActivities(getActivities.data.activities)
+      }catch(err){
+        console.log(err)
+      }
+    }, []); 
+    
+    console.log(activities)
+    
+    // const [getActivities] = activities
           
-          const itineraryActivities = activities.filter((activity)=>{
-               return activity.itineraryId[0]._id === itineraryId})
+          // const itineraryActivities = activities.filter((activity)=>{
+          //      return activity.itineraryId[0]._id === itineraryId})
 
     return (
                 <>       
-                 { itineraryActivities.map((activity) => (
+                 { activities.length > 0 && activities.map((activity) => (
                           <div className="containerActivity">
                                        <h5 className="tituloActivity">{activity.title}</h5>
                                        <div className="containerImagenActivity">
@@ -30,20 +47,22 @@ function Activity (props) {
                                        </div>
                            </div>         
                  ))}         
+                 {/* <h1>Hola</h1> */}
        </>
     )
 }
 
 
 
-const mapStateToProps = (state) => {
-     return {
-       activities: state.activitiesReducer.activities,
-     };
-   };
+// const mapStateToProps = (state) => {
+//      return {
+//        activities: state.activitiesReducer.activities,
+//      };
+//    };
  
-   const mapDispatchToProps = {
-     getActivities: activitiesActions.getActivities,
-   };
+//    const mapDispatchToProps = {
+//      getActivities: activitiesActions.getActivities,
+//    };
  
-export default connect(mapStateToProps, mapDispatchToProps)(Activity);
+// export default connect(mapStateToProps, mapDispatchToProps)(Activity);
+export default Activity;

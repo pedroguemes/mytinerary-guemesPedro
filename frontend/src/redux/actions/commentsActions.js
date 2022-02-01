@@ -9,7 +9,8 @@ const commentsActions = {
             headers:{
             'Authorization':'Bearer '+ token
           }});
-    dispatch({ type: "post_Comments", payload:response.data.resp});
+    // dispatch({ type: "post_Comments", payload:response.data.resp});
+    return(response.data)
     };
   },
 
@@ -22,36 +23,39 @@ const commentsActions = {
             'Authorization':'Bearer '+ token
           }});
           // console.log(comments)
-    dispatch({ type: "get_Comments", payload:comments});
+    // dispatch({ type: "get_Comments", payload:comments});
+    console.log(comments.data)
+    return(comments);
   };
 },
 
-modifyComment:(commentId, modifiedComment, token ) => {
+modifyComment:(commentId, modifiedComment, token, itineraryId ) => {
   // console.log(commentId)
   // console.log(modifiedComment)
   // console.log(token)
   return async (dispatch, getState)=> {
     try{
-      let response = await axios.put(`http://localhost:4000/api/comments/${commentId}`, {modifiedComment},{
+      let response = await axios.put(`http://localhost:4000/api/comments/${commentId}`, {modifiedComment, itineraryId},{
         headers : {
           Authorization: 'Bearer '+ token
         }
       })
-      // console.log(response)
-      if(response.data.success) return {success:true, res:response.data}
+      console.log(response)
+      if(response.data.success)
       dispatch({ type: "modify_Comments", payload:response.data})
+       return response.data
     }catch (error){
       console.log(error)
     }
   }
 },
 
-deleteComment:(token, commentId) => {      
+deleteComment:(token, commentId, itineraryId) => {      
   // console.log(commentId)
   return async (dispatch, getState) => {
     try{
-      let response = await axios.delete(`http://localhost:4000/api/comments/${commentId}`
-      , {
+      let response = await axios.delete(`http://localhost:4000/api/comments/${commentId}/${itineraryId}`
+      ,{
         headers : {
           Authorization: 'Bearer '+ token
         }
@@ -62,6 +66,7 @@ deleteComment:(token, commentId) => {
       // }
       
       dispatch({ type: "delete_Comments", payload:commentId})
+      return(response.data)
     }catch (error){
       console.log(error)
     }
